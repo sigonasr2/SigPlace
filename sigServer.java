@@ -31,7 +31,7 @@ public class sigServer {
                                     //Send default directory.
                                     CreateRequest(client,"200","OK","testfile.html");
                                 } else {
-                                    CreateRequest(client,"200","OK",Paths.get("/", requestloc.replace("/","")).toString());
+                                    CreateRequest(client,"200","OK",requestloc.replace("/",""));
                                 }
                             }
                         } else {
