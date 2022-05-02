@@ -63,6 +63,8 @@ public class sigPlace {
             }
         }
         System.out.println("Site has been built into the "+OUTDIR+" directory.");
+        System.out.println("\nStarting web server...");
+        sigServer server = new sigServer();
     }
     private static Set<Path> GetFilesInDir(String directory) {
         Path dir = Paths.get(directory);
