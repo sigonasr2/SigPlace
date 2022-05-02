@@ -60,12 +60,16 @@ public class sigServer {
     }
 
     private void CreateRequest(Socket client, String statusCode, String statusMsg, String string) {
+        long startTime = System.currentTimeMillis();
         Path file = Paths.get(sigPlace.OUTDIR,string);
         try {
             OutputStream clientOutput = client.getOutputStream();
             if (statusCode.equals("200")) {
                 if (Files.exists(file)) {
                     CreateRawRequest(clientOutput,statusCode,statusMsg,Files.probeContentType(file),Files.readAllBytes(file));
+                    if (Files.probeContentType(file).equals("text/html")) {
+                        clientOutput.write(("<div class=\"generateTime\">Webpage generated in "+(System.currentTimeMillis()-startTime)+"ms</div>\r\n").getBytes());
+                    }
                 } else {
                     CreateRawRequest(clientOutput,statusCode,statusMsg,"text/html","We're sorry, your webpage is in another castle!".getBytes());
                 }
