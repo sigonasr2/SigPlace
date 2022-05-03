@@ -46,6 +46,7 @@
 }
 
 body{
+    font-family: Garamond, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color:$SITE_BACKCOL;
 }
 
