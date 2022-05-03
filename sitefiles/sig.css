@@ -53,12 +53,13 @@ body{
 .content{
     border-radius: 12px 0px 12px 0px;
     border-style: none none outset outset;
-    border-color: #222;
+    border-color: #191;
     border-width: 3px;
     margin: 12px 4px 8px 4px;
     padding: 4px;
     background-color: rgba(255, 255, 255, .075);
     backdrop-filter: blur(10px);
     color: #991199;
+    font-weight:900;
     text-shadow: 0.3px 0.3px 3px #666666;
 }
