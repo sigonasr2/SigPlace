@@ -23,7 +23,7 @@ public class sigPlace {
         new AbstractMap.SimpleEntry<>("$SITENAME", "SigPlace"),
         new AbstractMap.SimpleEntry<>("$SITE_BACKCOL", "#111"),
         new AbstractMap.SimpleEntry<>("$TITLE_CONTENT_START", "<div class=\"contentWrapper\"><h1>"),
-        new AbstractMap.SimpleEntry<>("$TITLE_CONTENT_END", "</h1><div class=\"content\">"),
+        new AbstractMap.SimpleEntry<>("$TITLE_CONTENT_END", "</h1><div class=\"content\" %ID%>"),
         new AbstractMap.SimpleEntry<>("$CONTENT_END", "</div>"),
         new AbstractMap.SimpleEntry<>("$DATE_CONTENT_START", "<div class=\"datebar\"></div><div class=\"date\">")
     ));
@@ -74,7 +74,8 @@ public class sigPlace {
                         if (s.charAt(0)=='-') {
                             //Start of a title piece.
                             s=s.replace("-",map.get("$TITLE_CONTENT_START"));
-                            s=s+map.get("$TITLE_CONTENT_END");
+                            s=s+map.get("$TITLE_CONTENT_END").replace("%ID%","id=\"content_"+i+"\"");
+                            //Use ⤈ if there's more text to be shown than can fit.
                         } else
                         if (s.contains("===")) {
                             s=map.get("$CONTENT_END")+map.get("$DATE_CONTENT_START")+s.replace("===","")+map.get("$CONTENT_END")+map.get("$CONTENT_END");
