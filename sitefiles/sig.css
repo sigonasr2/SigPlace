@@ -58,7 +58,6 @@ body{
 }
 
     .contentBody .contentWrapper{
-        background: conic-gradient(at 99.8% 100%,rgb(17, 153, 17, .3), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
         border-style: none none outset none;
         border-radius: 0px 0px 12px 0px;
         border-color: rgb(17, 153, 17, .3);
@@ -69,7 +68,6 @@ body{
 
     .contentBody .contentWrapper:hover{
         border-color: rgb(17, 153, 17, .8);
-        background: conic-gradient(at 99.8% 100%,rgb(17, 153, 17, .8), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
     }
 
         .contentBody .contentWrapper h1{
@@ -88,7 +86,15 @@ body{
             font-size:1.25em;
             padding: 4px;
             margin: 0px 4px 0px 4px;
+            border-style: none outset none none;
+            border-radius: 0px 0px 12px 0px;
+            border-color: rgb(17, 153, 17, .3);
+            border-width: 3px;
             background-color: rgba(255, 255, 255, .06);
+        }
+
+        .contentBody .contentWrapper .content:hover{
+            border-color: rgb(17, 153, 17, .8);
         }
 
         .contentBody .contentWrapper .date{
