@@ -63,7 +63,7 @@ body{
     margin: 12px 4px 0px 4px;
     padding: 12px 32px 0px 32px;
     border-bottom-style: outset;
-    border-radius:32px 32px 0px 12px;
+    border-radius:32px 32px 0px 0px;
     background-color:rgba(255, 255, 255, .06);
 }
 
@@ -71,7 +71,7 @@ body{
     display: inline-block;
     min-width:98vw;
     font-size:1.25em;
-    border-radius: 12px 0px 12px 0px;
+    border-radius: 12px 0px 0px 0px;
     border-style: none outset outset none;
     border-color: rgb(17, 153, 17, .3);
     border-width: 3px;
