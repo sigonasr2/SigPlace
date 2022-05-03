@@ -51,6 +51,10 @@ body{
 
 .content{
     border-radius: 12px 0px 12px 0px;
+    margin-top:12px;
+    margin-bottom:8px;
+    margin-right:4px;
+    margin-left:4px;
     background-color: rgba(255, 255, 255, .075);
     backdrop-filter: blur(10px);
 }
