@@ -55,8 +55,6 @@ body{
     border-bottom-style: outset;
     border-radius: 32px;
     background-color:$SITE_BACKCOL;
-    position:relative;
-    bottom:24px;
 }
 
 .content{
