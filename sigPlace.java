@@ -25,7 +25,7 @@ public class sigPlace {
         new AbstractMap.SimpleEntry<>("$TITLE_CONTENT_START", "<div class=\"contentWrapper\"><h1>"),
         new AbstractMap.SimpleEntry<>("$TITLE_CONTENT_END", "</h1><div class=\"content\">"),
         new AbstractMap.SimpleEntry<>("$CONTENT_END", "</div>"),
-        new AbstractMap.SimpleEntry<>("$DATE_CONTENT_START", "<div class=\"date\">")
+        new AbstractMap.SimpleEntry<>("$DATE_CONTENT_START", "<div class=\"datebar\"></div><div class=\"date\">")
     ));
     final static HashMap<String,Path> ops = new HashMap<>(Map.ofEntries(
         new AbstractMap.SimpleEntry<>(
