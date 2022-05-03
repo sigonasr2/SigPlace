@@ -71,7 +71,7 @@ body{
     display: inline-block;
     min-width:98vw;
     font-size:1.25em;
-    border-radius: 12px 0px 0px 0px;
+    border-radius: 0px 0px 12px 0px;
     border-style: none outset outset none;
     border-color: rgb(17, 153, 17, .3);
     border-width: 3px;
