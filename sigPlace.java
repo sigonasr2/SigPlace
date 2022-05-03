@@ -17,6 +17,7 @@ public class sigPlace {
     final static String ROOTDIR = "sitefiles";
     final static String REFDIR = "ref";
     final static String OUTDIR = "out";
+    static int PORT = 8080;
 
     final static HashMap<String,String> map = new HashMap<>(Map.ofEntries(
         new AbstractMap.SimpleEntry<>("$SITENAME", "SigPlace"),
@@ -29,6 +30,23 @@ public class sigPlace {
             "%FOOTER", Paths.get(REFDIR,"FOOTER.html"))
     ));
     public static void main(String[] args) {
+
+        if (args.length>0&&args.length%2==0) {
+            int i=0;
+            while (i<args.length) {
+                String arg1=args[i];
+                String arg2=args[i+1];
+                i+=2;
+                if (arg1.equals("-p")) {
+                    PORT=Integer.parseInt(arg2);
+                    System.out.println("Port set to "+PORT+".");
+                } else {
+                    System.err.println("Invalid argument \""+arg1+"\".");
+                    return;
+                }
+            }
+        }
+
         Set<Path> files = GetFilesInDir(ROOTDIR);
         for (Path f : files) {
 

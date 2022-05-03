@@ -15,8 +15,8 @@ public class sigServer {
     ServerSocket socket;
     sigServer() {
         try {
-            socket = new ServerSocket(8080);
-            System.out.println("Listening on port 8080.");
+            socket = new ServerSocket(sigPlace.PORT);
+            System.out.println("Listening on port "+sigPlace.PORT+".");
             while (true) {
                 try (Socket client = socket.accept()) {
                     System.out.println("New client connection detected: "+client.toString());
