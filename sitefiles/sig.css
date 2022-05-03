@@ -60,12 +60,12 @@ body{
 .content{
     border-radius: 12px 0px 12px 0px;
     border-style: none outset outset none;
-    border-color: #191;
+    border-color: rgb(17, 153, 17, .3);
     border-width: 3px;
     margin: 12px 4px 8px 4px;
     padding: 4px;
-    background-color: rgba(255, 255, 255, .075);
-    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, .06);
+    backdrop-filter: blur(7px);
     color: #AA77FF;
     font-weight:900;
     text-shadow: 0.3px 0.3px 3px #666666;
