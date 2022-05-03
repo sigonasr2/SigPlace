@@ -50,9 +50,13 @@ body{
     background-color:$SITE_BACKCOL;
 }
 
+.content.title{
+    
+}
+
 .content{
     border-radius: 12px 0px 12px 0px;
-    border-style: none none outset outset;
+    border-style: none outset outset none;
     border-color: #191;
     border-width: 3px;
     margin: 12px 4px 8px 4px;
