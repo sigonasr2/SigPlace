@@ -55,6 +55,7 @@ body{
     border-bottom-style: outset;
     border-radius: 32px;
     background-color:$SITE_BACKCOL;
+    max-width:content;
 }
 
 .content{
