@@ -50,7 +50,15 @@ body{
     background-color:$SITE_BACKCOL;
 }
 
-.content .title{
+.contentBody{
+    background-color: rgba(255, 255, 255, .06);
+    backdrop-filter: blur(7px);
+    color: #AA77FF;
+    font-weight:900;
+    text-shadow: 0.3px 0.3px 3px #666666;
+}
+
+.contentBody .title{
     font-size:x-large;
     border-bottom-style: outset;
     border-radius: 32px;
@@ -58,18 +66,13 @@ body{
     max-width:content;
 }
 
-.content{
+.contentBody .content{
     border-radius: 12px 0px 12px 0px;
     border-style: none outset outset none;
     border-color: rgb(17, 153, 17, .3);
     border-width: 3px;
     margin: 12px 4px 8px 4px;
-    padding: 50px 4px 4px 4px;
-    background-color: rgba(255, 255, 255, .06);
-    backdrop-filter: blur(7px);
-    color: #AA77FF;
-    font-weight:900;
-    text-shadow: 0.3px 0.3px 3px #666666;
+    padding: 4px;
 }
 
 .content:hover{
