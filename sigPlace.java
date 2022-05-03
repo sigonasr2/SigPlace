@@ -22,7 +22,7 @@ public class sigPlace {
     final static HashMap<String,String> map = new HashMap<>(Map.ofEntries(
         new AbstractMap.SimpleEntry<>("$SITENAME", "SigPlace"),
         new AbstractMap.SimpleEntry<>("$SITE_BACKCOL", "#111"),
-        new AbstractMap.SimpleEntry<>("$TITLE_CONTENT_START", "<div><h1>"),
+        new AbstractMap.SimpleEntry<>("$TITLE_CONTENT_START", "<div class=\"contentWrapper\"><h1>"),
         new AbstractMap.SimpleEntry<>("$TITLE_CONTENT_END", "</h1><div class=\"content\">"),
         new AbstractMap.SimpleEntry<>("$CONTENT_END", "</div>"),
         new AbstractMap.SimpleEntry<>("$DATE_CONTENT_START", "<div class=\"date\">")
