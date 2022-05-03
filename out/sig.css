@@ -57,25 +57,35 @@ body{
     text-shadow: 0.3px 0.3px 3px #666666;
 }
 
-.contentBody .title{
+.contentBody h1{
     display: inline-block;
-    font-size:x-large;
+    font-size:3.25em;
+    margin: 12px 4px 0px 4px;
+    padding: 12px 32px 0px 32px;
     border-bottom-style: outset;
-    border-radius: 32px;
-    background-color:#111;
+    border-radius:32px 32px 0px 0px;
+    background-color:rgba(255, 255, 255, .06);
 }
 
 .contentBody .content{
     display: inline-block;
-    border-radius: 12px 0px 12px 0px;
-    border-style: none outset outset none;
-    border-color: rgb(17, 153, 17, .3);
-    border-width: 3px;
-    margin: 12px 4px 8px 4px;
+    min-width:98vw;
+    font-size:1.25em;
+    margin: 0px 4px 8px 4px;
     padding: 4px;
     background-color: rgba(255, 255, 255, .06);
 }
 
-.content:hover{
+.contentBody .date{
+    display: inline-block;
+    font-size:0.75em;
+    background-color: rgba(255, 255, 255, .06);
+    border-style: none outset outset none;
+    border-radius: 0px 0px 12px 0px;
+    border-color: rgb(17, 153, 17, .3);
+    border-width: 3px;
+}
+
+.contentBody .date:hover{
     border-color: rgb(17, 153, 17, .8);
 }

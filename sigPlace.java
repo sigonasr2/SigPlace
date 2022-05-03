@@ -77,8 +77,7 @@ public class sigPlace {
                             s=s+map.get("$TITLE_CONTENT_END");
                         } else
                         if (s.contains("===")) {
-                            s=s.replace("===",map.get("$CONTENT_END"));
-                            s+=map.get("$DATE_CONTENT_START")+map.get("$CONTENT_END")+map.get("$CONTENT_END");
+                            s=map.get("$CONTENT_END")+map.get("$DATE_CONTENT_START")+s.replace("===","")+map.get("$CONTENT_END")+map.get("$CONTENT_END");
                         }
                     }
                     for (String key : map.keySet()) {
