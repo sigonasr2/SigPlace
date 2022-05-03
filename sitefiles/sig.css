@@ -57,42 +57,41 @@ body{
     text-shadow: 0.3px 0.3px 3px #666666;
 }
 
-.contentBody .contentWrapper{
-    font-size:0.75em;
-    border-style: none outset outset none;
-    border-radius: 0px 0px 12px 0px;
-    border-color: rgb(17, 153, 17, .3);
-    border-width: 3px;
-    margin: 0px 4px 8px 4px;
-    min-width:98vw;
-}
+    .contentBody .contentWrapper{
+        border-style: none none outset none;
+        border-radius: 0px 0px 12px 0px;
+        border-color: rgb(17, 153, 17, .3);
+        border-width: 3px;
+        margin: 0px 4px 8px 4px;
+        min-width:98vw;
+    }
 
-.contentBody .contentWrapper h1{
-    display: inline-block;
-    font-size:3.25em;
-    margin: 12px 4px 0px 4px;
-    padding: 12px 32px 0px 32px;
-    border-bottom-style: outset;
-    border-radius:32px 32px 0px 0px;
-    background-color:rgba(255, 255, 255, .06);
-}
+    .contentBody .contentWrapper:hover{
+        border-color: rgb(17, 153, 17, .8);
+    }
 
-.contentBody .contentWrapper .content{
-    display: inline-block;
-    min-width:98vw;
-    font-size:1.25em;
-    padding: 4px;
-    margin: 0px 4px 0px 4px;
-    background-color: rgba(255, 255, 255, .06);
-}
+        .contentBody .contentWrapper h1{
+            display: inline-block;
+            font-size:3.25em;
+            margin: 12px 4px 0px 4px;
+            padding: 12px 32px 0px 32px;
+            border-bottom-style: outset;
+            border-radius:32px 32px 0px 0px;
+            background-color:rgba(255, 255, 255, .06);
+        }
 
-.contentBody .contentWrapper .date{
-    font-size:0.75em;
-    background-color: rgba(255, 255, 255, .06);
-    margin: 0px 4px 0px 4px;
-    min-width:98vw;
-}
+        .contentBody .contentWrapper .content{
+            display: inline-block;
+            min-width:98vw;
+            font-size:1.25em;
+            padding: 4px;
+            margin: 0px 4px 0px 4px;
+            background-color: rgba(255, 255, 255, .06);
+        }
 
-.contentBody .contentWrapper:hover{
-    border-color: rgb(17, 153, 17, .8);
-}
+        .contentBody .contentWrapper .date{
+            font-size:0.75em;
+            background-color: rgba(255, 255, 255, .06);
+            margin: 0px 4px 0px 4px;
+            min-width:98vw;
+        }
