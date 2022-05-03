@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -53,6 +54,8 @@ public class sigServer {
                     while (!(line=in.readLine()).isBlank()) {
                         //System.out.println(line);
                     }
+                } catch(SocketException e) {
+                    e.printStackTrace();
                 }
             }
         } catch (IOException e) {
