@@ -55,7 +55,6 @@ body{
     color: #AA77FF;
     font-weight:900;
     text-shadow: 0.3px 0.3px 3px #666666;
-    min-width:98vw;
 }
 
 .contentBody h1{
@@ -68,6 +67,7 @@ body{
 
 .contentBody .content{
     display: inline-block;
+    min-width:98vw;
     font-size:1.25em;
     border-radius: 12px 0px 12px 0px;
     border-style: none outset outset none;
