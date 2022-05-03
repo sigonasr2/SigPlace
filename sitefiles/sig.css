@@ -6,6 +6,8 @@
 .codeForeground{
     font-family:'Courier New', Courier, monospace;
     position:absolute;
+    left:-12px;
+    top:-8px;
     z-index:-4999;
     color:rgba(0,0,0,0);
     background: linear-gradient(90deg, rgba(17,17,17,1) 0%, rgba(17,17,17,1) 42%, rgba(17,17,17,0.6825105042016807) 44%, rgba(17,17,17,1) 46%, rgba(17,17,17,1) 100%);
@@ -23,6 +25,8 @@
 .codeBackground{
     font-family:'Courier New', Courier, monospace;
     position:absolute;
+    left:-12px;
+    top:-8px;
     color:#44FF44;
     z-index:-5000;
     user-select:none;
