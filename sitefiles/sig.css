@@ -95,7 +95,7 @@ body{
 
         .contentBody .contentWrapper .date{
             font-size:0.75em;
-            background: linear-gradient(0deg,rgba(255, 255, 255, .9) 100%, rgba(255, 255, 255, .06) 99.8%, rgba(255, 255, 255, .06) 0%);
+            background: linear-gradient(0deg,rgba(255, 255, 255, .06) 0%, rgba(255, 255, 255, .06) 99.8%, rgba(255, 255, 255, .9) 100%);
             margin: 0px 4px 0px 4px;
             min-width:98vw;
             z-index:0;
