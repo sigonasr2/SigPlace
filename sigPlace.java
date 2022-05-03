@@ -19,7 +19,8 @@ public class sigPlace {
     final static String OUTDIR = "out";
 
     final static HashMap<String,String> map = new HashMap<>(Map.ofEntries(
-        new AbstractMap.SimpleEntry<>("$SITENAME", "SigPlace")
+        new AbstractMap.SimpleEntry<>("$SITENAME", "SigPlace"),
+        new AbstractMap.SimpleEntry<>("$SITE_BACKCOL", "#111")
     ));
     final static HashMap<String,Path> ops = new HashMap<>(Map.ofEntries(
         new AbstractMap.SimpleEntry<>(
@@ -38,8 +39,10 @@ public class sigPlace {
                 System.out.println("  Preparing "+f.getFileName());
 
                 List<String> content = Files.readAllLines(f);
-                content.addAll(0,Files.readAllLines(ops.get("%DEFAULT")));
-                content.addAll(Files.readAllLines(ops.get("%FOOTER")));
+                if (f.getFileName().toString().contains(".html")) {
+                    content.addAll(0,Files.readAllLines(ops.get("%DEFAULT")));
+                    content.addAll(Files.readAllLines(ops.get("%FOOTER")));
+                }
 
                 System.out.println("  Parsing "+f.getFileName());
                 for (int i=0;i<content.size();i++) {
@@ -63,8 +66,25 @@ public class sigPlace {
             }
         }
         System.out.println("Site has been built into the "+OUTDIR+" directory.");
+
+        ExportCodeFile();
+
         System.out.println("\nStarting web server...");
         new sigServer();
+    }
+    private static void ExportCodeFile() {
+        try {
+            Path file = Paths.get("sigServer.java");
+            List<String> data = Files.readAllLines(file);
+            int i=0;
+            while (!data.get(i++).contains("sigServer()")&&i<data.size());
+            if (i<data.size()) {
+                Files.write(Paths.get(OUTDIR,"codeBackground"),data.subList(i, Math.min(i+40,data.size())),Charset.defaultCharset(),StandardOpenOption.CREATE,StandardOpenOption.TRUNCATE_EXISTING,StandardOpenOption.WRITE);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
     }
     private static Set<Path> GetFilesInDir(String directory) {
         Path dir = Paths.get(directory);

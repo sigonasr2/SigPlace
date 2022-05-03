@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="/reset.css">
 <link rel="stylesheet" type="text/css" href="/sig.css">
+<script type="text/javascript">
+    function loadCodeBackground() {
+        fetch("codeBackground").then((data)=>data.text())
+        .then((data)=>{
+            document.getElementById("codeForeground").innerText=data
+            document.getElementById("codeBackground").innerText=data
+        })
+    }
+    loadCodeBackground();
+</script>
 </head>
 <body>
 
 SigPlace
 Basic Content
+<br/><br/>
+<a href="otherpage.html">Other Page!</a>
+
+<div class="codeForeground" id="codeForeground"></div>
+<div class="codeBackground" id="codeBackground"></div>
 </body>
 <footer>
 
