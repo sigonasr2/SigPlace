@@ -58,19 +58,18 @@ body{
 }
 
     .contentBody .contentWrapper{
-        background: linear-gradient(90deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 99.8%, rgb(17, 153, 17, .3) 100%);
+        background: conic-gradient(at 99.8% 100%,rgb(17, 153, 17, .3), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
         border-style: none none outset none;
         border-radius: 0px 0px 12px 0px;
         border-color: rgb(17, 153, 17, .3);
         border-width: 3px;
         margin: 0px 4px 8px 4px;
         min-width:98vw;
-        max-height:40px;
     }
 
     .contentBody .contentWrapper:hover{
         border-color: rgb(17, 153, 17, .8);
-        background: linear-gradient(90deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 99.8%, rgb(17, 153, 17, .8) 100%);
+        background: conic-gradient(at 99.8% 100%,rgb(17, 153, 17, .8), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
     }
 
         .contentBody .contentWrapper h1{
