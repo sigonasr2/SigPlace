@@ -55,6 +55,7 @@ body{
     color: #AA77FF;
     font-weight:900;
     text-shadow: 0.3px 0.3px 3px #666666;
+    min-width:max-content;
 }
 
 .contentBody h1{
