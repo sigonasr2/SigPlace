@@ -95,6 +95,8 @@ body{
 
         .contentBody .contentWrapper .date:before{
             background: linear-gradient(0deg,rgba(255, 255, 255, .06) 0%, rgba(255, 255, 255, .06) 90%, rgba(255, 255, 255, .9) 100%);
+            min-width:45vw;
+            z-index:0;
         }
 
         .contentBody .contentWrapper .date{
@@ -102,4 +104,5 @@ body{
             margin: 0px 4px 0px 4px;
             min-width:98vw;
             z-index:0;
+            background-color: rgba(255, 255, 255, .06);
         }
