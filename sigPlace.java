@@ -68,7 +68,7 @@ public class sigPlace {
                 System.out.println("  Parsing "+f.getFileName());
                 for (int i=0;i<content.size();i++) {
                     String s = content.get(i);
-                    if (isHTMLFile(f)) {
+                    if (s.length()>0&&isHTMLFile(f)) {
                         //Check for markdown pieces.
                         if (s.charAt(0)=='-') {
                             //Start of a title piece.
