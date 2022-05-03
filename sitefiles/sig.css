@@ -77,6 +77,6 @@ body{
     background-color: rgba(255, 255, 255, .06);
 }
 
-.content:hover{
+.contentBody:hover{
     border-color: rgb(17, 153, 17, .8);
 }
