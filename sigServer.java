@@ -7,6 +7,7 @@ import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.regex.Pattern;
 
 public class sigServer {
@@ -26,7 +27,18 @@ public class sigServer {
                         //This is valid.
                         if (splitter[0].equals("GET")) { //This is a GET request.
                             if (splitter[2].equals("HTTP/1.1")||splitter[2].equals("HTTP/2.0")) {
-                                String requestloc = splitter[1];
+                                String[] requestSplit = splitter[1].split(Pattern.quote("?"));
+                                String requestloc = requestSplit[0];
+                                HashMap<String,String> requestParams = new HashMap<>();
+                                if (requestSplit.length>1) {
+                                    String[] params = requestSplit[1].split(Pattern.quote("&"));
+                                    for (String s : params) {
+                                        String key = s.substring(0,s.indexOf('='));
+                                        String value = s.substring(s.indexOf('=')+1);
+                                        requestParams.put(key,value);
+                                    }
+                                    System.out.println("  ==Params for this request are: "+requestParams);
+                                }
                                 if (requestloc.equals("/")) {
                                     //Send default directory.
                                     CreateRequest(client,"200","OK","testfile.html");
