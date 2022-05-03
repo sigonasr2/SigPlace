@@ -55,6 +55,7 @@ body{
     color: #AA77FF;
     font-weight:900;
     text-shadow: 0.3px 0.3px 3px #666666;
+    z-index:-1;
 }
 
     .contentBody .contentWrapper{
@@ -64,6 +65,7 @@ body{
         border-width: 3px;
         margin: 0px 4px 8px 4px;
         min-width:98vw;
+        z-index:0;
     }
 
     .contentBody .contentWrapper:hover{
@@ -78,6 +80,7 @@ body{
             border-bottom-style: outset;
             border-radius:32px 32px 0px 0px;
             background-color:rgba(255, 255, 255, .06);
+            z-index:0;
         }
 
         .contentBody .contentWrapper .content{
@@ -87,6 +90,7 @@ body{
             padding: 4px;
             margin: 0px 4px 0px 4px;
             background-color: rgba(255, 255, 255, .06);
+            z-index:0;
         }
 
         .contentBody .contentWrapper .date{
@@ -94,4 +98,5 @@ body{
             background-color: rgba(255, 255, 255, .06);
             margin: 0px 4px 0px 4px;
             min-width:98vw;
+            z-index:0;
         }
