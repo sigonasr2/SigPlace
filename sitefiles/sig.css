@@ -70,3 +70,7 @@ body{
     font-weight:900;
     text-shadow: 0.3px 0.3px 3px #666666;
 }
+
+.content:hover{
+    border-color: rgb(17, 153, 17, .8);
+}
