@@ -60,7 +60,8 @@ body{
 .contentBody h1{
     display: inline-block;
     font-size:3.25em;
-    margin: 12px 32px 0px 32px;
+    margin: 12px 4px 6px 4px;
+    padding: 12px 32px 0px 32px;
     border-bottom-style: outset;
     border-radius: 32px;
     background-color:rgba(255, 255, 255, .06);
