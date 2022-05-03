@@ -98,9 +98,8 @@ body{
             margin: 0px 4px 0px 4px;
             min-width:98vw;
             min-height:4px;
-            content:"Test";
             z-index:0;
-            background-color: rgba(255, 255, 255, .06);
+            background-color: rgba(255, 255, 255, .9);
         }
 
         .contentBody .contentWrapper .date{
