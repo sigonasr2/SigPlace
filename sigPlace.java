@@ -75,6 +75,7 @@ public class sigPlace {
                             //Start of a title piece.
                             s=s.replace("-",map.get("$TITLE_CONTENT_START"));
                             s=s+map.get("$TITLE_CONTENT_END").replace("%ID%","id=\"content_"+i+"\"");
+                            s=s+"<div class=\"arrow\" onClick=\"expand("+i+")\">⤈</div>";
                             //Use ⤈ if there's more text to be shown than can fit.
                         } else
                         if (s.contains("===")) {
