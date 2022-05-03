@@ -57,9 +57,9 @@ body{
     text-shadow: 0.3px 0.3px 3px #666666;
 }
 
-.contentBody .title{
+.contentBody h1{
     display: inline-block;
-    font-size:x-large;
+    font-size:3.25em;
     border-bottom-style: outset;
     border-radius: 32px;
     background-color:$SITE_BACKCOL;
@@ -67,6 +67,7 @@ body{
 
 .contentBody .content{
     display: inline-block;
+    font-size:1.25em;
     border-radius: 12px 0px 12px 0px;
     border-style: none outset outset none;
     border-color: rgb(17, 153, 17, .3);
