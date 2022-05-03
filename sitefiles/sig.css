@@ -86,28 +86,12 @@ body{
             font-size:1.25em;
             padding: 4px;
             margin: 0px 4px 0px 4px;
-            border-style: none outset none none;
-            border-radius: 0px 0px 0px 0px;
-            border-color: rgb(17, 153, 17, .3);
-            border-width: 3px;
             background-color: rgba(255, 255, 255, .06);
-        }
-
-        .contentBody .contentWrapper .content:hover{
-            border-color: rgb(17, 153, 17, .8);
         }
 
         .contentBody .contentWrapper .date{
             font-size:0.75em;
             background-color: rgba(255, 255, 255, .06);
-            border-style: none outset none none;
-            border-radius: 0px 0px 0px 0px;
-            border-color: rgb(17, 153, 17, .3);
-            border-width: 3px;
             margin: 0px 4px 0px 4px;
             min-width:98vw;
-        }
-
-        .contentBody .contentWrapper .date:hover{
-            border-color: rgb(17, 153, 17, .8);
         }
