@@ -21,7 +21,10 @@ public class sigPlace {
 
     final static HashMap<String,String> map = new HashMap<>(Map.ofEntries(
         new AbstractMap.SimpleEntry<>("$SITENAME", "SigPlace"),
-        new AbstractMap.SimpleEntry<>("$SITE_BACKCOL", "#111")
+        new AbstractMap.SimpleEntry<>("$SITE_BACKCOL", "#111"),
+        new AbstractMap.SimpleEntry<>("$TITLE_CONTENT_START", "<div class=\"title\">"),
+        new AbstractMap.SimpleEntry<>("$TITLE_CONTENT_END", "</div><div class=\"content\">"),
+        new AbstractMap.SimpleEntry<>("$CONTENT_END", "</div>")
     ));
     final static HashMap<String,Path> ops = new HashMap<>(Map.ofEntries(
         new AbstractMap.SimpleEntry<>(
@@ -57,7 +60,7 @@ public class sigPlace {
                 System.out.println("  Preparing "+f.getFileName());
 
                 List<String> content = Files.readAllLines(f);
-                if (f.getFileName().toString().contains(".html")) {
+                if (isHTMLFile(f)) {
                     content.addAll(0,Files.readAllLines(ops.get("%DEFAULT")));
                     content.addAll(Files.readAllLines(ops.get("%FOOTER")));
                 }
@@ -65,6 +68,17 @@ public class sigPlace {
                 System.out.println("  Parsing "+f.getFileName());
                 for (int i=0;i<content.size();i++) {
                     String s = content.get(i);
+                    if (isHTMLFile(f)) {
+                        //Check for markdown pieces.
+                        if (s.charAt(0)=='-') {
+                            //Start of a title piece.
+                            s=s.replace("-",map.get("$TITLE_CONTENT_START"));
+                            s=s+map.get("$TITLE_CONTENT_END");
+                        } else
+                        if (s.contains("===")) {
+                            s=s.replace("===",map.get("$CONTENT_END"));
+                        }
+                    }
                     for (String key : map.keySet()) {
                         s=s.replaceAll(Pattern.quote(key),map.get(key));
                     }
@@ -89,6 +103,9 @@ public class sigPlace {
 
         System.out.println("\nStarting web server...");
         new sigServer();
+    }
+    private static boolean isHTMLFile(Path f) {
+        return f.getFileName().toString().contains(".html");
     }
     private static void ExportCodeFile() {
         try {
