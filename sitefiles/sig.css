@@ -49,6 +49,7 @@ body{
     font-family: Garamond, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color:$SITE_BACKCOL;
     color: #991199;
+    text-shadow: 1px 1px 4px #AAAAAA;
 }
 
 .content{
