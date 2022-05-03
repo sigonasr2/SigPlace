@@ -6,6 +6,8 @@
 .codeForeground{
     font-family:'Courier New', Courier, monospace;
     position:absolute;
+    left:-12px;
+    top:-8px;
     z-index:-4999;
     color:rgba(0,0,0,0);
     background: linear-gradient(90deg, rgba(17,17,17,1) 0%, rgba(17,17,17,1) 42%, rgba(17,17,17,0.6825105042016807) 44%, rgba(17,17,17,1) 46%, rgba(17,17,17,1) 100%);
@@ -23,6 +25,8 @@
 .codeBackground{
     font-family:'Courier New', Courier, monospace;
     position:absolute;
+    left:-12px;
+    top:-8px;
     color:#44FF44;
     z-index:-5000;
     user-select:none;
@@ -42,10 +46,36 @@
 }
 
 body{
+    font-family: Garamond, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color:#111;
 }
 
-.content{
-    background-color: rgba(255, 255, 255, .6);
-    backdrop-filter: blur(10px);
+.contentBody{
+    backdrop-filter: blur(7px);
+    color: #AA77FF;
+    font-weight:900;
+    text-shadow: 0.3px 0.3px 3px #666666;
+}
+
+.contentBody .title{
+    display: inline-block;
+    font-size:x-large;
+    border-bottom-style: outset;
+    border-radius: 32px;
+    background-color:#111;
+}
+
+.contentBody .content{
+    display: inline-block;
+    border-radius: 12px 0px 12px 0px;
+    border-style: none outset outset none;
+    border-color: rgb(17, 153, 17, .3);
+    border-width: 3px;
+    margin: 12px 4px 8px 4px;
+    padding: 4px;
+    background-color: rgba(255, 255, 255, .06);
+}
+
+.content:hover{
+    border-color: rgb(17, 153, 17, .8);
 }
