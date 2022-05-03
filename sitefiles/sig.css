@@ -65,6 +65,7 @@ body{
         border-width: 3px;
         margin: 0px 4px 8px 4px;
         min-width:98vw;
+        max-height:40px;
     }
 
     .contentBody .contentWrapper:hover{
