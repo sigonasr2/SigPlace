@@ -24,7 +24,8 @@ public class sigPlace {
         new AbstractMap.SimpleEntry<>("$SITE_BACKCOL", "#111"),
         new AbstractMap.SimpleEntry<>("$TITLE_CONTENT_START", "<div><h1>"),
         new AbstractMap.SimpleEntry<>("$TITLE_CONTENT_END", "</h1><div class=\"content\">"),
-        new AbstractMap.SimpleEntry<>("$CONTENT_END", "</div></div>")
+        new AbstractMap.SimpleEntry<>("$CONTENT_END", "</div>"),
+        new AbstractMap.SimpleEntry<>("$DATE_CONTENT_START", "<div class=\"date\">")
     ));
     final static HashMap<String,Path> ops = new HashMap<>(Map.ofEntries(
         new AbstractMap.SimpleEntry<>(
@@ -77,6 +78,7 @@ public class sigPlace {
                         } else
                         if (s.contains("===")) {
                             s=s.replace("===",map.get("$CONTENT_END"));
+                            s+=map.get("$DATE_CONTENT_START")+map.get("$CONTENT_END")+map.get("$CONTENT_END");
                         }
                     }
                     for (String key : map.keySet()) {
