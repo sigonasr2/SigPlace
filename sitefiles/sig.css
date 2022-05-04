@@ -72,15 +72,6 @@ body{
         border-color: rgb(17, 153, 17, .8);
     }
 
-    .contentBody .contentWrapper .unexpanded{
-        display: inline-block;
-        background-color:rgba(255, 255, 255, .06);
-        min-width:98vw;
-        text-align:center;
-        font-size:2.75em;
-        content: "⤈ Click to expand.";
-    }
-
         .contentBody .contentWrapper h1{
             display: inline-block;
             font-size:3.25em;
@@ -101,6 +92,15 @@ body{
             background-color: rgba(255, 255, 255, .06);
             z-index:0;
         }
+
+            .contentBody .contentWrapper .content .unexpanded{
+                display: inline-block;
+                background-color:rgba(255, 255, 255, .06);
+                min-width:98vw;
+                text-align:center;
+                font-size:2.75em;
+                content: "⤈ Click to expand.";
+            }
         
         .contentBody .contentWrapper .datebar{
             font-size:0.75em;

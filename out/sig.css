@@ -5,7 +5,7 @@
 
 .codeForeground{
     font-family:'Courier New', Courier, monospace;
-    position:absolute;
+    position:fixed;
     left:-12px;
     top:-8px;
     z-index:-4999;
@@ -24,7 +24,7 @@
 
 .codeBackground{
     font-family:'Courier New', Courier, monospace;
-    position:absolute;
+    position:fixed;
     left:-12px;
     top:-8px;
     color:#44FF44;
@@ -70,6 +70,15 @@ body{
 
     .contentBody .contentWrapper:hover{
         border-color: rgb(17, 153, 17, .8);
+    }
+
+    .contentBody .contentWrapper .unexpanded{
+        display: inline-block;
+        background-color:rgba(255, 255, 255, .06);
+        min-width:98vw;
+        text-align:center;
+        font-size:2.75em;
+        content: "⤈ Click to expand.";
     }
 
         .contentBody .contentWrapper h1{
