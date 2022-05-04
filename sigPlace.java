@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.CopyOption;
-import java.nio.file.DirectoryNotEmptyException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -13,15 +12,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 public class sigPlace {
 
     final static String ROOTDIR = "sitefiles";
     final static String REFDIR = "ref";
     final static String OUTDIR = "out";
+    final static String DIRECTORYLISTING_FILENAME = "DIRECTORY_LISTING";
     static int PORT = 8080;
 
     final static HashMap<String,String> map = new HashMap<>(Map.ofEntries(
@@ -108,7 +106,19 @@ public class sigPlace {
             }
         }catch (IOException e) {
             e.printStackTrace();
+            System.err.println("Copying files over failed!");
+            return;
         }
+
+        System.out.println("Building directory listings...");
+        try {
+            buildDirectoryListings();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Failed to build directory listings!");
+            return;
+        }
+
         System.out.println("Site has been built into the "+OUTDIR+" directory.");
 
         ExportCodeFile();
@@ -132,6 +142,21 @@ public class sigPlace {
                 e.printStackTrace();
             }
         });
+    }
+    static void buildDirectoryListings() 
+    throws IOException {
+        String startingPath=Paths.get(sigPlace.OUTDIR).toAbsolutePath().toString();
+        HashMap<String,List<Path>> map = new HashMap<>();
+        Iterator<Path> it = Files.walk(Paths.get(sigPlace.OUTDIR)).iterator();
+        map.put("/",new ArrayList<Path>());
+        while (it.hasNext()) {
+            Path f = it.next();
+            String myKey = f.toAbsolutePath().toString().replace(startingPath,"").replace(f.getFileName().toString(),"");
+            System.out.println(myKey+","+f);
+            map.putIfAbsent(myKey,new ArrayList<Path>());
+            map.get(myKey).add(f);
+        }
+        System.out.println(map);
     }
     private static boolean isArticleFile(Path f) {
         return f.getFileName().toString().contains(".article");

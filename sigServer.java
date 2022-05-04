@@ -45,7 +45,7 @@ public class sigServer {
                                         //Send default directory.
                                         CreateRequest(client,"200","OK","testfile.html");
                                     } else {
-                                        CreateRequest(client,"200","OK",requestloc.replace("/",""));
+                                        CreateRequest(client,"200","OK",requestloc.replaceFirst("/",""));
                                     }
                                 }
                             } else {
@@ -83,10 +83,15 @@ public class sigServer {
             OutputStream clientOutput = client.getOutputStream();
             if (statusCode.equals("200")) {
                 if (Files.exists(file)) {
-                    CreateRawRequest(clientOutput,statusCode,statusMsg,Files.probeContentType(file),Files.readAllBytes(file));
-                    String contentType = Files.probeContentType(file);
-                    if (contentType!=null&&contentType.equals("text/html")) {
+                    if (Files.isDirectory(file)) {
+                        CreateRawRequest(clientOutput,statusCode,statusMsg,"text/html",Files.readAllBytes(Paths.get(sigPlace.OUTDIR,string,sigPlace.DIRECTORYLISTING_FILENAME)));
                         clientOutput.write(("<div class=\"generateTime\">Webpage generated in "+(System.currentTimeMillis()-startTime)+"ms</div>\r\n").getBytes());
+                    } else {
+                        CreateRawRequest(clientOutput,statusCode,statusMsg,Files.probeContentType(file),Files.readAllBytes(file));
+                        String contentType = Files.probeContentType(file);
+                        if (contentType!=null&&contentType.equals("text/html")) {
+                            clientOutput.write(("<div class=\"generateTime\">Webpage generated in "+(System.currentTimeMillis()-startTime)+"ms</div>\r\n").getBytes());
+                        }
                     }
                 } else {
                     CreateRawRequest(clientOutput,statusCode,statusMsg,"text/html","We're sorry, your webpage is in another castle!".getBytes());
