@@ -59,6 +59,7 @@ body{
 }
 
     .contentBody .contentWrapper{
+        position:relative;
         border-style: none none outset none;
         border-radius: 0px 0px 12px 0px;
         border-color: rgb(17, 153, 17, .3);
@@ -70,15 +71,6 @@ body{
 
     .contentBody .contentWrapper:hover{
         border-color: rgb(17, 153, 17, .8);
-    }
-
-    .contentBody .contentWrapper .unexpanded{
-        display: inline-block;
-        background-color:rgba(255, 255, 255, .06);
-        min-width:98vw;
-        text-align:center;
-        font-size:2.75em;
-        content: "⤈ Click to expand.";
     }
 
         .contentBody .contentWrapper h1{
@@ -118,4 +110,19 @@ body{
             min-width:98vw;
             z-index:0;
             background-color: rgba(255, 255, 255, .06);
+        }
+
+        .contentBody .contentWrapper .unexpanded{
+            position:absolute;
+            bottom:0px;
+            min-width:98vw;
+            text-align:center;
+            font-size:1.75em;
+            background: linear-gradient(180deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 5%, rgba(32,32,32,1.0) 100%);
+            user-select:none;
+        }
+
+        .contentBody .contentWrapper .unexpanded:hover{
+            bottom:-8px;
+            background: linear-gradient(180deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 5%, rgba(32,32,32,1.0) 100%);
         }
