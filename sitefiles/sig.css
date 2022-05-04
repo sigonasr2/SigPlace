@@ -76,6 +76,12 @@ body{
         content: "⤈ Click to expand.";
         border-color: rgb(17, 153, 17, .8);
     }
+    
+    .contentBody .contentWrapper:hover:after:hover{
+        background-color: rgba(255, 255, 255, .06);
+        content: "⤈ Click to expand.";
+        border-color: rgb(17, 153, 17, .8);
+    }
 
         .contentBody .contentWrapper h1{
             display: inline-block;
