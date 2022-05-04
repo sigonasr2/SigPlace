@@ -78,7 +78,7 @@ public class sigPlace {
                             //Use ⤈ if there's more text to be shown than can fit.
                         } else
                         if (s.contains("===")) {
-                            s=map.get("$CONTENT_END")+map.get("$DATE_CONTENT_START")+s.replace("===","")+map.get("$CONTENT_END")+"<div class=\"unexpanded\" id=\"expand_"+i+"\" onClick=\"expand("+i+")\"><br/><br/>&#x2908; Click to expand.</div>"+map.get("$CONTENT_END");
+                            s=map.get("$CONTENT_END")+map.get("$DATE_CONTENT_START")+s.replace("===","")+map.get("$CONTENT_END")+"<div class=\"unexpanded\" id=\"expand_"+i+"\" onClick=\"expand("+i+")\"><br/><br/><br/><br/>&#x2908; Click to expand.</div>"+map.get("$CONTENT_END");
                         }
                     }
                     for (String key : map.keySet()) {
