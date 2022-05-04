@@ -97,6 +97,7 @@ body{
                 position:relative;
                 top:-20px;
                 min-width:98vw;
+                max-height:0px; /*Make the element effectively have no space taken*/
                 text-align:center;
                 font-size:1.75em;
                 padding-top:2px;

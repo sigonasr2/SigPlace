@@ -75,7 +75,7 @@ public class sigPlace {
                             //Start of a title piece.
                             s=s.replace("-",map.get("$TITLE_CONTENT_START"));
                             s=s+map.get("$TITLE_CONTENT_END").replace("%ID%","id=\"content_"+i+"\"");
-                            //Use ⤈ if there's more text to be shown than can fit.
+                            Use ⤈ if there's more text to be shown than can fit.
                         } else
                         if (s.contains("===")) {
                             s="<div class=\"unexpanded\" id=\"expand_"+i+"\" onClick=\"expand("+i+")\">&#x2908; Click to expand.</div>"+map.get("$CONTENT_END")+map.get("$DATE_CONTENT_START")+s.replace("===","")+map.get("$CONTENT_END")+map.get("$CONTENT_END");
