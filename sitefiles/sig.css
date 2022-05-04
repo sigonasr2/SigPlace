@@ -5,7 +5,7 @@
 
 .codeForeground{
     font-family:'Courier New', Courier, monospace;
-    position:absolute;
+    position:fixed;
     left:-12px;
     top:-8px;
     z-index:-4999;
@@ -24,7 +24,7 @@
 
 .codeBackground{
     font-family:'Courier New', Courier, monospace;
-    position:absolute;
+    position:fixed;
     left:-12px;
     top:-8px;
     color:#44FF44;
