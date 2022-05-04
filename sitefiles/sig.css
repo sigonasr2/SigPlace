@@ -97,7 +97,11 @@ body{
                 display: inline-block;
                 min-width:98vw;
                 text-align:center;
-                font-size:2.75em;
+                font-size:1.75em;
+            }
+
+            .contentBody .contentWrapper .content .unexpanded:hover{
+                background-color: rgba(255, 255, 255, .06);
             }
         
         .contentBody .contentWrapper .datebar{
