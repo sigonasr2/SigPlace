@@ -171,8 +171,19 @@ public class sigPlace {
                 }
                 sb.append(d).append("\n");
             }
+            sb.append("<h2>Directory Listing for "+key+"</h2>");
+            sb.append("<div class=\"folderlisting\"><a href=\"")
+            .append(key)
+            .append("..\" class=\"icon\">&#x1F4C1;</a><a href=\"")
+            .append(key)
+            .append("..\">.. </a><a href=\"")
+            .append(key)
+            .append("..\" class=\"nounderline\">(Previous Directory)</a></div>");
             for (Path f : map.get(key)) {
                 sb.append("<div class=\"").append((Files.isDirectory(f)?"folderlisting":"filelisting")).append("\">")
+                .append("<a href=\""+(f.toAbsolutePath().toString().replace(Paths.get(OUTDIR).toAbsolutePath().toString(),""))+"\" class=\"icon\">")
+                .append((Files.isDirectory(f)?"&#x1F4C1;":"&#x1F5CE;"))
+                .append("</a>")
                 .append("<a href=\""+(f.toAbsolutePath().toString().replace(Paths.get(OUTDIR).toAbsolutePath().toString(),""))+"\">")
                 .append(f.getFileName())
                 .append("</a>\t")

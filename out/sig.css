@@ -1,3 +1,33 @@
+
+
+a:link{
+    color:#D7F;
+    font-size:0.8em;
+}
+a:visited{
+    color:#D7F;
+    font-size:0.8em;
+}
+a:hover{
+    color:white;
+    font-size:0.8em;
+}
+
+    a.nounderline:link{
+        text-decoration:none;
+    }
+
+    a.nounderline:visited{
+        text-decoration:none;
+    }
+    a.nounderline:hover{
+        text-decoration:none;
+    }
+
+h2{
+    font-size:3em;
+}
+
 .generateTime{
     font-size:10px;
     color:blue;
@@ -130,4 +160,20 @@ body{
     .contentBody .filelisting{
         padding:12px 4px 2px 4px;
         font-size:1.75em;
+    }
+
+    .contentBody .folderlisting{
+        padding:12px 4px 2px 4px;
+        font-size:1.75em;
+    }
+
+    .contentBody .icon:link{
+        text-decoration:none;
+    }
+
+    .contentBody .icon:visited{
+        text-decoration:none;
+    }
+    .contentBody .icon:hover{
+        text-decoration:none;
     }
