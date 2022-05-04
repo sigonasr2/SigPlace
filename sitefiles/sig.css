@@ -73,7 +73,7 @@ body{
     }
     
     .contentBody .contentWrapper:hover:after{
-        content: "&#x2908; Click to expand.";
+        content: "⤈ Click to expand.";
         border-color: rgb(17, 153, 17, .8);
     }
 
