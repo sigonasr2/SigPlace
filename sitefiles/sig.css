@@ -72,7 +72,7 @@ body{
         border-color: rgb(17, 153, 17, .8);
     }
 
-    .contentBody .contentWrapper .unexpanded:hover:after{
+    .contentBody .contentWrapper .unexpanded{
         display: inline-block;
         background-color:rgba(255, 255, 255, .06);
         min-width:98vw;
