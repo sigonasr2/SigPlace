@@ -58,52 +58,10 @@ public class sigPlace {
         try {
             copyDirectory("sitefiles","out");
             Iterator<Path> items = Files.walk(Paths.get("out")).iterator();
-            while (items.hasNext()) {
-                Path f = items.next();
-                System.out.println(" Found "+f.getFileName());
-                if (Files.isRegularFile(f)) {
-                    try {
+            ParseArticleFiles(items);
 
-                        System.out.println("  Preparing "+f.getFileName());
-
-                        List<String> content = Files.readAllLines(f);
-                        if (isHTMLFile(f)) {
-                            content.addAll(0,Files.readAllLines(ops.get("%DEFAULT")));
-                            content.addAll(Files.readAllLines(ops.get("%FOOTER")));
-                        }
-
-                        System.out.println("  Parsing "+f.getFileName());
-                        for (int i=0;i<content.size();i++) {
-                            String s = content.get(i);
-                            if (s.length()>0&&isArticleFile(f)) {
-                                //Check for markdown pieces.
-                                if (s.charAt(0)=='-') {
-                                    //Start of a title piece.
-                                    s=s.replace("-",map.get("$TITLE_CONTENT_START"));
-                                    s=s+map.get("$TITLE_CONTENT_END").replace("%ID%","id=\"content_"+i+"\"");
-                                    //Use ⤈ if there's more text to be shown than can fit.
-                                } else
-                                if (s.contains("===")) {
-                                    s=map.get("$CONTENT_END")+map.get("$DATE_CONTENT_START")+s.replace("===","")+map.get("$CONTENT_END")+"<div class=\"unexpanded\" id=\"expand_"+i+"\" onClick=\"expand("+i+")\"><br/><br/><br/><br/>&#x2908; Click to expand.</div>"+map.get("$CONTENT_END");
-                                }
-                            }
-                            for (String key : map.keySet()) {
-                                s=s.replaceAll(Pattern.quote(key),map.get(key));
-                            }
-                            content.set(i,s);
-                        }
-
-                        System.out.println("  Writing to "+f.toAbsolutePath());
-
-                        Files.write(f, content, Charset.defaultCharset(),StandardOpenOption.CREATE,StandardOpenOption.TRUNCATE_EXISTING,StandardOpenOption.WRITE);
-                        
-                        System.out.println(" "+f.getFileName() + " conversion complete!");
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
+            items = Files.walk(Paths.get("out")).iterator();
+            ConvertArticleReferences(items);
         }catch (IOException e) {
             e.printStackTrace();
             System.err.println("Copying files over failed!");
@@ -125,6 +83,77 @@ public class sigPlace {
 
         System.out.println("\nStarting web server...");
         new sigServer();
+    }
+    private static void ParseArticleFiles(Iterator<Path> items) {
+        while (items.hasNext()) {
+            Path f = items.next();
+            System.out.println(" Found "+f.getFileName());
+            if (Files.isRegularFile(f)) {
+                try {
+
+                    System.out.println("  Preparing "+f.getFileName());
+
+                    List<String> content = Files.readAllLines(f);
+                    if (isHTMLFile(f)) {
+                        content.addAll(0,Files.readAllLines(ops.get("%DEFAULT")));
+                        content.addAll(Files.readAllLines(ops.get("%FOOTER")));
+                    }
+
+                    System.out.println("  Parsing "+f.getFileName());
+                    for (int i=0;i<content.size();i++) {
+                        String s = content.get(i);
+                        if (s.length()>0&&isArticleFile(f)) {
+                            //Check for markdown pieces.
+                            if (s.charAt(0)=='-') {
+                                //Start of a title piece.
+                                s=s.replace("-",map.get("$TITLE_CONTENT_START"));
+                                s=s+map.get("$TITLE_CONTENT_END").replace("%ID%","id=\"content_"+i+"\"");
+                                //Use ⤈ if there's more text to be shown than can fit.
+                            } else
+                            if (s.contains("===")) {
+                                s=map.get("$CONTENT_END")+map.get("$DATE_CONTENT_START")+s.replace("===","")+map.get("$CONTENT_END")+"<div class=\"unexpanded\" id=\"expand_"+i+"\" onClick=\"expand("+i+")\"><br/><br/><br/><br/>&#x2908; Click to expand.</div>"+map.get("$CONTENT_END");
+                            }
+                        }
+                        for (String key : map.keySet()) {
+                            s=s.replaceAll(Pattern.quote(key),map.get(key));
+                        }
+                        content.set(i,s);
+                    }
+
+                    System.out.println("  Writing to "+f.toAbsolutePath());
+
+                    Files.write(f, content, Charset.defaultCharset(),StandardOpenOption.CREATE,StandardOpenOption.TRUNCATE_EXISTING,StandardOpenOption.WRITE);
+                    
+                    System.out.println(" "+f.getFileName() + " conversion complete!");
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    private static void ConvertArticleReferences(Iterator<Path> items) {
+        while (items.hasNext()) {
+            Path f = items.next();
+            System.out.println(" Looking for Article References..."+f.getFileName());
+            if (Files.isRegularFile(f)&&isHTMLFile(f)) {
+                System.out.println("  Searching "+f.getFileName());
+                try {
+                    List<String> content = Files.readAllLines(f);
+                    for (int i=0;i<content.size();i++) {
+                        String s = content.get(i);
+                        if (s.length()>0&&s.contains("$ARTICLE_PREVIEW")) {
+                            String article = s.replace("$ARTICLE_PREVIEW ","");
+                            System.out.println("   Found article preview request in "+f.getFileName()+" for article "+article+".");
+                            Path file = Paths.get(OUTDIR,article);
+                            content.remove(i--);
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
     static void copyDirectory(String sourceDirectoryLocation, String destinationDirectoryLocation) 
     throws IOException {
@@ -162,7 +191,7 @@ public class sigPlace {
         System.out.println("    "+map);
         for (String key : map.keySet()) {
             System.out.println("Creating directory listing for "+key+"...");
-            StringBuilder sb = new StringBuilder("<!DOCTYPE html>");
+            StringBuilder sb = new StringBuilder("");
             List<String> data = Files.readAllLines(ops.get("%DEFAULT"));
             List<String> data2 = Files.readAllLines(ops.get("%FOOTER"));
             for (String d : data) {
