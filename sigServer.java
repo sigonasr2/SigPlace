@@ -94,10 +94,10 @@ public class sigServer {
                         }
                     }
                 } else {
-                    CreateRawRequest(clientOutput,statusCode,statusMsg,"text/html","We're sorry, your webpage is in another castle!".getBytes());
+                    CreateRawRequest(clientOutput,statusCode,statusMsg,"text/html","<!DOCTYPE html>\nWe're sorry, your webpage is in another castle!".getBytes());
                 }
             } else {
-                CreateRawRequest(clientOutput,statusCode,statusMsg,"text/html","We're sorry, your webpage exploded!".getBytes());
+                CreateRawRequest(clientOutput,statusCode,statusMsg,"text/html","<!DOCTYPE html>\nWe're sorry, your webpage exploded!".getBytes());
             }
             clientOutput.write("\r\n\r\n".getBytes());
             clientOutput.flush();

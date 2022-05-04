@@ -151,12 +151,47 @@ public class sigPlace {
         map.put("/",new ArrayList<Path>());
         while (it.hasNext()) {
             Path f = it.next();
-            String myKey = f.toAbsolutePath().toString().replace(startingPath,"").replace(f.getFileName().toString(),"");
-            System.out.println(myKey+","+f);
-            map.putIfAbsent(myKey,new ArrayList<Path>());
-            map.get(myKey).add(f);
+            if (!f.getFileName().toString().equals(OUTDIR)) {
+                String myKey = f.toAbsolutePath().toString().replace(startingPath,"").replace(f.getFileName().toString(),"");
+                //System.out.println(myKey+","+f);
+                map.putIfAbsent(myKey,new ArrayList<Path>());
+                map.get(myKey).add(f);
+            }
         }
-        System.out.println(map);
+        System.out.println("Directory structure determined:");
+        System.out.println("    "+map);
+        for (String key : map.keySet()) {
+            System.out.println("Creating directory listing for "+key+"...");
+            StringBuilder sb = new StringBuilder("<!DOCTYPE html>");
+            List<String> data = Files.readAllLines(ops.get("%DEFAULT"));
+            List<String> data2 = Files.readAllLines(ops.get("%FOOTER"));
+            for (String d : data) {
+                for (String k : sigPlace.map.keySet()) {
+                    d=d.replaceAll(Pattern.quote(k),sigPlace.map.get(k));
+                }
+                sb.append(d).append("\n");
+            }
+            sb.append("<div class=\"filelisting\">");
+            for (Path f : map.get(key)) {
+                sb.append(f.getFileName())
+                .append("\t")
+                .append(Files.getLastModifiedTime(f))
+                .append("\t")
+                .append(Files.getOwner(f))
+                .append("\t")
+                .append(Files.size(f))
+                .append("<br/>\n");
+            }
+            sb.append("</div>");
+            for (String d : data2) {
+                for (String k : sigPlace.map.keySet()) {
+                    d=d.replaceAll(Pattern.quote(k),sigPlace.map.get(k));
+                }
+                sb.append(d).append("\n");
+            }
+            Path newf = Files.write(Paths.get(OUTDIR,key,DIRECTORYLISTING_FILENAME),sb.toString().getBytes());
+            System.out.println("  Added info for ("+map.size()+") files to "+newf.toAbsolutePath());
+        }
     }
     private static boolean isArticleFile(Path f) {
         return f.getFileName().toString().contains(".article");

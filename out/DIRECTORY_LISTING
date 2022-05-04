@@ -1,0 +1,35 @@
+<!DOCTYPE html><!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/reset.css">
+<link rel="stylesheet" type="text/css" href="/sig.css">
+<meta charset="UTF-8">
+<script type="text/javascript">
+    function loadCodeBackground() {
+        fetch("codeBackground").then((data)=>data.text())
+        .then((data)=>{
+            document.getElementById("codeForeground").innerText=data
+            document.getElementById("codeBackground").innerText=data
+        })
+    }
+    loadCodeBackground();
+</script>
+</head>
+<body>
+<div class="contentBody">
+
+articles	2022-05-04T18:30:43.309932Z	gitpod	116<br/>
+codeBackground	2022-05-04T18:30:43.285932Z	gitpod	2635<br/>
+otherpage.html	2022-05-04T18:30:43.289932Z	gitpod	900<br/>
+reset.css	2022-05-04T18:30:43.293932Z	gitpod	1093<br/>
+sig.css	2022-05-04T18:30:43.301932Z	gitpod	3550<br/>
+testfile.html	2022-05-04T18:30:43.301932Z	gitpod	828<br/>
+
+</div> <!--End Content Body-->
+<div class="codeForeground" id="codeForeground"></div>
+<div class="codeBackground" id="codeBackground"></div>
+</body>
+<footer>
+
+</footer>
+</html>
