@@ -96,7 +96,7 @@ body{
 
             .contentBody .contentWrapper .content .unexpanded{
                 position:absolute;
-                bottom:20px;
+                bottom:0px;
                 min-width:98vw;
                 text-align:center;
                 font-size:1.75em;
