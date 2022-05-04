@@ -85,7 +85,6 @@ body{
 
         .contentBody .contentWrapper .content{
             display: inline-block;
-            position:relative;
             min-width:98vw;
             font-size:1.25em;
             padding: 4px;
@@ -95,8 +94,9 @@ body{
         }
 
             .contentBody .contentWrapper .content .unexpanded{
-                position:absolute;
+                position:relative;
                 top:-20px;
+                float:left;
                 min-width:98vw;
                 text-align:center;
                 font-size:1.75em;
