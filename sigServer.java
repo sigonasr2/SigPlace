@@ -5,6 +5,8 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -45,7 +47,7 @@ public class sigServer {
                                         //Send default directory.
                                         CreateRequest(client,"200","OK","testfile.html");
                                     } else {
-                                        CreateRequest(client,"200","OK",requestloc.replaceFirst("/",""));
+                                        CreateRequest(client,"200","OK",URLDecoder.decode(requestloc.replaceFirst("/",""),StandardCharsets.UTF_8));
                                     }
                                 }
                             } else {

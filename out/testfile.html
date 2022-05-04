@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <script type="text/javascript">
     function loadCodeBackground() {
-        fetch("codeBackground").then((data)=>data.text())
+        fetch("/codeBackground").then((data)=>data.text())
         .then((data)=>{
             document.getElementById("codeForeground").innerText=data
             document.getElementById("codeBackground").innerText=data

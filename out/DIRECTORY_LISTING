@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <script type="text/javascript">
     function loadCodeBackground() {
-        fetch("codeBackground").then((data)=>data.text())
+        fetch("/codeBackground").then((data)=>data.text())
         .then((data)=>{
             document.getElementById("codeForeground").innerText=data
             document.getElementById("codeBackground").innerText=data
@@ -18,12 +18,12 @@
 <body>
 <div class="contentBody">
 
-articles	2022-05-04T18:30:43.309932Z	gitpod	116<br/>
-codeBackground	2022-05-04T18:30:43.285932Z	gitpod	2635<br/>
-otherpage.html	2022-05-04T18:30:43.289932Z	gitpod	900<br/>
-reset.css	2022-05-04T18:30:43.293932Z	gitpod	1093<br/>
-sig.css	2022-05-04T18:30:43.301932Z	gitpod	3550<br/>
-testfile.html	2022-05-04T18:30:43.301932Z	gitpod	828<br/>
+<div class="folderlisting"><a href="/articles">articles</a>	2022-05-04T18:44:57.634585Z	gitpod	116</div><br/>
+<div class="filelisting"><a href="/codeBackground">codeBackground</a>	2022-05-04T18:44:57.606585Z	gitpod	2635</div><br/>
+<div class="filelisting"><a href="/otherpage.html">otherpage.html</a>	2022-05-04T18:44:57.614585Z	gitpod	901</div><br/>
+<div class="filelisting"><a href="/reset.css">reset.css</a>	2022-05-04T18:44:57.618585Z	gitpod	1093</div><br/>
+<div class="filelisting"><a href="/sig.css">sig.css</a>	2022-05-04T18:44:57.626585Z	gitpod	3652</div><br/>
+<div class="filelisting"><a href="/testfile.html">testfile.html</a>	2022-05-04T18:44:57.626585Z	gitpod	829</div><br/>
 
 </div> <!--End Content Body-->
 <div class="codeForeground" id="codeForeground"></div>

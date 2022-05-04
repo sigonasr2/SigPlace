@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <script type="text/javascript">
     function loadCodeBackground() {
-        fetch("codeBackground").then((data)=>data.text())
+        fetch("/codeBackground").then((data)=>data.text())
         .then((data)=>{
             document.getElementById("codeForeground").innerText=data
             document.getElementById("codeBackground").innerText=data
@@ -18,9 +18,9 @@
 <body>
 <div class="contentBody">
 
-curabitur vel tempus ex.article	2022-05-04T18:30:43.269932Z	gitpod	618<br/>
-sigplace1.article	2022-05-04T18:30:43.273932Z	gitpod	1559<br/>
-test articles	2022-05-04T18:30:43.205932Z	gitpod	69<br/>
+<div class="filelisting"><a href="/articles/curabitur vel tempus ex.article">curabitur vel tempus ex.article</a>	2022-05-04T18:44:57.590585Z	gitpod	618</div><br/>
+<div class="filelisting"><a href="/articles/sigplace1.article">sigplace1.article</a>	2022-05-04T18:44:57.594585Z	gitpod	1559</div><br/>
+<div class="folderlisting"><a href="/articles/test articles">test articles</a>	2022-05-04T18:44:57.446585Z	gitpod	69</div><br/>
 
 </div> <!--End Content Body-->
 <div class="codeForeground" id="codeForeground"></div>

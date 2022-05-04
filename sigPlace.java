@@ -171,18 +171,18 @@ public class sigPlace {
                 }
                 sb.append(d).append("\n");
             }
-            sb.append("<div class=\"filelisting\">");
             for (Path f : map.get(key)) {
-                sb.append(f.getFileName())
-                .append("\t")
+                sb.append("<div class=\"").append((Files.isDirectory(f)?"folderlisting":"filelisting")).append("\">")
+                .append("<a href=\""+(f.toAbsolutePath().toString().replace(Paths.get(OUTDIR).toAbsolutePath().toString(),""))+"\">")
+                .append(f.getFileName())
+                .append("</a>\t")
                 .append(Files.getLastModifiedTime(f))
                 .append("\t")
                 .append(Files.getOwner(f))
                 .append("\t")
                 .append(Files.size(f))
-                .append("<br/>\n");
+                .append("</div>\n");
             }
-            sb.append("</div>");
             for (String d : data2) {
                 for (String k : sigPlace.map.keySet()) {
                     d=d.replaceAll(Pattern.quote(k),sigPlace.map.get(k));

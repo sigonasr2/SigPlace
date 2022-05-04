@@ -29,7 +29,7 @@
                                         //Send default directory.
                                         CreateRequest(client,"200","OK","testfile.html");
                                     } else {
-                                        CreateRequest(client,"200","OK",requestloc.replaceFirst("/",""));
+                                        CreateRequest(client,"200","OK",URLDecoder.decode(requestloc.replaceFirst("/",""),StandardCharsets.UTF_8));
                                     }
                                 }
                             } else {
