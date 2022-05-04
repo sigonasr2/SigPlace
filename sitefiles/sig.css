@@ -99,6 +99,7 @@ body{
                 min-width:98vw;
                 max-height:0px; /*Make the element effectively have no space taken*/
                 text-align:center;
+                float:left;
                 font-size:1.75em;
                 padding-top:2px;
                 padding-bottom:-20px;
