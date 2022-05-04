@@ -95,7 +95,6 @@ body{
 
             .contentBody .contentWrapper .content .unexpanded{
                 display: inline-block;
-                background-color:rgba(255, 255, 255, .06);
                 min-width:98vw;
                 text-align:center;
                 font-size:2.75em;
