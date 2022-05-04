@@ -85,6 +85,7 @@ body{
 
         .contentBody .contentWrapper .content{
             display: inline-block;
+            position:relative;
             min-width:98vw;
             font-size:1.25em;
             padding: 4px;
@@ -94,7 +95,7 @@ body{
         }
 
             .contentBody .contentWrapper .content .unexpanded{
-                position:relative;
+                position:absolute;
                 top:-20px;
                 min-width:98vw;
                 max-height:0px; /*Make the element effectively have no space taken*/
