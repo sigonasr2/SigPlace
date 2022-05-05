@@ -63,6 +63,8 @@ public class sigPlace {
 
             items = Files.walk(Paths.get("out")).iterator();
             ConvertArticleReferences(items);
+            items = Files.walk(Paths.get("out","articles")).iterator();
+            GenerateArticleFiles(items);
         }catch (IOException e) {
             e.printStackTrace();
             System.err.println("Copying files over failed!");
@@ -136,6 +138,44 @@ public class sigPlace {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            }
+        }
+    }
+    private static void GenerateArticleFiles(Iterator<Path> items){
+        System.out.println(" Generating article files...");
+        while (items.hasNext()) {
+            Path f = items.next();
+            try {
+                if (Files.isRegularFile(f)&&isArticleFile(f)) {
+                    System.out.println("  Creating article for "+f.getFileName());
+                    List<String> content = Files.readAllLines(f);
+                    List<String> preContent = Files.readAllLines(ops.get("%DEFAULT"));
+                    List<String> postContent = Files.readAllLines(ops.get("%FOOTER"));
+                    StringBuilder sb = new StringBuilder();
+                    for (String d : preContent) {
+                        for (String k : sigPlace.map.keySet()) {
+                            d=d.replaceAll(Pattern.quote(k),sigPlace.map.get(k));
+                        }
+                        sb.append(d).append("\n");
+                    }
+                    for (String d : content) {
+                        for (String k : sigPlace.map.keySet()) {
+                            d=d.replaceAll(Pattern.quote(k),sigPlace.map.get(k));
+                        }
+                        d=d.replaceFirst("div class=\"content\"","div class=\"expandedContent\"");
+                        d=d.replaceFirst("%CONDITIONAL_EXPAND%","");
+                        sb.append(d).append("\n");
+                    }
+                    for (String d : postContent) {
+                        for (String k : sigPlace.map.keySet()) {
+                            d=d.replaceAll(Pattern.quote(k),sigPlace.map.get(k));
+                        }
+                        sb.append(d).append("\n");
+                    }
+                    Files.write(Paths.get(f.getParent().toString(),f.getFileName()+".html"),sb.toString().getBytes());
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }

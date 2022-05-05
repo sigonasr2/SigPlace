@@ -18,9 +18,11 @@
 <body>
 <div class="contentBody">
 
-<h2>Directory Listing for /articles/</h2><div class="folderlisting"><a href="/articles/.." class="icon">&#x1F4C1;</a><a href="/articles/..">.. </a><a href="/articles/.." class="nounderline">(Previous Directory)</a></div><div class="filelisting"><a href="/articles/curabitur vel tempus ex.article" class="icon">&#x1F5CE;</a><a href="/articles/curabitur vel tempus ex.article">curabitur vel tempus ex.article</a>	2022-05-05T19:52:33.483616Z	gitpod	579</div>
-<div class="filelisting"><a href="/articles/sigplace1.article" class="icon">&#x1F5CE;</a><a href="/articles/sigplace1.article">sigplace1.article</a>	2022-05-05T19:52:33.487616Z	gitpod	3807</div>
-<div class="folderlisting"><a href="/articles/test articles" class="icon">&#x1F4C1;</a><a href="/articles/test articles">test articles</a>	2022-05-05T19:52:33.419616Z	gitpod	69</div>
+<h2>Directory Listing for /articles/</h2><div class="folderlisting"><a href="/articles/.." class="icon">&#x1F4C1;</a><a href="/articles/..">.. </a><a href="/articles/.." class="nounderline">(Previous Directory)</a></div><div class="filelisting"><a href="/articles/curabitur vel tempus ex.article" class="icon">&#x1F5CE;</a><a href="/articles/curabitur vel tempus ex.article">curabitur vel tempus ex.article</a>	2022-05-05T20:16:24.462334Z	gitpod	579</div>
+<div class="filelisting"><a href="/articles/sigplace1.article" class="icon">&#x1F5CE;</a><a href="/articles/sigplace1.article">sigplace1.article</a>	2022-05-05T20:16:24.470334Z	gitpod	3807</div>
+<div class="folderlisting"><a href="/articles/test articles" class="icon">&#x1F4C1;</a><a href="/articles/test articles">test articles</a>	2022-05-05T20:16:24.538334Z	gitpod	147</div>
+<div class="filelisting"><a href="/articles/curabitur vel tempus ex.article.html" class="icon">&#x1F5CE;</a><a href="/articles/curabitur vel tempus ex.article.html">curabitur vel tempus ex.article.html</a>	2022-05-05T20:16:24.530334Z	gitpod	1296</div>
+<div class="filelisting"><a href="/articles/sigplace1.article.html" class="icon">&#x1F5CE;</a><a href="/articles/sigplace1.article.html">sigplace1.article.html</a>	2022-05-05T20:16:24.530334Z	gitpod	4524</div>
 
 </div> <!--End Content Body-->
 <div class="codeForeground" id="codeForeground"></div>

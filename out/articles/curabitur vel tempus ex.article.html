@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/reset.css">
+<link rel="stylesheet" type="text/css" href="/sig.css">
+<meta charset="UTF-8">
+<script type="text/javascript">
+    function loadCodeBackground() {
+        fetch("/codeBackground").then((data)=>data.text())
+        .then((data)=>{
+            document.getElementById("codeForeground").innerText=data
+            document.getElementById("codeBackground").innerText=data
+        })
+    }
+    loadCodeBackground();
+</script>
+</head>
+<body>
+<div class="contentBody">
+
+<div class="contentWrapper"><h1>Curabitur vel tempus ex</h1><div class="expandedContent" id="content_out/articles/curabitur vel tempus ex.article">
+<p>Curabitur vel tempus ex. Duis cursus sapien nisl, ut pulvinar dui porttitor ut. Nullam odio purus, tristique non turpis sit amet, malesuada ultricies purus. Mauris ut nulla nisl. Aenean sit amet est egestas justo volutpat consequat. Suspendisse in sagittis augue, et mattis tortor. Nullam viverra metus et nibh fringilla iaculis.</p>
+</div><div class="datebar"></div><div class="date">29 Apr 2022 7:37PM</div></div>
+
+</div> <!--End Content Body-->
+<div class="codeForeground" id="codeForeground"></div>
+<div class="codeBackground" id="codeBackground"></div>
+</body>
+<footer>
+
+</footer>
+</html>
