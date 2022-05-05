@@ -113,7 +113,13 @@ public class sigPlace {
                             } else
                             if (s.contains("===")) {
                                 s=map.get("$CONTENT_END")+map.get("$DATE_CONTENT_START")+s.replace("===","")+map.get("$CONTENT_END")+"%CONDITIONAL_EXPAND%"+map.get("$CONTENT_END");
+                            } else {
+                                //It's regular content, so add paragraphs.
+                                s="<p>"+s+"</p>";
                             }
+                        } else 
+                        if (s.length()==0&&isArticleFile(f)) {
+                            s="<br/>"; //Setup a line break here.
                         }
                         for (String key : map.keySet()) {
                             s=s.replaceAll(Pattern.quote(key),map.get(key));
