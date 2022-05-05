@@ -19,6 +19,7 @@ public class sigPlace {
     final static String ROOTDIR = "sitefiles";
     final static String REFDIR = "ref";
     final static String OUTDIR = "out";
+    final static String ARTICLESDIR = "articles";
     final static String DIRECTORYLISTING_FILENAME = "DIRECTORY_LISTING";
     static int PORT = 8080;
 
@@ -143,12 +144,21 @@ public class sigPlace {
                     for (int i=0;i<content.size();i++) {
                         String s = content.get(i);
                         if (s.length()>0&&s.contains("$ARTICLE_PREVIEW")) {
-                            String article = s.replace("$ARTICLE_PREVIEW ","");
+                            String article = ARTICLESDIR+"/"+s.replace("$ARTICLE_PREVIEW ","")+".article";
                             System.out.println("   Found article preview request in "+f.getFileName()+" for article "+article+".");
                             Path file = Paths.get(OUTDIR,article);
-                            content.remove(i--);
+                            List<String> newData = Files.readAllLines(file);
+                            if (newData.size()>0) {
+                                content.set(i,newData.get(0));
+                                for (int j=1;j<newData.size();j++) {
+                                    content.add(i+j, newData.get(j));
+                                }
+                            } else {
+                                content.set(i,"");
+                            }
                         }
                     }
+                    Files.write(f,content);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

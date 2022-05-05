@@ -18,12 +18,12 @@
 <body>
 <div class="contentBody">
 
-<h2>Directory Listing for /</h2><div class="folderlisting"><a href="/.." class="icon">&#x1F4C1;</a><a href="/..">.. </a><a href="/.." class="nounderline">(Previous Directory)</a></div><div class="folderlisting"><a href="/articles" class="icon">&#x1F4C1;</a><a href="/articles">articles</a>	2022-05-04T20:08:17.510417Z	gitpod	116</div>
-<div class="filelisting"><a href="/codeBackground" class="icon">&#x1F5CE;</a><a href="/codeBackground">codeBackground</a>	2022-05-04T20:08:17.482417Z	gitpod	2635</div>
-<div class="filelisting"><a href="/otherpage.html" class="icon">&#x1F5CE;</a><a href="/otherpage.html">otherpage.html</a>	2022-05-04T20:08:17.490417Z	gitpod	941</div>
-<div class="filelisting"><a href="/reset.css" class="icon">&#x1F5CE;</a><a href="/reset.css">reset.css</a>	2022-05-04T20:08:17.494417Z	gitpod	1093</div>
-<div class="filelisting"><a href="/sig.css" class="icon">&#x1F5CE;</a><a href="/sig.css">sig.css</a>	2022-05-04T20:08:17.498417Z	gitpod	4314</div>
-<div class="filelisting"><a href="/testfile.html" class="icon">&#x1F5CE;</a><a href="/testfile.html">testfile.html</a>	2022-05-04T20:08:17.502417Z	gitpod	829</div>
+<h2>Directory Listing for /</h2><div class="folderlisting"><a href="/.." class="icon">&#x1F4C1;</a><a href="/..">.. </a><a href="/.." class="nounderline">(Previous Directory)</a></div><div class="folderlisting"><a href="/articles" class="icon">&#x1F4C1;</a><a href="/articles">articles</a>	2022-05-05T12:57:24.310258Z	gitpod	116</div>
+<div class="filelisting"><a href="/codeBackground" class="icon">&#x1F5CE;</a><a href="/codeBackground">codeBackground</a>	2022-05-05T12:57:24.274258Z	gitpod	2635</div>
+<div class="filelisting"><a href="/otherpage.html" class="icon">&#x1F5CE;</a><a href="/otherpage.html">otherpage.html</a>	2022-05-05T12:57:24.302258Z	gitpod	5877</div>
+<div class="filelisting"><a href="/reset.css" class="icon">&#x1F5CE;</a><a href="/reset.css">reset.css</a>	2022-05-05T12:57:24.282258Z	gitpod	1093</div>
+<div class="filelisting"><a href="/sig.css" class="icon">&#x1F5CE;</a><a href="/sig.css">sig.css</a>	2022-05-05T12:57:24.290258Z	gitpod	4314</div>
+<div class="filelisting"><a href="/testfile.html" class="icon">&#x1F5CE;</a><a href="/testfile.html">testfile.html</a>	2022-05-05T12:57:24.306258Z	gitpod	829</div>
 
 </div> <!--End Content Body-->
 <div class="codeForeground" id="codeForeground"></div>
