@@ -1,3 +1,3 @@
-<div class="contentWrapper"><h1>Curabitur vel tempus ex</h1><div class="content" id="content_0">
+<div class="contentWrapper"><h1>Curabitur vel tempus ex</h1><div class="content" id="content_out/articles/curabitur vel tempus ex.article">
 Curabitur vel tempus ex. Duis cursus sapien nisl, ut pulvinar dui porttitor ut. Nullam odio purus, tristique non turpis sit amet, malesuada ultricies purus. Mauris ut nulla nisl. Aenean sit amet est egestas justo volutpat consequat. Suspendisse in sagittis augue, et mattis tortor. Nullam viverra metus et nibh fringilla iaculis.
-</div><div class="datebar"></div><div class="date">29 Apr 2022 7:37PM</div><div class="unexpanded" id="expand_2" onClick="expand(2)"><br/><br/><br/><br/>&#x2908; Click to expand.</div></div>
+</div><div class="datebar"></div><div class="date">29 Apr 2022 7:37PM</div>%CONDITIONAL_EXPAND%</div>

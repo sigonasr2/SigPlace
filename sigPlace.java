@@ -108,11 +108,11 @@ public class sigPlace {
                             if (s.charAt(0)=='-') {
                                 //Start of a title piece.
                                 s=s.replace("-",map.get("$TITLE_CONTENT_START"));
-                                s=s+map.get("$TITLE_CONTENT_END").replace("%ID%","id=\"content_"+i+"\"");
+                                s=s+map.get("$TITLE_CONTENT_END").replace("%ID%","id=\"content_"+f+"\"");
                                 //Use ⤈ if there's more text to be shown than can fit.
                             } else
                             if (s.contains("===")) {
-                                s=map.get("$CONTENT_END")+map.get("$DATE_CONTENT_START")+s.replace("===","")+map.get("$CONTENT_END")+"<div class=\"unexpanded\" id=\"expand_"+i+"\" onClick=\"expand("+i+")\"><br/><br/><br/><br/>&#x2908; Click to expand.</div>"+map.get("$CONTENT_END");
+                                s=map.get("$CONTENT_END")+map.get("$DATE_CONTENT_START")+s.replace("===","")+map.get("$CONTENT_END")+"%CONDITIONAL_EXPAND%"+map.get("$CONTENT_END");
                             }
                         }
                         for (String key : map.keySet()) {
@@ -137,6 +137,7 @@ public class sigPlace {
         while (items.hasNext()) {
             Path f = items.next();
             System.out.println(" Looking for Article References..."+f.getFileName());
+            boolean articleJavascriptIncluded=false;
             if (Files.isRegularFile(f)&&isHTMLFile(f)) {
                 System.out.println("  Searching "+f.getFileName());
                 try {
@@ -153,8 +154,18 @@ public class sigPlace {
                                 for (int j=1;j<newData.size();j++) {
                                     content.add(i+j, newData.get(j));
                                 }
+                                String lastline=content.get(i+newData.size()-1);
+                                lastline=lastline.replace("%CONDITIONAL_EXPAND%","<div class=\"unexpanded\" id=\"expand_"+i+"\" onClick=\"expand(this,'"+Paths.get(OUTDIR,article.toString())+"')\"><br/><br/><br/><br/>&#x2908; Click to expand.</div>");
+                                content.set(i+newData.size()-1,lastline);//<div class=\"unexpanded\" id=\"expand_"+i+"\" onClick=\"expand("+i+")\"><br/><br/><br/><br/>&#x2908; Click to expand.</div>");
                             } else {
                                 content.set(i,"");
+                            }
+                            if (!articleJavascriptIncluded) {
+                                List<String> articlejs = Files.readAllLines(Paths.get(REFDIR,"article.js"));
+                                for (int j=articlejs.size()-1;j>=0;j--) {
+                                    content.add(i,articlejs.get(j));
+                                }
+                                articleJavascriptIncluded=true;
                             }
                         }
                     }
