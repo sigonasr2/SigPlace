@@ -10,7 +10,13 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.attribute.FileTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class sigServer {
@@ -55,7 +61,7 @@ public class sigServer {
                             }
                         }
                         while (!(line=in.readLine()).isBlank()) {
-                            //System.out.println(line);
+                            System.out.println(line);
                         }
                     }
                 } catch(SocketException|NullPointerException e) {
@@ -68,9 +74,17 @@ public class sigServer {
     }
 
     private void CreateRawRequest(OutputStream stream, String statusCode, String statusMsg, String contentType, byte[] content) {
+        CreateRawRequest(stream, statusCode, statusMsg, contentType, content,null);
+    }
+
+    private void CreateRawRequest(OutputStream stream, String statusCode, String statusMsg, String contentType, byte[] content, FileTime lastModified) {
         try {
             stream.write(("HTTP/1.1 "+statusCode+" "+statusMsg+"\r\n").getBytes());
             stream.write(("ContentType: "+contentType+"\r\n").getBytes());
+            if (lastModified!=null) {
+                ZonedDateTime date = lastModified.toInstant().atZone(ZoneId.of("GMT"));
+                stream.write(("Last-Modified: "+date.format(DateTimeFormatter.RFC_1123_DATE_TIME)+"\r\n").getBytes());
+            }
             stream.write("\r\n".getBytes());
             stream.write(content);
         } catch (IOException e) {
@@ -89,7 +103,7 @@ public class sigServer {
                         CreateRawRequest(clientOutput,statusCode,statusMsg,"text/html",Files.readAllBytes(Paths.get(sigPlace.OUTDIR,string,sigPlace.DIRECTORYLISTING_FILENAME)));
                         clientOutput.write(("<div class=\"generateTime\">Webpage generated in "+(System.currentTimeMillis()-startTime)+"ms</div>\r\n").getBytes());
                     } else {
-                        CreateRawRequest(clientOutput,statusCode,statusMsg,Files.probeContentType(file),Files.readAllBytes(file));
+                        CreateRawRequest(clientOutput,statusCode,statusMsg,Files.probeContentType(file),Files.readAllBytes(file),Files.getLastModifiedTime(file));
                         String contentType = Files.probeContentType(file);
                         if (contentType!=null&&contentType.equals("text/html")) {
                             clientOutput.write(("<div class=\"generateTime\">Webpage generated in "+(System.currentTimeMillis()-startTime)+"ms</div>\r\n").getBytes());

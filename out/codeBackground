@@ -37,4 +37,4 @@
                             }
                         }
                         while (!(line=in.readLine()).isBlank()) {
-                            //System.out.println(line);
+                            System.out.println(line);
