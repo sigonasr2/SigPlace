@@ -5,10 +5,19 @@
                 try (Socket client = socket.accept()) {
                     System.out.println("New client connection detected: "+client.toString());
                     BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-                    String line;
-                    line=in.readLine(); //Read the first line, this should be our request.
-                    if (line!=null) {
-                        String[] splitter = line.split(Pattern.quote(" "));
+                    String requestLine,line;
+                    ZonedDateTime modifiedDate = null;
+                    requestLine=in.readLine(); //Read the first line, this should be our request.
+                    if (requestLine!=null) {
+                        while (!(line=in.readLine()).isBlank()) {
+                            //System.out.println(requestLine);
+                            if (line.contains("If-Modified-Since: ")) {
+                                String modifiedSince=line.replace("If-Modified-Since: ","");
+                                modifiedDate = ZonedDateTime.parse(modifiedSince,DateTimeFormatter.RFC_1123_DATE_TIME);
+                                //System.out.println("Found a modified date of: "+modifiedDate);
+                            }
+                        }
+                        String[] splitter = requestLine.split(Pattern.quote(" "));
                         if (splitter.length==3) {
                             //This is valid.
                             if (splitter[0].equals("GET")) { //This is a GET request.
@@ -27,14 +36,5 @@
                                     }
                                     if (requestloc.equals("/")) {
                                         //Send default directory.
-                                        CreateRequest(client,"200","OK","testfile.html");
-                                    } else {
-                                        CreateRequest(client,"200","OK",URLDecoder.decode(requestloc.replaceFirst("/",""),StandardCharsets.UTF_8));
-                                    }
-                                }
-                            } else {
-                                CreateRequest(client,"501","Not Implemented","testfile.html");
-                            }
-                        }
-                        while (!(line=in.readLine()).isBlank()) {
-                            System.out.println(line);
+                                        if (modifiedDate==null||modifiedDate.isBefore(GetLastModifiedDate(sigPlace.OUTDIR,"testfile.html"))) {
+                                            System.out.println(GetLastModifiedDate(sigPlace.OUTDIR,"testfile.html")+"//"+modifiedDate);

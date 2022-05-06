@@ -11,12 +11,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.attribute.FileTime;
+import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.TextStyle;
+import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
-import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 public class sigServer {
@@ -29,10 +30,19 @@ public class sigServer {
                 try (Socket client = socket.accept()) {
                     System.out.println("New client connection detected: "+client.toString());
                     BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-                    String line;
-                    line=in.readLine(); //Read the first line, this should be our request.
-                    if (line!=null) {
-                        String[] splitter = line.split(Pattern.quote(" "));
+                    String requestLine,line;
+                    ZonedDateTime modifiedDate = null;
+                    requestLine=in.readLine(); //Read the first line, this should be our request.
+                    if (requestLine!=null) {
+                        while (!(line=in.readLine()).isBlank()) {
+                            //System.out.println(requestLine);
+                            if (line.contains("If-Modified-Since: ")) {
+                                String modifiedSince=line.replace("If-Modified-Since: ","");
+                                modifiedDate = ZonedDateTime.parse(modifiedSince,DateTimeFormatter.RFC_1123_DATE_TIME);
+                                //System.out.println("Found a modified date of: "+modifiedDate);
+                            }
+                        }
+                        String[] splitter = requestLine.split(Pattern.quote(" "));
                         if (splitter.length==3) {
                             //This is valid.
                             if (splitter[0].equals("GET")) { //This is a GET request.
@@ -51,17 +61,27 @@ public class sigServer {
                                     }
                                     if (requestloc.equals("/")) {
                                         //Send default directory.
-                                        CreateRequest(client,"200","OK","testfile.html");
+                                        if (modifiedDate==null||modifiedDate.isBefore(GetLastModifiedDate(sigPlace.OUTDIR,"testfile.html"))) {
+                                            System.out.println(GetLastModifiedDate(sigPlace.OUTDIR,"testfile.html")+"//"+modifiedDate);
+                                            CreateRequest(client,"200","OK","testfile.html");
+                                        } else {
+                                            //System.out.println(" testfile.html is cached! No sending required.");
+                                            CreateRequest(client,"304","Not Modified","testfile.html");
+                                        }
                                     } else {
-                                        CreateRequest(client,"200","OK",URLDecoder.decode(requestloc.replaceFirst("/",""),StandardCharsets.UTF_8));
+                                        String location = URLDecoder.decode(requestloc.replaceFirst("/",""),StandardCharsets.UTF_8);
+                                        if (modifiedDate==null||modifiedDate.isBefore(GetLastModifiedDate(sigPlace.OUTDIR,location))) 
+                                        {
+                                            CreateRequest(client,"200","OK",location);
+                                        } else {
+                                            //System.out.println(" "+location+" is cached! No sending required.");
+                                            CreateRequest(client,"304","Not Modified",location);
+                                        }
                                     }
                                 }
                             } else {
                                 CreateRequest(client,"501","Not Implemented","testfile.html");
                             }
-                        }
-                        while (!(line=in.readLine()).isBlank()) {
-                            System.out.println(line);
                         }
                     }
                 } catch(SocketException|NullPointerException e) {
@@ -73,6 +93,12 @@ public class sigServer {
         }
     }
 
+    private ZonedDateTime GetLastModifiedDate(String first,String...more) throws IOException {
+        Instant newTime = Files.getLastModifiedTime(Paths.get(first,more)).toInstant();
+        newTime = newTime.truncatedTo(ChronoUnit.SECONDS);
+        return newTime.atZone(ZoneId.of("GMT"));
+    }
+
     private void CreateRawRequest(OutputStream stream, String statusCode, String statusMsg, String contentType, byte[] content) {
         CreateRawRequest(stream, statusCode, statusMsg, contentType, content,null);
     }
@@ -82,7 +108,7 @@ public class sigServer {
             stream.write(("HTTP/1.1 "+statusCode+" "+statusMsg+"\r\n").getBytes());
             stream.write(("ContentType: "+contentType+"\r\n").getBytes());
             if (lastModified!=null) {
-                ZonedDateTime date = lastModified.toInstant().atZone(ZoneId.of("GMT"));
+                ZonedDateTime date = lastModified.toInstant().truncatedTo(ChronoUnit.SECONDS).atZone(ZoneId.of("GMT"));
                 stream.write(("Last-Modified: "+date.format(DateTimeFormatter.RFC_1123_DATE_TIME)+"\r\n").getBytes());
             }
             stream.write("\r\n".getBytes());
@@ -100,7 +126,7 @@ public class sigServer {
             if (statusCode.equals("200")) {
                 if (Files.exists(file)) {
                     if (Files.isDirectory(file)) {
-                        CreateRawRequest(clientOutput,statusCode,statusMsg,"text/html",Files.readAllBytes(Paths.get(sigPlace.OUTDIR,string,sigPlace.DIRECTORYLISTING_FILENAME)));
+                        CreateRawRequest(clientOutput,statusCode,statusMsg,"text/html",Files.readAllBytes(Paths.get(sigPlace.OUTDIR,string,sigPlace.DIRECTORYLISTING_FILENAME)),Files.getLastModifiedTime(file));
                         clientOutput.write(("<div class=\"generateTime\">Webpage generated in "+(System.currentTimeMillis()-startTime)+"ms</div>\r\n").getBytes());
                     } else {
                         CreateRawRequest(clientOutput,statusCode,statusMsg,Files.probeContentType(file),Files.readAllBytes(file),Files.getLastModifiedTime(file));
@@ -109,16 +135,18 @@ public class sigServer {
                             clientOutput.write(("<div class=\"generateTime\">Webpage generated in "+(System.currentTimeMillis()-startTime)+"ms</div>\r\n").getBytes());
                         }
                     }
+                    System.out.println("Sent "+file+" to client "+client+".");
                 } else {
                     CreateRawRequest(clientOutput,statusCode,statusMsg,"text/html","<!DOCTYPE html>\nWe're sorry, your webpage is in another castle!".getBytes());
+                    System.out.println("Sent [404] "+statusMsg+" to client "+client+" for "+file+".");
                 }
             } else {
                 CreateRawRequest(clientOutput,statusCode,statusMsg,"text/html","<!DOCTYPE html>\nWe're sorry, your webpage exploded!".getBytes());
+                System.out.println("Sent ["+statusCode+"] "+statusMsg+" to client "+client+" for "+file+".");
             }
             clientOutput.write("\r\n\r\n".getBytes());
             clientOutput.flush();
             client.close();
-            System.out.println("Sent "+file+" to client "+client+".");
         } catch (IOException e) {
             e.printStackTrace();
         }
