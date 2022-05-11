@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/reset.css">
+<link rel="stylesheet" type="text/css" href="/sig.css">
+<meta charset="UTF-8">
+<script type="text/javascript">
+    function loadCodeBackground() {
+        fetch("/codeBackground").then((data)=>data.text())
+        .then((data)=>{
+            document.getElementById("codeForeground").innerText=data
+            document.getElementById("codeBackground").innerText=data
+        })
+    }
+    loadCodeBackground();
+</script>
+</head>
+<body>
+<div class="contentBody">
+
+SigPlace
+<form method="post" action="./SUBMITFILE" enctype="multipart/form-data">
+    <input type="file"/>
+    <input type="submit"/>
+</form>
+
+</div> <!--End Content Body-->
+<div class="codeForeground" id="codeForeground"></div>
+<div class="codeBackground" id="codeBackground"></div>
+</body>
+<footer>
+
+</footer>
+</html>

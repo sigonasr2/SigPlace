@@ -17,7 +17,6 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 public class sigServer {
@@ -34,8 +33,8 @@ public class sigServer {
                     ZonedDateTime modifiedDate = null;
                     requestLine=in.readLine(); //Read the first line, this should be our request.
                     if (requestLine!=null) {
-                        while (!(line=in.readLine()).isBlank()) {
-                            //System.out.println(requestLine);
+                        while ((line=in.readLine())!=null) {
+                            System.out.println(line);
                             if (line.contains("If-Modified-Since: ")) {
                                 String modifiedSince=line.replace("If-Modified-Since: ","");
                                 modifiedDate = ZonedDateTime.parse(modifiedSince,DateTimeFormatter.RFC_1123_DATE_TIME);
@@ -79,6 +78,9 @@ public class sigServer {
                                         }
                                     }
                                 }
+                            } else 
+                            if (splitter[0].equals("POST")) { //This is a POST request.
+                                CreateRequest(client,"501","Not Implemented","testfile.html");
                             } else {
                                 CreateRequest(client,"501","Not Implemented","testfile.html");
                             }
