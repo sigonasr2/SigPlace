@@ -9,7 +9,8 @@
                     ZonedDateTime modifiedDate = null;
                     requestLine=in.readLine(); //Read the first line, this should be our request.
                     if (requestLine!=null) {
-                        while ((line=in.readLine())!=null) {
+                        while (in.ready()) {
+                            line=in.readLine();
                             System.out.println(line);
                             if (line.contains("If-Modified-Since: ")) {
                                 String modifiedSince=line.replace("If-Modified-Since: ","");
@@ -37,4 +38,3 @@
                                     if (requestloc.equals("/")) {
                                         //Send default directory.
                                         if (modifiedDate==null||modifiedDate.isBefore(GetLastModifiedDate(sigPlace.OUTDIR,"testfile.html"))) {
-                                            System.out.println(GetLastModifiedDate(sigPlace.OUTDIR,"testfile.html")+"//"+modifiedDate);

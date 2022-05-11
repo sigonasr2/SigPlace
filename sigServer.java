@@ -33,7 +33,8 @@ public class sigServer {
                     ZonedDateTime modifiedDate = null;
                     requestLine=in.readLine(); //Read the first line, this should be our request.
                     if (requestLine!=null) {
-                        while ((line=in.readLine())!=null) {
+                        while (in.ready()) {
+                            line=in.readLine();
                             System.out.println(line);
                             if (line.contains("If-Modified-Since: ")) {
                                 String modifiedSince=line.replace("If-Modified-Since: ","");
