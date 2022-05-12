@@ -49,6 +49,7 @@ public class sigServer {
                                 }
                             } else 
                             if (line.contains(boundary)) {
+                                System.out.println("");
                                 System.out.println("<...>");
                                 System.out.println("");
                                 System.out.println(line);
@@ -56,12 +57,12 @@ public class sigServer {
                             } else
                             if (line.contains("Content-Disposition: ")||line.contains("Content-Type: ")) {
                                 System.out.println(line);
-                            }*/
+                            }
 
                             if (line.contains("Content-Type: multipart/form-data; boundary=")) {
                                 boundary="--"+line.substring("Content-Type: multipart/form-data; boundary=".length());
-                            } else
-                            if (line.contains("If-Modified-Since: ")) {
+                            } else*/
+                            if (modifiedDate==null&&line.startsWith("If-Modified-Since: ")) {
                                 String modifiedSince=line.replace("If-Modified-Since: ","");
                                 modifiedDate = ZonedDateTime.parse(modifiedSince,DateTimeFormatter.RFC_1123_DATE_TIME);
                                 //System.out.println("Found a modified date of: "+modifiedDate);
