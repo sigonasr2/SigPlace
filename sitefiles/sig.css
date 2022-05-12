@@ -190,3 +190,33 @@ body{
     .contentBody .icon:hover{
         text-decoration:none;
     }
+
+pre{
+    font-family:'Courier New', Courier, monospace;
+    padding:3px;
+    font-size:1.25em;
+    position:relative;
+    width:85vw;
+    color:darkseagreen;
+    background:radial-gradient(farthest-side at 90% 90%,rgba(0, 255, 0, .06) 0%, rgba(255, 255, 255, .06) 100%);
+}
+
+pre .keyword{
+    color:cornflowerblue;
+}
+
+pre .variable{
+    color:#AA77FF;
+}
+
+pre .class{
+    color:dodgerblue;
+}
+
+pre .function{
+    color:darkgoldenrod;
+}
+
+pre .string{
+    color:forestgreen;
+}

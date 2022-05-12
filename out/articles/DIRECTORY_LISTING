@@ -18,11 +18,23 @@
 <body>
 <div class="contentBody">
 
-<h2>Directory Listing for /articles/</h2><div class="folderlisting"><a href="/articles/.." class="icon">&#x1F4C1;</a><a href="/articles/..">.. </a><a href="/articles/.." class="nounderline">(Previous Directory)</a></div><div class="filelisting"><a href="/articles/curabitur vel tempus ex.article" class="icon">&#x1F5CE;</a><a href="/articles/curabitur vel tempus ex.article">curabitur vel tempus ex.article</a>	2022-05-12T15:25:09.478631Z	gitpod	579</div>
-<div class="filelisting"><a href="/articles/sigplace1.article" class="icon">&#x1F5CE;</a><a href="/articles/sigplace1.article">sigplace1.article</a>	2022-05-12T15:25:09.482631Z	gitpod	3807</div>
-<div class="folderlisting"><a href="/articles/test articles" class="icon">&#x1F4C1;</a><a href="/articles/test articles">test articles</a>	2022-05-12T15:25:09.650631Z	gitpod	147</div>
-<div class="filelisting"><a href="/articles/curabitur vel tempus ex.article.html" class="icon">&#x1F5CE;</a><a href="/articles/curabitur vel tempus ex.article.html">curabitur vel tempus ex.article.html</a>	2022-05-12T15:25:09.642631Z	gitpod	1296</div>
-<div class="filelisting"><a href="/articles/sigplace1.article.html" class="icon">&#x1F5CE;</a><a href="/articles/sigplace1.article.html">sigplace1.article.html</a>	2022-05-12T15:25:09.642631Z	gitpod	4524</div>
+<pre>Test<span style="color:red;">Testing</span>
+Test a whole
+bunch of random Java code.
+
+<span class="variable">System</span>.<span class="variable">out</span>.<span class="function">println</span>(<span class="string">"Building directory listings..."</span>);
+<span class="keyword">try</span> {
+    <span class="function">buildDirectoryListings()</span>;
+} <span class="keyword">catch</span> (<span class="class">IOException</span> <span class="variable">e</span>) {
+    <span class="variable">e.</span><span class="function">printStackTrace()</span>;
+        <span class="variable">System</span>.<span class="variable">err</span>.<span class="function">println</span>(<span class="string">Failed to build directory listings!"</span>);
+        <span class="keyword">return</span>;
+}</pre> 
+<h2>Directory Listing for /articles/</h2><div class="folderlisting"><a href="/articles/.." class="icon">&#x1F4C1;</a><a href="/articles/..">.. </a><a href="/articles/.." class="nounderline">(Previous Directory)</a></div><div class="filelisting"><a href="/articles/curabitur vel tempus ex.article" class="icon">&#x1F5CE;</a><a href="/articles/curabitur vel tempus ex.article">curabitur vel tempus ex.article</a>	2022-05-12T19:25:11.125763Z	gitpod	579</div>
+<div class="filelisting"><a href="/articles/sigplace1.article" class="icon">&#x1F5CE;</a><a href="/articles/sigplace1.article">sigplace1.article</a>	2022-05-12T19:25:11.129763Z	gitpod	3807</div>
+<div class="folderlisting"><a href="/articles/test articles" class="icon">&#x1F4C1;</a><a href="/articles/test articles">test articles</a>	2022-05-12T19:25:11.185763Z	gitpod	147</div>
+<div class="filelisting"><a href="/articles/curabitur vel tempus ex.article.html" class="icon">&#x1F5CE;</a><a href="/articles/curabitur vel tempus ex.article.html">curabitur vel tempus ex.article.html</a>	2022-05-12T19:25:11.177763Z	gitpod	2088</div>
+<div class="filelisting"><a href="/articles/sigplace1.article.html" class="icon">&#x1F5CE;</a><a href="/articles/sigplace1.article.html">sigplace1.article.html</a>	2022-05-12T19:25:11.177763Z	gitpod	5316</div>
 
 </div> <!--End Content Body-->
 <div class="codeForeground" id="codeForeground"></div>

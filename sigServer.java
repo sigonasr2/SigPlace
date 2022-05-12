@@ -37,7 +37,6 @@ public class sigServer {
                     if (requestLine!=null) {
                         while (in.ready()) {
                             line=in.readLine();
-
                             /*
                             if (!truncateUntilBoundary) {
                                 System.out.println(line);
