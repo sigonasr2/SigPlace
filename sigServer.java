@@ -31,11 +31,36 @@ public class sigServer {
                     BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
                     String requestLine,line;
                     ZonedDateTime modifiedDate = null;
+                    /*String boundary="";
+                    boolean truncateUntilBoundary=false;*/
                     requestLine=in.readLine(); //Read the first line, this should be our request.
                     if (requestLine!=null) {
                         while (in.ready()) {
                             line=in.readLine();
-                            System.out.println(line);
+
+                            /*
+                            if (!truncateUntilBoundary) {
+                                System.out.println(line);
+
+                                if (boundary.length()>0) {
+                                    if (line.equals(boundary)) {
+                                        truncateUntilBoundary=true;
+                                    }
+                                }
+                            } else 
+                            if (line.contains(boundary)) {
+                                System.out.println("<...>");
+                                System.out.println("");
+                                System.out.println(line);
+                                truncateUntilBoundary=false;
+                            } else
+                            if (line.contains("Content-Disposition: ")||line.contains("Content-Type: ")) {
+                                System.out.println(line);
+                            }*/
+
+                            if (line.contains("Content-Type: multipart/form-data; boundary=")) {
+                                boundary="--"+line.substring("Content-Type: multipart/form-data; boundary=".length());
+                            } else
                             if (line.contains("If-Modified-Since: ")) {
                                 String modifiedSince=line.replace("If-Modified-Since: ","");
                                 modifiedDate = ZonedDateTime.parse(modifiedSince,DateTimeFormatter.RFC_1123_DATE_TIME);
