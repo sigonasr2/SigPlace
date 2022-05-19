@@ -30,7 +30,15 @@ bunch of random Java code.
         <span class="variable">System</span>.<span class="variable">err</span>.<span class="function">println</span>(<span class="string">Failed to build directory listings!"</span>);
         <span class="keyword">return</span>;
 }</pre> 
-<h2>Directory Listing for /</h2><div class="folderlisting"><a href="/.." class="icon">&#x1F4C1;</a><a href="/..">.. </a><a href="/.." class="nounderline">(Previous Directory)</a></div>
+<h2>Directory Listing for /</h2><div class="folderlisting"><a href="/.." class="icon">&#x1F4C1;</a><a href="/..">.. </a><a href="/.." class="nounderline">(Previous Directory)</a></div><div class="folderlisting"><a href="/articles" class="icon">&#x1F4C1;</a><a href="/articles">articles</a>	2022-05-19T19:07:02.131093Z	gitpod	190</div>
+<div class="filelisting"><a href="/codeBackground" class="icon">&#x1F5CE;</a><a href="/codeBackground">codeBackground</a>	2022-05-19T19:07:02.067093Z	gitpod	2635</div>
+<div class="filelisting"><a href="/otherpage.html" class="icon">&#x1F5CE;</a><a href="/otherpage.html">otherpage.html</a>	2022-05-19T19:07:02.103093Z	gitpod	9684</div>
+<div class="filelisting"><a href="/reset.css" class="icon">&#x1F5CE;</a><a href="/reset.css">reset.css</a>	2022-05-19T19:07:02.075093Z	gitpod	1093</div>
+<div class="filelisting"><a href="/sig.css" class="icon">&#x1F5CE;</a><a href="/sig.css">sig.css</a>	2022-05-19T19:07:02.083093Z	gitpod	5175</div>
+<div class="filelisting"><a href="/testfile.html" class="icon">&#x1F5CE;</a><a href="/testfile.html">testfile.html</a>	2022-05-19T19:07:02.107093Z	gitpod	1621</div>
+<div class="filelisting"><a href="/uploadform.html" class="icon">&#x1F5CE;</a><a href="/uploadform.html">uploadform.html</a>	2022-05-19T19:07:02.107093Z	gitpod	1676</div>
+<div class="folderlisting"><a href="/uploads" class="icon">&#x1F4C1;</a><a href="/uploads">uploads</a>	2022-05-19T14:49:27Z	gitpod	6</div>
+
 </div> <!--End Content Body-->
 <div class="codeForeground" id="codeForeground"></div>
 <div class="codeBackground" id="codeBackground"></div>

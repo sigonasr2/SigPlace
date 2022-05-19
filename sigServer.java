@@ -9,6 +9,7 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.net.URLDecoder;
 import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.charset.UnmappableCharacterException;
@@ -37,13 +38,14 @@ public class sigServer {
             while (true) {
                 try (Socket client = socket.accept()) {
                     System.out.println("New client connection detected: "+client.toString());
-                    BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+                    BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream(),"ISO-8859-1"));
                     String requestLine,line;
                     ZonedDateTime modifiedDate = null;
                     String boundary=null;
-                    boolean uploadData = false;
                     boolean truncateUntilBoundary=false;
                     String filename=null;
+                    OutputStream stream = null;
+                    boolean firstLine=true;
                     requestLine=in.readLine(); //Read the first line, this should be our request.
                     if (requestLine!=null) {
                         String[] splitter = requestLine.split(Pattern.quote(" "));
@@ -61,17 +63,6 @@ public class sigServer {
                                                     truncateUntilBoundary=true;
                                                 }
                                             }
-                                        } else 
-                                        if (line.contains(boundary)) {
-                                            System.out.println("");
-                                            System.out.println("<...>");
-                                            System.out.println("");
-                                            System.out.println(line);
-                                            truncateUntilBoundary=false;
-
-                                            filename=null;
-                                            uploadData=false;
-                                            System.out.println("Saving upload to "+sigPlace.UPLOADSDIR+" directory.");
                                         } else
                                         if (line.contains("Content-Disposition: ")||line.contains("Content-Type: ")) {
                                             if (line.contains("filename=")) {
@@ -81,17 +72,36 @@ public class sigServer {
                                                 System.out.println(line);
                                             }
                                         } else {
-                                            OutputStream stream = null;
-                                            byte[] byteContent = new String(line.getBytes(),StandardCharsets.UTF_8).getBytes(StandardCharsets.UTF_8);
                                             File myFile = new File(new File(sigPlace.OUTDIR,sigPlace.UPLOADSDIR),filename);
                                             // check if file exist, otherwise create the file before writing
                                             if (!myFile.exists()) {
                                                 myFile.createNewFile();
+                                            } else {
+                                                myFile.delete();
+                                                myFile.createNewFile();
                                             }
                                             stream = new FileOutputStream(myFile);
-                                            stream.write(byteContent);
-                                            stream.flush();
+                                            char[] buffer = new char[1024];
+                                            int count;
+                                            while ((count = in.read(buffer))>0) {
+                                                //stream.write(in.read(buffer));
+                                                //stream.write(buffer.,0,count);
+                                                String buf = new String(buffer);
+                                                byte[] data = buf.getBytes("ISO-8859-1");
+                                                stream.write(data,0,count);
+                                                if (buf.contains(boundary)) {
+                                                    System.out.println("");
+                                                    System.out.println("<...>");
+                                                    System.out.println("");
+                                                    System.out.println(new String(data,StandardCharsets.UTF_8));
+                                                    break;
+                                                }
+                                            }
                                             stream.close();
+
+                                            filename=null;
+                                            firstLine=true;
+                                            System.out.println("Saving upload to "+sigPlace.UPLOADSDIR+" directory.");
                                         }
                                     }
                                     if (line.contains("Content-Type: multipart/form-data; boundary=")) {

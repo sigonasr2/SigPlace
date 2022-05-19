@@ -4,13 +4,14 @@
             while (true) {
                 try (Socket client = socket.accept()) {
                     System.out.println("New client connection detected: "+client.toString());
-                    BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+                    BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream(),"ISO-8859-1"));
                     String requestLine,line;
                     ZonedDateTime modifiedDate = null;
                     String boundary=null;
-                    boolean uploadData = false;
                     boolean truncateUntilBoundary=false;
                     String filename=null;
+                    OutputStream stream = null;
+                    boolean firstLine=true;
                     requestLine=in.readLine(); //Read the first line, this should be our request.
                     if (requestLine!=null) {
                         String[] splitter = requestLine.split(Pattern.quote(" "));
@@ -18,7 +19,6 @@
                         if (splitter.length==3) {
                             while (in.ready()) {
                                 line=in.readLine();
-
                                 if (ISPOST) {
                                     if (boundary!=null) {
                                         if (!truncateUntilBoundary) {
@@ -29,12 +29,12 @@
                                                     truncateUntilBoundary=true;
                                                 }
                                             }
-                                        } else 
-                                        if (line.contains(boundary)) {
-                                            System.out.println("");
-                                            System.out.println("<...>");
-                                            System.out.println("");
-                                            System.out.println(line);
-                                            truncateUntilBoundary=false;
-
-                                            
+                                        } else
+                                        if (line.contains("Content-Disposition: ")||line.contains("Content-Type: ")) {
+                                            if (line.contains("filename=")) {
+                                                filename=line.substring(line.indexOf("filename=")+"filename=".length()+1);
+                                                filename = filename.substring(0,filename.length()-1);
+                                            } else {
+                                                System.out.println(line);
+                                            }
+                                        } else {
