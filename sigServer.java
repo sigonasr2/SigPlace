@@ -8,25 +8,17 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
 import java.net.URLDecoder;
-import java.nio.ByteBuffer;
-import java.nio.CharBuffer;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.nio.charset.UnmappableCharacterException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.FileTime;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.regex.Pattern;
 
 public class sigServer {
@@ -45,7 +37,6 @@ public class sigServer {
                     boolean truncateUntilBoundary=false;
                     String filename=null;
                     OutputStream stream = null;
-                    boolean firstLine=true;
                     requestLine=in.readLine(); //Read the first line, this should be our request.
                     if (requestLine!=null) {
                         String[] splitter = requestLine.split(Pattern.quote(" "));
@@ -100,7 +91,6 @@ public class sigServer {
                                             stream.close();
 
                                             filename=null;
-                                            firstLine=true;
                                             System.out.println("Saving upload to "+sigPlace.UPLOADSDIR+" directory.");
                                         }
                                     }
