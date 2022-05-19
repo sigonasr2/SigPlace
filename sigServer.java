@@ -1,4 +1,6 @@
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -6,17 +8,24 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
 import java.net.URLDecoder;
+import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.nio.charset.UnmappableCharacterException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.FileTime;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class sigServer {
@@ -31,44 +40,70 @@ public class sigServer {
                     BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
                     String requestLine,line;
                     ZonedDateTime modifiedDate = null;
-                    /*String boundary="";
-                    boolean truncateUntilBoundary=false;*/
+                    String boundary=null;
+                    boolean uploadData = false;
+                    boolean truncateUntilBoundary=false;
+                    String filename=null;
                     requestLine=in.readLine(); //Read the first line, this should be our request.
                     if (requestLine!=null) {
-                        while (in.ready()) {
-                            line=in.readLine();
-                            /*
-                            if (!truncateUntilBoundary) {
-                                System.out.println(line);
-
-                                if (boundary.length()>0) {
-                                    if (line.equals(boundary)) {
-                                        truncateUntilBoundary=true;
-                                    }
-                                }
-                            } else 
-                            if (line.contains(boundary)) {
-                                System.out.println("");
-                                System.out.println("<...>");
-                                System.out.println("");
-                                System.out.println(line);
-                                truncateUntilBoundary=false;
-                            } else
-                            if (line.contains("Content-Disposition: ")||line.contains("Content-Type: ")) {
-                                System.out.println(line);
-                            }
-
-                            if (line.contains("Content-Type: multipart/form-data; boundary=")) {
-                                boundary="--"+line.substring("Content-Type: multipart/form-data; boundary=".length());
-                            } else*/
-                            if (modifiedDate==null&&line.startsWith("If-Modified-Since: ")) {
-                                String modifiedSince=line.replace("If-Modified-Since: ","");
-                                modifiedDate = ZonedDateTime.parse(modifiedSince,DateTimeFormatter.RFC_1123_DATE_TIME);
-                                //System.out.println("Found a modified date of: "+modifiedDate);
-                            }
-                        }
                         String[] splitter = requestLine.split(Pattern.quote(" "));
+                        boolean ISPOST = splitter[0].equals("POST");
                         if (splitter.length==3) {
+                            while (in.ready()) {
+                                line=in.readLine();
+                                if (ISPOST) {
+                                    if (boundary!=null) {
+                                        if (!truncateUntilBoundary) {
+                                            System.out.println(line);
+            
+                                            if (boundary.length()>0) {
+                                                if (line.equals(boundary)) {
+                                                    truncateUntilBoundary=true;
+                                                }
+                                            }
+                                        } else 
+                                        if (line.contains(boundary)) {
+                                            System.out.println("");
+                                            System.out.println("<...>");
+                                            System.out.println("");
+                                            System.out.println(line);
+                                            truncateUntilBoundary=false;
+
+                                            filename=null;
+                                            uploadData=false;
+                                            System.out.println("Saving upload to "+sigPlace.UPLOADSDIR+" directory.");
+                                        } else
+                                        if (line.contains("Content-Disposition: ")||line.contains("Content-Type: ")) {
+                                            if (line.contains("filename=")) {
+                                                filename=line.substring(line.indexOf("filename=")+"filename=".length()+1);
+                                                filename = filename.substring(0,filename.length()-1);
+                                            } else {
+                                                System.out.println(line);
+                                            }
+                                        } else {
+                                            OutputStream stream = null;
+                                            byte[] byteContent = new String(line.getBytes(),StandardCharsets.UTF_8).getBytes(StandardCharsets.UTF_8);
+                                            File myFile = new File(new File(sigPlace.OUTDIR,sigPlace.UPLOADSDIR),filename);
+                                            // check if file exist, otherwise create the file before writing
+                                            if (!myFile.exists()) {
+                                                myFile.createNewFile();
+                                            }
+                                            stream = new FileOutputStream(myFile);
+                                            stream.write(byteContent);
+                                            stream.flush();
+                                            stream.close();
+                                        }
+                                    }
+                                    if (line.contains("Content-Type: multipart/form-data; boundary=")) {
+                                        boundary="--"+line.substring("Content-Type: multipart/form-data; boundary=".length());
+                                    }
+                                } else
+                                if (modifiedDate==null&&line.startsWith("If-Modified-Since: ")) {
+                                    String modifiedSince=line.replace("If-Modified-Since: ","");
+                                    modifiedDate = ZonedDateTime.parse(modifiedSince,DateTimeFormatter.RFC_1123_DATE_TIME);
+                                    //System.out.println("Found a modified date of: "+modifiedDate);
+                                }
+                            }
                             //This is valid.
                             if (splitter[0].equals("GET")) { //This is a GET request.
                                 if (splitter[2].equals("HTTP/1.1")||splitter[2].equals("HTTP/2.0")) {
@@ -110,6 +145,9 @@ public class sigServer {
                             } else {
                                 CreateRequest(client,"501","Not Implemented","testfile.html");
                             }
+                        } else {
+                            in.close();
+                            CreateRequest(client,"400","Bad Request","testfile.html");
                         }
                     }
                 } catch(SocketException|NullPointerException e) {

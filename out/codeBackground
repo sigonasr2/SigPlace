@@ -7,34 +7,34 @@
                     BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
                     String requestLine,line;
                     ZonedDateTime modifiedDate = null;
-                    /*String boundary="";
-                    boolean truncateUntilBoundary=false;*/
+                    String boundary=null;
+                    boolean uploadData = false;
+                    boolean truncateUntilBoundary=false;
+                    String filename=null;
                     requestLine=in.readLine(); //Read the first line, this should be our request.
                     if (requestLine!=null) {
-                        while (in.ready()) {
-                            line=in.readLine();
-                            /*
-                            if (!truncateUntilBoundary) {
-                                System.out.println(line);
+                        String[] splitter = requestLine.split(Pattern.quote(" "));
+                        boolean ISPOST = splitter[0].equals("POST");
+                        if (splitter.length==3) {
+                            while (in.ready()) {
+                                line=in.readLine();
 
-                                if (boundary.length()>0) {
-                                    if (line.equals(boundary)) {
-                                        truncateUntilBoundary=true;
-                                    }
-                                }
-                            } else 
-                            if (line.contains(boundary)) {
-                                System.out.println("");
-                                System.out.println("<...>");
-                                System.out.println("");
-                                System.out.println(line);
-                                truncateUntilBoundary=false;
-                            } else
-                            if (line.contains("Content-Disposition: ")||line.contains("Content-Type: ")) {
-                                System.out.println(line);
-                            }
+                                if (ISPOST) {
+                                    if (boundary!=null) {
+                                        if (!truncateUntilBoundary) {
+                                            System.out.println(line);
+            
+                                            if (boundary.length()>0) {
+                                                if (line.equals(boundary)) {
+                                                    truncateUntilBoundary=true;
+                                                }
+                                            }
+                                        } else 
+                                        if (line.contains(boundary)) {
+                                            System.out.println("");
+                                            System.out.println("<...>");
+                                            System.out.println("");
+                                            System.out.println(line);
+                                            truncateUntilBoundary=false;
 
-                            if (line.contains("Content-Type: multipart/form-data; boundary=")) {
-                                boundary="--"+line.substring("Content-Type: multipart/form-data; boundary=".length());
-                            } else*/
-                            if (modifiedDate==null&&line.startsWith("If-Modified-Since: ")) {
+                                            
