@@ -141,7 +141,11 @@ public class sigServer {
                                 }
                             } else 
                             if (splitter[0].equals("POST")) { //This is a POST request.
-                                CreateRequest(client,"501","Not Implemented","testfile.html");
+                                if (boundary!=null) {
+                                    CreateRequest(client,"200","OK","testfile.html");
+                                } else {
+                                    CreateRequest(client,"400","Bad Request","testfile.html");
+                                }
                             } else {
                                 CreateRequest(client,"501","Not Implemented","testfile.html");
                             }
