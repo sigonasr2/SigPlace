@@ -24,6 +24,9 @@ public class sigPlace {
     final static String DIRECTORYLISTING_FILENAME = "DIRECTORY_LISTING";
     static int PORT = 8080;
 
+    static boolean inCodeBlock = false;
+    static String storedCodeBlock = "";
+
     final static HashMap<String,String> map = new HashMap<>(Map.ofEntries(
         new AbstractMap.SimpleEntry<>("$SITENAME", "SigPlace"),
         new AbstractMap.SimpleEntry<>("$SITE_BACKCOL", "#111"),
@@ -127,6 +130,55 @@ public class sigPlace {
                         for (String key : map.keySet()) {
                             s=s.replaceAll(Pattern.quote(key),map.get(key));
                         }
+                        if (s.length()>0&&isHTMLFile(f)) {
+                            if (!inCodeBlock) {
+                                if (s.contains("<pre>")) {
+                                    inCodeBlock=true;
+                                    storedCodeBlock+=s.substring(s.indexOf("<pre>"));
+                                    s=s.substring(0,s.indexOf("<pre>"));
+                                }
+                            } else {
+                                if (s.contains("</pre>")) {
+                                    inCodeBlock=false;
+                                    storedCodeBlock+=s.substring(0,s.indexOf("</pre>")+"</pre>".length());
+                                    int startPos=0;
+                                    String endText=s.substring(s.indexOf("</pre>")+"</pre>".length(),s.length());
+                                    s="";
+                                    for (int j=0;j<storedCodeBlock.length();j++) {
+                                        if (storedCodeBlock.charAt(j)=='.') {
+                                            //Previous section was a member.
+                                            s+=SPAN("variable")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
+                                            startPos=j+1;
+                                            continue;
+                                        } else 
+                                        if (storedCodeBlock.charAt(j)=='\n') {
+                                            System.out.println("newline");
+                                            //Previous section is done.
+                                            s+="\r\n";
+                                            startPos=j+1;
+                                            continue;
+                                        } else 
+                                        if (storedCodeBlock.charAt(j)=='(') {
+                                            //Previous section was a keyword.
+                                            s+=SPAN("function")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
+                                            startPos=j+1;
+                                            continue;
+                                        } else 
+                                        if (storedCodeBlock.charAt(j)==' '&&j>0&&storedCodeBlock.charAt(j-1)!=' ') {
+                                            //Previous section was a keyword.
+                                            s+=SPAN("keyword")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
+                                            startPos=j+1;
+                                            continue;
+                                        }
+                                    }
+                                    s+=endText;
+                                    //System.out.println("Stored code block: "+storedCodeBlock);
+                                } else {
+                                    storedCodeBlock+=s;
+                                    s="";
+                                }
+                            }
+                        }
                         content.set(i,s);
                     }
 
@@ -141,6 +193,12 @@ public class sigPlace {
                 }
             }
         }
+    }
+    /**
+     * Writes a span tag with the included class.
+     * **/
+    private static String SPAN(String className) {
+        return "<span class=\""+className+"\">";
     }
     private static void GenerateArticleFiles(Iterator<Path> items){
         System.out.println(" Generating article files...");
