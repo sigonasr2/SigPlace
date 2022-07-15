@@ -119,6 +119,13 @@ public class sigPlace {
                             } else
                             if (s.contains("===")) {
                                 s=map.get("$CONTENT_END")+map.get("$DATE_CONTENT_START")+s.replace("===","")+map.get("$CONTENT_END")+"%CONDITIONAL_EXPAND%"+map.get("$CONTENT_END");
+                            } else 
+                            if (s.charAt(0)==':') {
+                                //Image with caption.
+                                //Format:
+                                //:<url>,<left|right|center>,<width>,<caption>
+                                String[] splitter = s.split(Pattern.quote(","));
+                                s="<figure><img src=\"./"+splitter[0].substring(1)+"\" style=\""+((splitter[1].equals("center"))?"text-align:center;":"")+((splitter[1].equals("left")||splitter[1].equals("right"))?"float:"+splitter[1]+";":"")+"width:"+splitter[2]+"%\"><figcaption>"+splitter[3]+"</figcaption></figure>";
                             } else {
                                 //It's regular content, so add paragraphs.
                                 s="<p>"+s+"</p>";
