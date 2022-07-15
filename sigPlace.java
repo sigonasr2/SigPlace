@@ -125,7 +125,11 @@ public class sigPlace {
                                 //Format:
                                 //:<url>,<left|right|center>,<width>,<caption>
                                 String[] splitter = s.split(Pattern.quote(","));
-                                s="<figure><img src=\"./"+splitter[0].substring(1)+"\" style=\""+((splitter[1].equals("center"))?"text-align:center;":"")+((splitter[1].equals("left")||splitter[1].equals("right"))?"float:"+splitter[1]+";":"")+"width:"+splitter[2]+"%\"><figcaption>"+splitter[3]+"</figcaption></figure>";
+                                StringBuilder captionText = new StringBuilder(splitter[3]);
+                                for (int j=4;j<splitter.length;j++) {
+                                    captionText.append(",").append(splitter[j]);
+                                }
+                                s="<div><figure style=\"text-align:center;"+((splitter[1].equals("left")||splitter[1].equals("right"))?"width:"+splitter[2]+"%;float:"+splitter[1]+";":"")+"\"><img src=\"/"+splitter[0].substring(1)+"\" style=\"margin:auto;width:100%;\"><figcaption>"+captionText.toString()+"</figcaption></figure></div>";
                             } else {
                                 //It's regular content, so add paragraphs.
                                 s="<p>"+s+"</p>";

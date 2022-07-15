@@ -204,6 +204,7 @@ public class sigServer {
                         if (contentType!=null&&contentType.equals("text/html")) {
                             clientOutput.write(("<div class=\"generateTime\">Webpage generated in "+(System.currentTimeMillis()-startTime)+"ms</div>\r\n").getBytes());
                         }
+                        System.out.println(contentType);
                     }
                     System.out.println("Sent "+file+" to client "+client+".");
                 } else {
