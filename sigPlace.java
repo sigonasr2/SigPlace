@@ -112,24 +112,27 @@ public class sigPlace {
                     System.out.println("  Parsing "+f.getFileName());
                     for (int i=0;i<content.size();i++) {
                         String s = content.get(i);
+                        boolean isPreLine=false;
                         //System.out.println(s);
                         if (s.length()>0&&(isHTMLFile(f)||isArticleFile(f))) {
                             if (!inCodeBlock) {
-                                if (s.contains("<pre>")) {
+                                if (s.trim().equals("<pre>")) {
                                     //System.out.println("Inside <pre>");
                                     inCodeBlock=true;
-                                    storedCodeBlock=s.substring(s.indexOf("<pre>"));
+                                    storedCodeBlock="";
                                     s=s.substring(0,s.indexOf("<pre>"));
                                 }
                             }
-                            if (inCodeBlock&&s.contains("</pre>")) {
+                            if (inCodeBlock&&s.trim().equals("</pre>")) {
                                 inCodeBlock=false;
                                 boolean keyword=false;
                                 boolean inString=false;
                                 boolean inChar=false;
                                 boolean canBeNumericalConstant=false;
                                 int lengthOfConstant=0;
-                                storedCodeBlock+=s.substring(0,s.indexOf("</pre>")+"</pre>".length());
+                                storedCodeBlock+=s.substring(0,s.indexOf("</pre>"));
+                                storedCodeBlock=storedCodeBlock.replaceAll(Pattern.quote("<"),"\2");
+                                storedCodeBlock+="</pre>";
                                 int startPos=0;
                                 String endText=s.substring(s.indexOf("</pre>")+"</pre>".length(),s.length());
                                 s="";
@@ -210,7 +213,14 @@ public class sigPlace {
                                         System.out.println("Found "+storedCodeBlock.charAt(j)+", can be numeric...");
                                     }
                                 }
+                                for (int j=0;j<s.length();j++) {
+                                    if (s.charAt(j)=='\2') {
+                                        s=s.substring(0,j)+"&lt;"+s.substring(j+1,s.length());
+                                    }
+                                }
+                                s="<pre>"+s;
                                 s+=endText;
+                                isPreLine=true;
                                 //System.out.println("Stored code block: "+storedCodeBlock);
                             } else 
                             if (inCodeBlock) {
@@ -226,7 +236,7 @@ public class sigPlace {
                                 s=s+map.get("$TITLE_CONTENT_END").replace("%ID%","id=\"content_"+f+"\"");
                                 //Use ⤈ if there's more text to be shown than can fit.
                             } else
-                            if (s.contains("===")) {
+                            if (s.startsWith("===")) {
                                 s=map.get("$CONTENT_END")+map.get("$DATE_CONTENT_START")+s.replace("===","")+map.get("$CONTENT_END")+"%CONDITIONAL_EXPAND%"+map.get("$CONTENT_END");
                             } else 
                             if (s.charAt(0)==':') {
@@ -243,12 +253,15 @@ public class sigPlace {
                                 //It's regular content, so add paragraphs.
                                 s="<p class=\"color"+(((int)(COLOR_ROTATION=(COLOR_ROTATION+0.4)%6))+1)+"\">"+s+"</p>";
                             }
-                        } else 
-                        if (s.length()==0&&isArticleFile(f)) {
-                            s="<br/>"; //Setup a line break here.
+                        } else {
+                            if (s.length()==0&&isArticleFile(f)) {
+                                s="<br/>"; //Setup a line break here.
+                            }
                         }
-                        for (String key : map.keySet()) {
-                            s=s.replaceAll(Pattern.quote(key),map.get(key));
+                        if (!isPreLine) {
+                            for (String key : map.keySet()) {
+                                s=s.replaceAll(Pattern.quote(key),map.get(key));
+                            }
                         }
                         content.set(i,s);
                     }

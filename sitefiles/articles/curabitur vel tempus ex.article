@@ -2,8 +2,6 @@
 Curabitur vel tempus ex. Duis cursus sapien nisl, ut pulvinar dui porttitor ut. Nullam odio purus, tristique non turpis sit amet, malesuada ultricies purus. Mauris ut nulla nisl. Aenean sit amet est egestas justo volutpat consequat. Suspendisse in sagittis augue, et mattis tortor. Nullam viverra metus et nibh fringilla iaculis.
 
 <pre>
-if (j>4&&storedCodeBlock.substring(j-4,j+1).equals("false")&&!isAlphanumeric(j-5)&&!isAlphanumeric(j+1)) {
-    s+=SPAN("number")+storedCodeBlock.substring(startPos,j)+storedCodeBlock.charAt(j)+"</span>";
-    startPos=j+1;
-}</pre> 
+<><Test>"</test></test2><test3>"
+            </pre>   
 ===29 Apr 2022 7:37PM

@@ -20,10 +20,908 @@
 <p class="color5"> </p>
 <p class="color6"> </p>
 <p class="color6"> </p>
-<p class="color1"><pre>
-test
-test
-  test&<span class="keyword">lt</span>;/pre>&<span class="keyword">lt</span>;h1><span class="keyword">We</span> <span class="variable">can</span>'<span class="keyword">t</span> <span class="keyword">make</span> <span class="keyword">a</span> <span class="keyword">big</span> <span class="variable">header</span>&<span class="keyword">lt</span>;/h1>
- testing
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<br/>
+<p class="color5"> </p>
+<br/>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<br/>
+<p class="color3"> </p>
+<br/>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<br/>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<br/>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<br/>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<br/>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<br/>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<br/>
+<p class="color1"> </p>
+<br/>
+<p class="color1"> </p>
+<br/>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<br/>
+<p class="color5"> </p>
+<br/>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<br/>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<br/>
+<p class="color6"> </p>
+<br/>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<br/>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color3"> </p>
+<p class="color4"> </p>
+<p class="color4"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color5"> </p>
+<p class="color6"> </p>
+<p class="color6"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color1"> </p>
+<p class="color2"> </p>
+<p class="color2"> </p>
+<p class="color3"><pre>
+<span class="keyword">import</span> <span class="class">java</span>.<span class="class">io</span>.<span class="keyword">IOException</span>;<span class="variable"></span>
+<span class="keyword">import</span> <span class="class">java</span>.<span class="class">nio</span>.<span class="class">charset</span>.<span class="keyword">Charset</span>;<span class="variable"></span>
+<span class="keyword">import</span> <span class="class">java</span>.<span class="class">nio</span>.<span class="class">file</span>.<span class="keyword">CopyOption</span>;<span class="variable"></span>
+<span class="keyword">import</span> <span class="class">java</span>.<span class="class">nio</span>.<span class="class">file</span>.<span class="keyword">Files</span>;<span class="variable"></span>
+<span class="keyword">import</span> <span class="class">java</span>.<span class="class">nio</span>.<span class="class">file</span>.<span class="keyword">Path</span>;<span class="variable"></span>
+<span class="keyword">import</span> <span class="class">java</span>.<span class="class">nio</span>.<span class="class">file</span>.<span class="keyword">Paths</span>;<span class="variable"></span>
+<span class="keyword">import</span> <span class="class">java</span>.<span class="class">nio</span>.<span class="class">file</span>.<span class="keyword">StandardCopyOption</span>;<span class="variable"></span>
+<span class="keyword">import</span> <span class="class">java</span>.<span class="class">nio</span>.<span class="class">file</span>.<span class="keyword">StandardOpenOption</span>;<span class="variable"></span>
+<span class="keyword">import</span> <span class="class">java</span>.<span class="class">util</span>.<span class="keyword">AbstractMap</span>;<span class="variable"></span>
+<span class="keyword">import</span> <span class="class">java</span>.<span class="class">util</span>.<span class="keyword">ArrayList</span>;<span class="variable"></span>
+<span class="keyword">import</span> <span class="class">java</span>.<span class="class">util</span>.<span class="keyword">HashMap</span>;<span class="variable"></span>
+<span class="keyword">import</span> <span class="class">java</span>.<span class="class">util</span>.<span class="keyword">Iterator</span>;<span class="variable"></span>
+<span class="keyword">import</span> <span class="class">java</span>.<span class="class">util</span>.<span class="keyword">List</span>;<span class="variable"></span>
+<span class="keyword">import</span> <span class="class">java</span>.<span class="class">util</span>.<span class="keyword">Map</span>;<span class="variable"></span>
+<span class="keyword">import</span> <span class="class">java</span>.<span class="class">util</span>.<span class="class">regex</span>.<span class="keyword">Pattern</span>;<span class="variable"></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="keyword">sigPlace</span> <span class="variable"></span>{
+    <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">String</span> <span class="keyword">ROOTDIR</span> <span class="variable"></span>= <span class="string">"sitefiles"</span>;
+    <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">String</span> <span class="keyword">REFDIR</span> <span class="variable"></span>= <span class="string">"ref"</span>;
+    <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">String</span> <span class="keyword">OUTDIR</span> <span class="variable"></span>= <span class="string">"out"</span>;
+    <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">String</span> <span class="keyword">ARTICLESDIR</span> <span class="variable"></span>= <span class="string">"articles"</span>;
+    <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">String</span> <span class="keyword">UPLOADSDIR</span> <span class="variable"></span>= <span class="string">"uploads"</span>;
+    <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">String</span> <span class="keyword">COMMENTSDIR</span> <span class="variable"></span>= <span class="string">"comments"</span>;
+    <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">String</span> <span class="variable">DIRECTORYLISTING</span>_<span class="keyword">FILENAME</span> <span class="variable"></span>= <span class="string">"DIRECTORY_LISTING"</span>;
+    <span class="keyword">static</span> <span class="keyword">int</span> <span class="keyword">PORT</span> <span class="variable"></span>= <span class="number">8080</span>;
+    <span class="keyword">static</span> <span class="keyword">double</span> <span class="variable">COLOR</span>_<span class="keyword">ROTATION</span> <span class="variable"></span>= <span class="number">0</span>;
+    <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="keyword">inCodeBlock</span> <span class="variable"></span>= <span class="number">false</span><span class="keyword"></span>;
+    <span class="keyword">static</span> <span class="keyword">String</span> <span class="keyword">storedCodeBlock</span> <span class="variable"></span>= <span class="string">""</span>;
+    <span class="keyword">final</span> <span class="keyword">static</span> <span class="variable">HashMap</span>&lt;String,String> <span class="keyword">map</span> <span class="variable"></span>= <span class="keyword">new</span> <span class="variable">HashMap</span>&lt;><span class="function"></span>(<span class="class">Map</span>.<span class="function">ofEntries</span>(
+        <span class="keyword">new</span> <span class="class">AbstractMap</span>.<span class="variable">SimpleEntry</span>&lt;><span class="function"></span>(<span class="string">"SITENAME"</span>, <span class="string">"SigPlace"</span>),
+        <span class="keyword">new</span> <span class="class">AbstractMap</span>.<span class="variable">SimpleEntry</span>&lt;><span class="function"></span>(<span class="string">"SITE_BACKCOL"</span>, <span class="string">"#111"</span>),
+        <span class="keyword">new</span> <span class="class">AbstractMap</span>.<span class="variable">SimpleEntry</span>&lt;><span class="function"></span>(<span class="string">"TITLE_CONTENT_START"</span>, <span class="string">"&lt;div class=\"</span>contentWrapper\<span class="string">">&lt;h1>"</span>),
+        <span class="keyword">new</span> <span class="class">AbstractMap</span>.<span class="variable">SimpleEntry</span>&lt;><span class="function"></span>(<span class="string">"TITLE_CONTENT_END"</span>, <span class="string">"&lt;/h1>&lt;div class=\"</span>content\<span class="string">" >"</span>),
+        <span class="keyword">new</span> <span class="class">AbstractMap</span>.<span class="variable">SimpleEntry</span>&lt;><span class="function"></span>(<span class="string">"CONTENT_END"</span>, <span class="string">"&lt;/div>"</span>),
+        <span class="keyword">new</span> <span class="class">AbstractMap</span>.<span class="variable">SimpleEntry</span>&lt;><span class="function"></span>(<span class="string">"DATE_CONTENT_START"</span>, <span class="string">"&lt;div class=\"</span>datebar\<span class="string">">&lt;/div>&lt;div class=\"</span>date\<span class="string">">"</span>)
+    ));
+    <span class="keyword">final</span> <span class="keyword">static</span> <span class="variable">HashMap</span>&lt;String,Path> <span class="keyword">ops</span> <span class="variable"></span>= <span class="keyword">new</span> <span class="variable">HashMap</span>&lt;><span class="function"></span>(<span class="class">Map</span>.<span class="function">ofEntries</span>(
+        <span class="keyword">new</span> <span class="class">AbstractMap</span>.<span class="variable">SimpleEntry</span>&lt;><span class="function"></span>(
+            <span class="string">""</span>, <span class="class">Paths</span>.<span class="function">get</span>(REFDIR,<span class="string">"DEFAULT.html"</span>)),
+        <span class="keyword">new</span> <span class="class">AbstractMap</span>.<span class="variable">SimpleEntry</span>&lt;><span class="function"></span>(
+            <span class="string">""</span>, <span class="class">Paths</span>.<span class="function">get</span>(REFDIR,<span class="string">"FOOTER.html"</span>))
+    ));
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="function">main</span>(<span class="variable">String</span>[] args) {
+        <span class="keyword">if</span> <span class="function"></span>(<span class="class">args</span>.<span class="variable">length</span>><span class="number">0</span>&&<span class="class">args</span>.length%<span class="number">2</span>==<span class="number">0</span>) {
+            <span class="keyword">int</span> <span class="variable">i</span>=<span class="number">0</span>;
+            <span class="keyword">while</span> <span class="function"></span>(<span class="variable">i</span>&lt;<span class="class">args</span>.length) {
+                <span class="keyword">String</span> <span class="variable">arg1</span>=args[i];
+                <span class="keyword">String</span> <span class="variable">arg2</span>=args[i+<span class="number">1</span>];
+                i+=<span class="number">2</span>;
+                <span class="keyword">if</span> <span class="function"></span>(<span class="class">arg1</span>.<span class="function">equals</span>(<span class="string">"-p"</span><span class="variable"></span>)) {
+                    PORT=<span class="class">Integer</span>.<span class="function">parseInt</span>(arg2);
+                    <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"Port set to "</span>+PORT+<span class="string">"."</span>);
+                } <span class="keyword">else</span> <span class="variable"></span>{
+                    <span class="class">System</span>.<span class="class">err</span>.<span class="function">println</span>(<span class="string">"Invalid argument \"</span><span class="string">"+arg1+"</span>\<span class="string">"."</span>);
+                    <span class="keyword">return</span>;
+                }
+            }
+        }
+        <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"Copying files over to output directory..."</span>);
+        <span class="keyword">try</span> <span class="variable"></span>{
+            <span class="function">copyDirectory</span>(<span class="string">"sitefiles"</span>,<span class="string">"out"</span>);
+            Iterator&lt;Path> <span class="keyword">items</span> <span class="variable"></span>= <span class="class">Files</span>.<span class="function">walk</span>(<span class="class">Paths</span>.<span class="function">get</span>(<span class="string">"out"</span>)).<span class="function">filter</span>(<span class="function"></span>(p)->!<span class="class">p</span>.<span class="function">toAbsolutePath</span>().<span class="function">toString</span>().<span class="function">contains</span>(<span class="string">"images/"</span>)).<span class="function">iterator</span>();
+            <span class="function">ParseArticleFiles</span>(items);
+            <span class="keyword">items</span> <span class="variable"></span>= <span class="class">Files</span>.<span class="function">walk</span>(<span class="class">Paths</span>.<span class="function">get</span>(<span class="string">"out"</span>)).<span class="function">iterator</span>();
+            <span class="function">ConvertArticleReferences</span>(items);
+            <span class="keyword">items</span> <span class="variable"></span>= <span class="class">Files</span>.<span class="function">walk</span>(<span class="class">Paths</span>.<span class="function">get</span>(<span class="string">"out"</span>,<span class="string">"articles"</span>)).<span class="function">iterator</span>();
+            <span class="function">GenerateArticleFiles</span>(items);
+        }<span class="keyword">catch</span> <span class="function"></span>(<span class="keyword">IOException</span> <span class="variable">e</span>) {
+            <span class="class">e</span>.<span class="function">printStackTrace</span>();
+            <span class="class">System</span>.<span class="class">err</span>.<span class="function">println</span>(<span class="string">"Copying files over failed!"</span>);
+            <span class="keyword">return</span>;
+        }
+        <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"Building directory listings..."</span>);
+        <span class="keyword">try</span> <span class="variable"></span>{
+            <span class="function">buildDirectoryListings</span>();
+        } <span class="keyword">catch</span> <span class="function"></span>(<span class="keyword">IOException</span> <span class="variable">e</span>) {
+            <span class="class">e</span>.<span class="function">printStackTrace</span>();
+            <span class="class">System</span>.<span class="class">err</span>.<span class="function">println</span>(<span class="string">"Failed to build directory listings!"</span>);
+            <span class="keyword">return</span>;
+        }
+        <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"Site has been built into the "</span>+OUTDIR+<span class="string">" directory."</span>);
+        <span class="function">ExportCodeFile</span>();
+        <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"\nStarting web server..."</span>);
+        <span class="keyword">new</span> <span class="function">sigServer</span>(<span class="variable"></span>);
+    }
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="function">ParseArticleFiles</span>(<span class="variable">Iterator</span>&lt;Path> items) {
+        <span class="keyword">while</span> <span class="function"></span>(<span class="class">items</span>.<span class="function">hasNext</span>(<span class="variable"></span>)) {
+            <span class="keyword">Path</span> <span class="keyword">f</span> <span class="variable"></span>= <span class="class">items</span>.<span class="function">next</span>();
+            <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">" Found "</span>+<span class="class">f</span>.<span class="function">getFileName</span>());
+            <span class="keyword">if</span> <span class="function"></span>(<span class="class">Files</span>.<span class="function">isRegularFile</span>(<span class="variable">f</span>)) {
+                <span class="keyword">try</span> <span class="variable"></span>{
+                    <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"  Preparing "</span>+<span class="class">f</span>.<span class="function">getFileName</span>());
+                    List&lt;String> <span class="keyword">content</span> <span class="variable"></span>= <span class="class">Files</span>.<span class="function">readAllLines</span>(f);
+                    <span class="keyword">if</span> <span class="function"></span>(<span class="function">isHTMLFile</span>(<span class="variable">f</span>)) {
+                        <span class="class">content</span>.<span class="function">addAll</span>(<span class="number">0</span>,<span class="class">Files</span>.<span class="function">readAllLines</span>(<span class="class">ops</span>.<span class="function">get</span>(<span class="string">""</span>)));
+                        <span class="class">content</span>.<span class="function">addAll</span>(<span class="class">Files</span>.<span class="function">readAllLines</span>(<span class="class">ops</span>.<span class="function">get</span>(<span class="string">""</span>)));
+                    }
+                    <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"  Parsing "</span>+<span class="class">f</span>.<span class="function">getFileName</span>());
+                    <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">int</span> <span class="variable">i</span>=<span class="number">0</span>;i&lt;<span class="class">content</span>.<span class="function">size</span>();i++) {
+                        <span class="keyword">String</span> <span class="keyword">s</span> <span class="variable"></span>= <span class="class">content</span>.<span class="function">get</span>(i);
+                        //<span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(s);
+                        <span class="keyword">if</span> <span class="function"></span>(<span class="class">s</span>.<span class="function">length</span>(<span class="variable"></span>)><span class="number">0</span>&&<span class="function"></span>(<span class="function">isHTMLFile</span>(f)||<span class="function">isArticleFile</span>(f))) {
+                            <span class="keyword">if</span> <span class="function"></span>(<span class="variable"></span>!inCodeBlock) {
+                                <span class="keyword">if</span> <span class="function"></span>(<span class="class">s</span>.<span class="function">contains</span>(<span class="string">"&lt;pre>"</span><span class="variable"></span>)) {
+                                    //<span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"Inside &lt;pre>"</span>);
+                                    inCodeBlock=<span class="number">true</span><span class="keyword"></span>;
+                                    storedCodeBlock=<span class="string">""</span>;
+                                    s=<span class="class">s</span>.<span class="function">substring</span>(<span class="number">0</span>,<span class="class">s</span>.<span class="function">indexOf</span>(<span class="string">"&lt;pre>"</span>));
+                                }
+                            }
+                            <span class="keyword">if</span> <span class="function"></span>(<span class="variable">inCodeBlock</span>&&<span class="class">s</span>.<span class="function">contains</span>(<span class="string">"&lt;/pre>"</span>)) {
+                                inCodeBlock=<span class="number">false</span><span class="keyword"></span>;
+                                <span class="keyword">boolean</span> <span class="variable">keyword</span>=<span class="number">false</span><span class="keyword"></span>;
+                                <span class="keyword">boolean</span> <span class="variable">inString</span>=<span class="number">false</span><span class="keyword"></span>;
+                                <span class="keyword">boolean</span> <span class="variable">inChar</span>=<span class="number">false</span><span class="keyword"></span>;
+                                <span class="keyword">boolean</span> <span class="variable">canBeNumericalConstant</span>=<span class="number">false</span><span class="keyword"></span>;
+                                <span class="keyword">int</span> <span class="variable">lengthOfConstant</span>=<span class="number">0</span>;
+                                storedCodeBlock+=<span class="class">s</span>.<span class="function">substring</span>(<span class="number">0</span>,<span class="class">s</span>.<span class="function">indexOf</span>(<span class="string">"&lt;/pre>"</span>));
+                                storedCodeBlock=<span class="class">storedCodeBlock</span>.<span class="function">replaceAll</span>(<span class="class">Pattern</span>.<span class="function">quote</span>(<span class="string">"&lt;"</span>),<span class="string">"&lt;"</span>);
+                                s+=<span class="string">"&lt;/pre>"</span>;
+                                storedCodeBlock=<span class="string">"&lt;pre>"</span>+<span class="keyword">storedCodeBlock</span>;
+                                <span class="keyword">int</span> <span class="variable">startPos</span>=<span class="number">0</span>;
+                                <span class="keyword">String</span> <span class="variable">endText</span>=<span class="class">s</span>.<span class="function">substring</span>(<span class="class">s</span>.<span class="function">indexOf</span>(<span class="string">"&lt;/pre>"</span>)+<span class="string">"&lt;/pre>"</span>.<span class="function">length</span>(),<span class="class">s</span>.<span class="function">length</span>());
+                                s=<span class="string">""</span>;
+                                <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">int</span> <span class="variable">j</span>=<span class="number">0</span>;j&lt;<span class="class">storedCodeBlock</span>.<span class="function">length</span>();j++) {
+                                    <span class="keyword">if</span> <span class="function"></span>(<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(<span class="variable">j</span>)=='<span class="string">"') {
+                                        inString=!inString;
+                                        if (inString) {
+                                            s+=SPAN("</span><span class="string">")+"</span>\<span class="string">""</span>;
+                                        } <span class="keyword">else</span> <span class="variable"></span>{
+                                            s+=<span class="string">"\"</span>&lt;/span><span class="string">";
+                                            startPos=j+1;
+                                        }
+                                    } else
+                                    if (!inString&&!inChar) {
+                                        if (canBeNumericalConstant&&validNumericalConstantCharacters(lengthOfConstant, j)) {
+                                            lengthOfConstant++;
+                                            System.out.println("</span><span class="keyword">Length</span> <span class="keyword">of</span> <span class="keyword">Constant</span> <span class="keyword">now</span> <span class="string">"+lengthOfConstant);
+                                        }
+                                        if (canBeNumericalConstant&&lengthOfConstant>0&&!(validNumericalConstantCharacters(lengthOfConstant, j))) {
+                                            s+=SPAN("</span><span class="string">")+storedCodeBlock.substring(startPos,j)+"</span><span class="variable"></span>&lt;/span><span class="string">"+storedCodeBlock.charAt(j);
+                                            //System.out.println("</span><span class="keyword">Setting</span> <span class="string">"+storedCodeBlock.substring(startPos,j)+storedCodeBlock.charAt(j));
+                                            lengthOfConstant=0;
+                                            canBeNumericalConstant=false;
+                                            startPos=j+1;
+                                        } else
+                                        if (!canBeNumericalConstant&&storedCodeBlock.charAt(j)=='.') {
+                                            //Previous section was a member.
+                                            s+=SPAN("</span><span class="string">")+storedCodeBlock.substring(startPos,j)+"</span><span class="variable"></span>&lt;/span><span class="string">"+storedCodeBlock.charAt(j);
+                                            startPos=j+1;
+                                        } else 
+                                        if (j>3&&storedCodeBlock.substring(j-3,j+1).equals("</span><span class="number">true</span><span class="string">")&&!isAlphanumeric(j-4)&&!isAlphanumeric(j+1)) {
+                                            s+=SPAN("</span><span class="string">")+storedCodeBlock.substring(startPos,j)+storedCodeBlock.charAt(j)+"</span>&lt;/span><span class="string">";
+                                            startPos=j+1;
+                                        } else 
+                                        if (j>4&&storedCodeBlock.substring(j-4,j+1).equals("</span><span class="number">false</span><span class="string">")&&!isAlphanumeric(j-5)&&!isAlphanumeric(j+1)) {
+                                            s+=SPAN("</span><span class="string">")+storedCodeBlock.substring(startPos,j)+storedCodeBlock.charAt(j)+"</span>&lt;/span><span class="string">";
+                                            startPos=j+1;
+                                        } else 
+                                        if (storedCodeBlock.charAt(j)=='(') {
+                                            s+=SPAN("</span><span class="string">")+storedCodeBlock.substring(startPos,j)+"</span>&lt;/span><span class="string">"+storedCodeBlock.charAt(j);
+                                            startPos=j+1;
+                                        } else 
+                                        if (j>0&&isAlphanumeric(j-1) && storedCodeBlock.charAt(j)==' '&&storedCodeBlock.charAt(j-1)!=' ') {
+                                            //Previous section was a keyword.
+                                            keyword=true;
+                                            s+=SPAN("</span><span class="string">")+storedCodeBlock.substring(startPos,j)+"</span>&lt;/span><span class="string">"+storedCodeBlock.charAt(j);
+                                            startPos=j+1;
+                                        } else 
+                                        if (j>0&&isAlphanumeric(j-1) && (storedCodeBlock.charAt(j)==';'||storedCodeBlock.charAt(j)==':')) {
+                                            //Previous section was a keyword.
+                                            //keyword=true;
+                                            s+=SPAN("</span><span class="string">")+storedCodeBlock.substring(startPos,j)+"</span>&lt;/span><span class="string">"+storedCodeBlock.charAt(j);
+                                            startPos=j+1;
+                                        } else 
+                                        if (keyword&&!(storedCodeBlock.charAt(j)>='0'&&storedCodeBlock.charAt(j)&lt;='9'||storedCodeBlock.charAt(j)>='A'&&storedCodeBlock.charAt(j)&lt;='Z'||storedCodeBlock.charAt(j)>='a'&&storedCodeBlock.charAt(j)&lt;='z'||storedCodeBlock.charAt(j)==' ')) {
+                                            keyword=false;
+                                            s+=SPAN("</span><span class="string">")+storedCodeBlock.substring(startPos,j)+"</span>&lt;/span><span class="string">"+storedCodeBlock.charAt(j);
+                                            startPos=j+1;
+                                        } else
+                                        if (!isAlphanumeric(j)){
+                                            if (startPos&lt;j) {
+                                                s+=storedCodeBlock.substring(startPos,j)+storedCodeBlock.charAt(j);
+                                            } else {
+                                                s+=storedCodeBlock.charAt(j);
+                                            }
+                                            startPos=j+1;
+                                        }
+                                    } else {
+                                        s+=storedCodeBlock.charAt(j);
+                                        startPos=j+1;
+                                    }
+                                    if (canBeNumericalConstant&&lengthOfConstant==0&&!(storedCodeBlock.charAt(j)>='0'&&storedCodeBlock.charAt(j)&lt;='9')) {
+                                        canBeNumericalConstant=false;
+                                    }
+                                    if (!canBeNumericalConstant&&!isAlphanumeric(j)) {
+                                        canBeNumericalConstant=true;
+                                        lengthOfConstant=0;
+                                        System.out.println("</span><span class="keyword">Found</span> <span class="string">"+storedCodeBlock.charAt(j)+"</span><span class="variable"></span>, <span class="keyword">can</span> <span class="keyword">be</span> <span class="class">numeric</span>.<span class="variable"></span>..<span class="string">");
+                                    }
+                                }
+                                s+=endText;
+                                //System.out.println("</span><span class="keyword">Stored</span> <span class="keyword">code</span> <span class="keyword">block</span>: <span class="string">"+storedCodeBlock);
+                            } else 
+                            if (inCodeBlock) {
+                                storedCodeBlock+=s+"</span><span class="variable"></span>\<span class="string">";
+                                s="</span> <span class="string">";
+                            }
+                        }
+                        if (s.length()>0&&isArticleFile(f)) {
+                            //Check for markdown pieces.
+                            if (s.charAt(0)=='-') {
+                                //Start of a title piece.
+                                s=s.replace("</span>-<span class="string">",map.get("</span>TITLE_CONTENT_<span class="string">"));
+                                s=s+map.get("</span>TITLE_CONTENT_<span class="string">").replace("</span><span class="string">","</span>id=\<span class="string">"content_"</span>+f+<span class="string">"\"</span><span class="string">");
+                                //Use ⤈ if there's more text to be shown than can fit.
+                            } else
+                            if (s.contains("</span>===<span class="string">")) {
+                                s=map.get("</span>CONTENT_<span class="string">")+map.get("</span>DATE_CONTENT_<span class="string">")+s.replace("</span>===<span class="string">","</span><span class="string">")+map.get("</span>CONTENT_<span class="string">")+"</span><span class="string">"+map.get("</span>CONTENT_<span class="string">");
+                            } else 
+                            if (s.charAt(0)==':') {
+                                //Image with caption.
+                                //Format:
+                                //:&lt;url>,&lt;left|right|center>,&lt;width>,&lt;caption>
+                                String[] splitter = s.split(Pattern.quote("</span>,<span class="string">"));
+                                StringBuilder captionText = new StringBuilder(splitter[3]);
+                                for (int j=4;j&lt;splitter.length;j++) {
+                                    captionText.append("</span>,<span class="string">").append(splitter[j]);
+                                }
+                                s="</span>&lt;div>&lt;<span class="keyword">figure</span> <span class="variable">style</span>=\<span class="string">"text-align:center;"</span>+<span class="function"></span>(<span class="function"></span>(splitter[<span class="number">1</span>].<span class="function">equals</span>(<span class="string">"left"</span>)||splitter[<span class="number">1</span>].<span class="function">equals</span>(<span class="string">"right"</span>))?<span class="string">"width:"</span>+splitter[<span class="number">2</span>]+<span class="string">"%;float:"</span>+splitter[<span class="number">1</span>]+<span class="string">";"</span>:<span class="string">""</span>)+<span class="string">"\"</span>>&lt;<span class="keyword">img</span> <span class="variable">src</span>=\<span class="string">"/"</span>+splitter[<span class="number">0</span>].<span class="function">substring</span>(<span class="number">1</span>)+<span class="string">"\"</span> style=\<span class="string">"margin:auto;width:100%;\"</span>>&lt;figcaption><span class="string">"+captionText.toString()+"</span>&lt;/figcaption>&lt;/figure>&lt;/div><span class="string">";
+                            } else {
+                                //It's regular content, so add paragraphs.
+                                s="</span>&lt;<span class="keyword">p</span> <span class="variable">class</span>=\<span class="string">"color"</span>+<span class="function"></span>(<span class="function"></span>(<span class="function"></span>(int)<span class="function"></span>(COLOR_ROTATION=<span class="function"></span>(COLOR_ROTATION+0.<span class="number">4</span>)%<span class="number">6</span>))+<span class="number">1</span>)+<span class="string">"\"</span>><span class="string">"+s+"</span>&lt;/p><span class="string">";
+                            }
+                        } else 
+                        if (s.length()==0&&isArticleFile(f)) {
+                            s="</span>&lt;br/><span class="string">"; //Setup a line break here.
+                        }
+                        for (String key : map.keySet()) {
+                            s=s.replaceAll(Pattern.quote(key),map.get(key));
+                        }
+                        content.set(i,s);
+                    }
+                    System.out.println("</span>  <span class="keyword">Writing</span> <span class="keyword">to</span> <span class="string">"+f.toAbsolutePath());
+                    Files.write(f, content, Charset.defaultCharset(),StandardOpenOption.CREATE,StandardOpenOption.TRUNCATE_EXISTING,StandardOpenOption.WRITE);
+                    
+                    System.out.println("</span> <span class="string">"+f.getFileName() + "</span> <span class="keyword">conversion</span> <span class="variable">complete</span>!<span class="string">");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    private static boolean validNumericalConstantCharacters(int lengthOfConstant, int j) {
+        return storedCodeBlock.charAt(j)>='0'&&storedCodeBlock.charAt(j)&lt;='9'||lengthOfConstant>0&&storedCodeBlock.charAt(j)=='.'||lengthOfConstant>0&&storedCodeBlock.charAt(j)>='A'&&lengthOfConstant>0&&storedCodeBlock.charAt(j)&lt;='F'||lengthOfConstant>0&&storedCodeBlock.charAt(j)>='a'&&lengthOfConstant>0&&storedCodeBlock.charAt(j)&lt;='f'||lengthOfConstant>0&&storedCodeBlock.charAt(j)=='x'||lengthOfConstant>0&&storedCodeBlock.charAt(j)=='X';
+    }
+    private static boolean isAlphanumeric(int j) {
+        return storedCodeBlock.charAt(j)>='0'&&storedCodeBlock.charAt(j)&lt;='9'||storedCodeBlock.charAt(j)>='A'&&storedCodeBlock.charAt(j)&lt;='Z'||storedCodeBlock.charAt(j)>='a'&&storedCodeBlock.charAt(j)&lt;='z';
+    }
+    /**
+     * Writes a span tag with the included class.
+     * **/
+    private static String SPAN(String className) {
+        return "</span>&lt;<span class="keyword">span</span> <span class="variable">class</span>=\<span class="string">""</span>+className+<span class="string">"\"</span>><span class="string">";
+    }
+    private static void GenerateArticleFiles(Iterator&lt;Path> items){
+        System.out.println("</span> <span class="keyword">Generating</span> <span class="keyword">article</span> <span class="class">files</span>.<span class="variable"></span>..<span class="string">");
+        while (items.hasNext()) {
+            Path f = items.next();
+            try {
+                if (Files.isRegularFile(f)&&isArticleFile(f)) {
+                    System.out.println("</span>  <span class="keyword">Creating</span> <span class="keyword">article</span> <span class="keyword">for</span> <span class="string">"+f.getFileName());
+                    List&lt;String> content = Files.readAllLines(f);
+                    List&lt;String> preContent = Files.readAllLines(ops.get("</span><span class="string">"));
+                    List&lt;String> postContent = Files.readAllLines(ops.get("</span><span class="string">"));
+                    StringBuilder sb = new StringBuilder();
+                    for (String d : preContent) {
+                        for (String k : sigPlace.map.keySet()) {
+                            d=d.replaceAll(Pattern.quote(k),sigPlace.map.get(k));
+                        }
+                        sb.append(d).append("</span><span class="variable"></span>\<span class="string">");
+                    }
+                    for (String d : content) {
+                        for (String k : sigPlace.map.keySet()) {
+                            d=d.replaceAll(Pattern.quote(k),sigPlace.map.get(k));
+                        }
+                        d=d.replaceFirst("</span><span class="keyword">div</span> <span class="variable">class</span>=\<span class="string">"content\"</span><span class="string">","</span><span class="keyword">div</span> <span class="variable">class</span>=\<span class="string">"expandedContent\"</span><span class="string">");
+                        d=d.replaceFirst("</span><span class="string">","</span><span class="string">");
+                        sb.append(d).append("</span>\<span class="string">");
+                    }
+                    for (String d : postContent) {
+                        for (String k : sigPlace.map.keySet()) {
+                            d=d.replaceAll(Pattern.quote(k),sigPlace.map.get(k));
+                        }
+                        sb.append(d).append("</span>\<span class="string">");
+                    }
+                    Files.write(Paths.get(f.getParent().toString(),f.getFileName()+"</span>.<span class="string">"),sb.toString().getBytes());
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    private static void ConvertArticleReferences(Iterator&lt;Path> items) {
+        while (items.hasNext()) {
+            Path f = items.next();
+            System.out.println("</span> <span class="keyword">Looking</span> <span class="keyword">for</span> <span class="keyword">Article</span> <span class="class">References</span>.<span class="variable"></span>..<span class="string">"+f.getFileName());
+            boolean articleJavascriptIncluded=false;
+            if (Files.isRegularFile(f)&&isHTMLFile(f)) {
+                System.out.println("</span>  <span class="keyword">Searching</span> <span class="string">"+f.getFileName());
+                try {
+                    List&lt;String> content = Files.readAllLines(f);
+                    for (int i=0;i&lt;content.size();i++) {
+                        String s = content.get(i);
+                        if (s.length()>0&&s.contains("</span><span class="variable">ARTICLE</span>_<span class="string">")) {
+                            String article = ARTICLESDIR+"</span>/<span class="string">"+s.replace("</span>ARTICLE_<span class="keyword">PREVIEW</span> <span class="string">","</span><span class="string">")+"</span><span class="variable"></span>.<span class="string">";
+                            System.out.println("</span>   <span class="keyword">Found</span> <span class="keyword">article</span> <span class="keyword">preview</span> <span class="keyword">request</span> <span class="keyword">in</span> <span class="string">"+f.getFileName()+"</span> <span class="keyword">for</span> <span class="keyword">article</span> <span class="string">"+article+"</span><span class="variable"></span>.<span class="string">");
+                            Path file = Paths.get(OUTDIR,article);
+                            List&lt;String> newData = Files.readAllLines(file);
+                            if (newData.size()>0) {
+                                content.set(i,newData.get(0));
+                                for (int j=1;j&lt;newData.size();j++) {
+                                    content.add(i+j, newData.get(j));
+                                }
+                                String lastline=content.get(i+newData.size()-1);
+                                lastline=lastline.replace("</span><span class="string">","</span>&lt;<span class="keyword">div</span> <span class="variable">class</span>=\<span class="string">"unexpanded\"</span> id=\<span class="string">"expand_"</span>+i+<span class="string">"\"</span> onClick=\<span class="string">"expand(this,'"</span>+<span class="class">Paths</span>.<span class="function">get</span>(OUTDIR,<span class="class">article</span>.<span class="function">toString</span>())+<span class="string">"')\"</span>>&lt;br/>&lt;br/>&lt;br/>&lt;br/>&#<span class="keyword">x2908</span>; <span class="keyword">Click</span> <span class="keyword">to</span> <span class="class">expand</span>.<span class="variable"></span>&lt;/div><span class="string">");
+                                content.set(i+newData.size()-1,lastline);//&lt;div class=\"</span>unexpanded\<span class="string">" id=\"</span>expand_<span class="string">"+i+"</span>\<span class="string">" onClick=\"</span><span class="function">expand</span>(<span class="string">"+i+"</span>)\<span class="string">">&lt;br/>&lt;br/>&lt;br/>&lt;br/>&#x2908; Click to expand.&lt;/div>"</span>);
+                            } <span class="keyword">else</span> <span class="variable"></span>{
+                                <span class="class">content</span>.<span class="function">set</span>(i,<span class="string">""</span>);
+                            }
+                            <span class="keyword">if</span> <span class="function"></span>(<span class="variable"></span>!articleJavascriptIncluded) {
+                                List&lt;String> <span class="keyword">articlejs</span> <span class="variable"></span>= <span class="class">Files</span>.<span class="function">readAllLines</span>(<span class="class">Paths</span>.<span class="function">get</span>(REFDIR,<span class="string">"article.js"</span>));
+                                <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">int</span> <span class="variable">j</span>=<span class="class">articlejs</span>.<span class="function">size</span>()-<span class="number">1</span>;j>=<span class="number">0</span>;j--) {
+                                    <span class="class">content</span>.<span class="function">add</span>(i,<span class="class">articlejs</span>.<span class="function">get</span>(j));
+                                }
+                                articleJavascriptIncluded=<span class="number">true</span><span class="keyword"></span>;
+                            }
+                        }
+                    }
+                    <span class="class">Files</span>.<span class="function">write</span>(f,content);
+                } <span class="keyword">catch</span> <span class="function"></span>(<span class="keyword">IOException</span> <span class="variable">e</span>) {
+                    <span class="class">e</span>.<span class="function">printStackTrace</span>();
+                }
+            }
+        }
+    }
+    <span class="keyword">static</span> <span class="keyword">void</span> <span class="function">copyDirectory</span>(<span class="keyword">String</span> <span class="variable">sourceDirectoryLocation</span>, <span class="keyword">String</span> <span class="variable">destinationDirectoryLocation</span>) 
+    <span class="keyword">throws</span> <span class="keyword">IOException</span> <span class="variable"></span>{
+        <span class="class">Files</span>.<span class="function">walk</span>(<span class="class">Paths</span>.<span class="function">get</span>(sourceDirectoryLocation))
+        .<span class="function">forEach</span>(<span class="keyword">source</span> <span class="variable"></span>-> {
+            <span class="keyword">Path</span> <span class="keyword">destination</span> <span class="variable"></span>= <span class="class">Paths</span>.<span class="function">get</span>(destinationDirectoryLocation, <span class="class">source</span>.<span class="function">toString</span>()
+                .<span class="function">substring</span>(<span class="class">sourceDirectoryLocation</span>.<span class="function">length</span>()));
+            <span class="keyword">try</span> <span class="variable"></span>{
+                <span class="keyword">if</span> <span class="function"></span>(<span class="class">Files</span>.<span class="function">isDirectory</span>(<span class="variable">destination</span>)) {
+                    <span class="class">Files</span>.<span class="function">createDirectories</span>(destination);
+                } <span class="keyword">else</span> <span class="variable"></span>{
+                    <span class="class">Files</span>.<span class="function">copy</span>(source, destination, <span class="keyword">new</span> <span class="variable">CopyOption</span>[]{<span class="class">StandardCopyOption</span>.COPY_ATTRIBUTES,<span class="class">StandardCopyOption</span>.REPLACE_EXISTING});
+                }
+            } <span class="keyword">catch</span> <span class="function"></span>(<span class="keyword">IOException</span> <span class="variable">e</span>) {
+                <span class="class">e</span>.<span class="function">printStackTrace</span>();
+            }
+        });
+    }
+    <span class="keyword">static</span> <span class="keyword">void</span> <span class="function">buildDirectoryListings</span>(<span class="variable"></span>) 
+    <span class="keyword">throws</span> <span class="keyword">IOException</span> <span class="variable"></span>{
+        <span class="keyword">String</span> <span class="variable">startingPath</span>=<span class="class">Paths</span>.<span class="function">get</span>(<span class="class">sigPlace</span>.OUTDIR).<span class="function">toAbsolutePath</span>().<span class="function">toString</span>();
+        HashMap&lt;String,List&lt;Path>> <span class="keyword">map</span> <span class="variable"></span>= <span class="keyword">new</span> <span class="variable">HashMap</span>&lt;><span class="function"></span>();
+        Iterator&lt;Path> <span class="keyword">it</span> <span class="variable"></span>= <span class="class">Files</span>.<span class="function">walk</span>(<span class="class">Paths</span>.<span class="function">get</span>(<span class="class">sigPlace</span>.OUTDIR)).<span class="function">iterator</span>();
+        <span class="class">map</span>.<span class="function">put</span>(<span class="string">"/"</span>,<span class="keyword">new</span> <span class="variable">ArrayList</span>&lt;Path><span class="function"></span>());
+        <span class="keyword">while</span> <span class="function"></span>(<span class="class">it</span>.<span class="function">hasNext</span>(<span class="variable"></span>)) {
+            <span class="keyword">Path</span> <span class="keyword">f</span> <span class="variable"></span>= <span class="class">it</span>.<span class="function">next</span>();
+            <span class="keyword">if</span> <span class="function"></span>(<span class="variable"></span>!<span class="class">f</span>.<span class="function">getFileName</span>().<span class="function">toString</span>().<span class="function">equals</span>(OUTDIR)) {
+                <span class="keyword">String</span> <span class="keyword">myKey</span> <span class="variable"></span>= <span class="class">f</span>.<span class="function">toAbsolutePath</span>().<span class="function">toString</span>().<span class="function">replace</span>(startingPath,<span class="string">""</span>).<span class="function">replace</span>(<span class="class">f</span>.<span class="function">getFileName</span>().<span class="function">toString</span>(),<span class="string">""</span>);
+                //<span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(myKey+<span class="string">","</span>+f);
+                <span class="class">map</span>.<span class="function">putIfAbsent</span>(myKey,<span class="keyword">new</span> <span class="variable">ArrayList</span>&lt;Path><span class="function"></span>());
+                <span class="class">map</span>.<span class="function">get</span>(myKey).<span class="function">add</span>(f);
+            }
+        }
+        <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"Directory structure determined:"</span>);
+        <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"    "</span>+map);
+        <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">String</span> <span class="keyword">key</span> <span class="variable"></span>: <span class="class">map</span>.<span class="function">keySet</span>()) {
+            <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"Creating directory listing for "</span>+key+<span class="string">"..."</span>);
+            <span class="keyword">StringBuilder</span> <span class="keyword">sb</span> <span class="variable"></span>= <span class="keyword">new</span> <span class="function">StringBuilder</span>(<span class="string">""</span><span class="variable"></span>);
+            List&lt;String> <span class="keyword">data</span> <span class="variable"></span>= <span class="class">Files</span>.<span class="function">readAllLines</span>(<span class="class">ops</span>.<span class="function">get</span>(<span class="string">""</span>));
+            List&lt;String> <span class="keyword">data2</span> <span class="variable"></span>= <span class="class">Files</span>.<span class="function">readAllLines</span>(<span class="class">ops</span>.<span class="function">get</span>(<span class="string">""</span>));
+            <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">String</span> <span class="keyword">d</span> <span class="variable"></span>: data) {
+                <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">String</span> <span class="keyword">k</span> <span class="variable"></span>: <span class="class">sigPlace</span>.<span class="class">map</span>.<span class="function">keySet</span>()) {
+                    d=<span class="class">d</span>.<span class="function">replaceAll</span>(<span class="class">Pattern</span>.<span class="function">quote</span>(k),<span class="class">sigPlace</span>.<span class="class">map</span>.<span class="function">get</span>(k));
+                }
+                <span class="class">sb</span>.<span class="function">append</span>(d).<span class="function">append</span>(<span class="string">"\n"</span>);
+            }
+            <span class="class">sb</span>.<span class="function">append</span>(<span class="string">"&lt;h2>Directory Listing for "</span>+key+<span class="string">"&lt;/h2>"</span>);
+            <span class="class">sb</span>.<span class="function">append</span>(<span class="string">"&lt;div class=\"</span>folderlisting\<span class="string">">&lt;a href=\"</span><span class="string">")
+            .append(key)
+            .append("</span>..\<span class="string">" class=\"</span>icon\<span class="string">">&#x1F4C1;&lt;/a>&lt;a href=\"</span><span class="string">")
+            .append(key)
+            .append("</span>..\<span class="string">">.. &lt;/a>&lt;a href=\"</span><span class="string">")
+            .append(key)
+            .append("</span>..\<span class="string">" class=\"</span>nounderline\<span class="string">">(Previous Directory)&lt;/a>&lt;/div>"</span>);
+            <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">Path</span> <span class="keyword">f</span> <span class="variable"></span>: <span class="class">map</span>.<span class="function">get</span>(key)) {
+                <span class="class">sb</span>.<span class="function">append</span>(<span class="string">"&lt;div class=\"</span><span class="string">").append((Files.isDirectory(f)?"</span><span class="string">":"</span><span class="string">")).append("</span>\<span class="string">">"</span>)
+                .<span class="function">append</span>(<span class="string">"&lt;a href=\"</span><span class="string">"+(f.toAbsolutePath().toString().replace(Paths.get(OUTDIR).toAbsolutePath().toString(),"</span><span class="string">"))+"</span>\<span class="string">" class=\"</span>icon\<span class="string">">"</span>)
+                .<span class="function">append</span>(<span class="function"></span>(<span class="class">Files</span>.<span class="function">isDirectory</span>(f)?<span class="string">"&#x1F4C1;"</span>:<span class="string">"&#x1F5CE;"</span>))
+                .<span class="function">append</span>(<span class="string">"&lt;/a>"</span>)
+                .<span class="function">append</span>(<span class="string">"&lt;a href=\"</span><span class="string">"+(f.toAbsolutePath().toString().replace(Paths.get(OUTDIR).toAbsolutePath().toString(),"</span><span class="string">"))+"</span>\<span class="string">">"</span>)
+                .<span class="function">append</span>(<span class="class">f</span>.<span class="function">getFileName</span>())
+                .<span class="function">append</span>(<span class="string">"&lt;/a>\t"</span>)
+                .<span class="function">append</span>(<span class="class">Files</span>.<span class="function">getLastModifiedTime</span>(f))
+                .<span class="function">append</span>(<span class="string">"\t"</span>)
+                .<span class="function">append</span>(<span class="class">Files</span>.<span class="function">getOwner</span>(f))
+                .<span class="function">append</span>(<span class="string">"\t"</span>)
+                .<span class="function">append</span>(<span class="class">Files</span>.<span class="function">size</span>(f))
+                .<span class="function">append</span>(<span class="string">"&lt;/div>\n"</span>);
+            }
+            <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">String</span> <span class="keyword">d</span> <span class="variable"></span>: data2) {
+                <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">String</span> <span class="keyword">k</span> <span class="variable"></span>: <span class="class">sigPlace</span>.<span class="class">map</span>.<span class="function">keySet</span>()) {
+                    d=<span class="class">d</span>.<span class="function">replaceAll</span>(<span class="class">Pattern</span>.<span class="function">quote</span>(k),<span class="class">sigPlace</span>.<span class="class">map</span>.<span class="function">get</span>(k));
+                }
+                <span class="class">sb</span>.<span class="function">append</span>(d).<span class="function">append</span>(<span class="string">"\n"</span>);
+            }
+            <span class="keyword">Path</span> <span class="keyword">newf</span> <span class="variable"></span>= <span class="class">Files</span>.<span class="function">write</span>(<span class="class">Paths</span>.<span class="function">get</span>(OUTDIR,key,DIRECTORYLISTING_FILENAME),<span class="class">sb</span>.<span class="function">toString</span>().<span class="function">getBytes</span>());
+            <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"  Added info for ("</span>+<span class="class">map</span>.<span class="function">size</span>()+<span class="string">") files to "</span>+<span class="class">newf</span>.<span class="function">toAbsolutePath</span>());
+        }
+    }
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="function">isArticleFile</span>(<span class="keyword">Path</span> <span class="variable">f</span>) {
+        <span class="keyword">return</span> <span class="class">f</span>.<span class="function">getFileName</span>(<span class="variable"></span>).<span class="function">toString</span>().<span class="function">contains</span>(<span class="string">".article"</span>);
+    }
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="function">isHTMLFile</span>(<span class="keyword">Path</span> <span class="variable">f</span>) {
+        <span class="keyword">return</span> <span class="class">f</span>.<span class="function">getFileName</span>(<span class="variable"></span>).<span class="function">toString</span>().<span class="function">contains</span>(<span class="string">".html"</span>);
+    }
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="function">ExportCodeFile</span>(<span class="variable"></span>) {
+        <span class="keyword">try</span> <span class="variable"></span>{
+            <span class="keyword">Path</span> <span class="keyword">file</span> <span class="variable"></span>= <span class="class">Paths</span>.<span class="function">get</span>(<span class="string">"sigServer.java"</span>);
+            List&lt;String> <span class="keyword">data</span> <span class="variable"></span>= <span class="class">Files</span>.<span class="function">readAllLines</span>(file);
+            <span class="keyword">int</span> <span class="variable">i</span>=<span class="number">0</span>;
+            <span class="keyword">while</span> <span class="function"></span>(<span class="variable"></span>!<span class="class">data</span>.<span class="function">get</span>(i++).<span class="function">contains</span>(<span class="string">"sigServer()"</span>)&&i&lt;<span class="class">data</span>.<span class="function">size</span>());
+            <span class="keyword">if</span> <span class="function"></span>(<span class="variable">i</span>&lt;<span class="class">data</span>.<span class="function">size</span>()) {
+                <span class="class">Files</span>.<span class="function">write</span>(<span class="class">Paths</span>.<span class="function">get</span>(OUTDIR,<span class="string">"codeBackground"</span>),<span class="class">data</span>.<span class="function">subList</span>(i, <span class="class">Math</span>.<span class="function">min</span>(i+<span class="number">40</span>,<span class="class">data</span>.<span class="function">size</span>())),<span class="class">Charset</span>.<span class="function">defaultCharset</span>(),<span class="class">StandardOpenOption</span>.CREATE,<span class="class">StandardOpenOption</span>.TRUNCATE_EXISTING,<span class="class">StandardOpenOption</span>.WRITE);
+            }
+        } <span class="keyword">catch</span> <span class="function"></span>(<span class="keyword">IOException</span> <span class="variable">e</span>) {
+            <span class="class">e</span>.<span class="function">printStackTrace</span>();
+        }
+        
+    }
+}
 </pre></p>
 </div><div class="datebar"></div><div class="date">3 May 2022 10:25AM</div>%CONDITIONAL_EXPAND%</div>
