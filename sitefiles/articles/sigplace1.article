@@ -49,18 +49,18 @@ public class sigPlace {
     static String storedCodeBlock = "";
 
     final static HashMap<String,String> map = new HashMap<>(Map.ofEntries(
-        new AbstractMap.SimpleEntry<>("SITENAME", "SigPlace"),
-        new AbstractMap.SimpleEntry<>("SITE_BACKCOL", "#111"),
-        new AbstractMap.SimpleEntry<>("TITLE_CONTENT_START", "<div class=\"contentWrapper\"><h1>"),
-        new AbstractMap.SimpleEntry<>("TITLE_CONTENT_END", "</h1><div class=\"content\" >"),
-        new AbstractMap.SimpleEntry<>("CONTENT_END", "</div>"),
-        new AbstractMap.SimpleEntry<>("DATE_CONTENT_START", "<div class=\"datebar\"></div><div class=\"date\">")
+        new AbstractMap.SimpleEntry<>("$SITENAME", "SigPlace"),
+        new AbstractMap.SimpleEntry<>("$SITE_BACKCOL", "#111"),
+        new AbstractMap.SimpleEntry<>("$TITLE_CONTENT_START", "<div class=\"contentWrapper\"><h1>"),
+        new AbstractMap.SimpleEntry<>("$TITLE_CONTENT_END", "</h1><div class=\"content\" %ID%>"),
+        new AbstractMap.SimpleEntry<>("$CONTENT_END", "</div>"),
+        new AbstractMap.SimpleEntry<>("$DATE_CONTENT_START", "<div class=\"datebar\"></div><div class=\"date\">")
     ));
     final static HashMap<String,Path> ops = new HashMap<>(Map.ofEntries(
         new AbstractMap.SimpleEntry<>(
-            "", Paths.get(REFDIR,"DEFAULT.html")),
+            "%DEFAULT", Paths.get(REFDIR,"DEFAULT.html")),
         new AbstractMap.SimpleEntry<>(
-            "", Paths.get(REFDIR,"FOOTER.html"))
+            "%FOOTER", Paths.get(REFDIR,"FOOTER.html"))
     ));
     public static void main(String[] args) {
 
@@ -123,8 +123,8 @@ public class sigPlace {
 
                     List<String> content = Files.readAllLines(f);
                     if (isHTMLFile(f)) {
-                        content.addAll(0,Files.readAllLines(ops.get("")));
-                        content.addAll(Files.readAllLines(ops.get("")));
+                        content.addAll(0,Files.readAllLines(ops.get("%DEFAULT")));
+                        content.addAll(Files.readAllLines(ops.get("%FOOTER")));
                     }
 
                     System.out.println("  Parsing "+f.getFileName());
@@ -243,12 +243,12 @@ public class sigPlace {
                             //Check for markdown pieces.
                             if (s.charAt(0)=='-') {
                                 //Start of a title piece.
-                                s=s.replace("-",map.get("TITLE_CONTENT_START"));
-                                s=s+map.get("TITLE_CONTENT_END").replace("","id=\"content_"+f+"\"");
+                                s=s.replace("-",map.get("$TITLE_CONTENT_START"));
+                                s=s+map.get("$TITLE_CONTENT_END").replace("%ID%","id=\"content_"+f+"\"");
                                 //Use ⤈ if there's more text to be shown than can fit.
                             } else
                             if (s.contains("===")) {
-                                s=map.get("CONTENT_END")+map.get("DATE_CONTENT_START")+s.replace("===","")+map.get("CONTENT_END")+""+map.get("CONTENT_END");
+                                s=map.get("$CONTENT_END")+map.get("$DATE_CONTENT_START")+s.replace("===","")+map.get("$CONTENT_END")+"%CONDITIONAL_EXPAND%"+map.get("$CONTENT_END");
                             } else 
                             if (s.charAt(0)==':') {
                                 //Image with caption.
@@ -306,8 +306,8 @@ public class sigPlace {
                 if (Files.isRegularFile(f)&&isArticleFile(f)) {
                     System.out.println("  Creating article for "+f.getFileName());
                     List<String> content = Files.readAllLines(f);
-                    List<String> preContent = Files.readAllLines(ops.get(""));
-                    List<String> postContent = Files.readAllLines(ops.get(""));
+                    List<String> preContent = Files.readAllLines(ops.get("%DEFAULT"));
+                    List<String> postContent = Files.readAllLines(ops.get("%FOOTER"));
                     StringBuilder sb = new StringBuilder();
                     for (String d : preContent) {
                         for (String k : sigPlace.map.keySet()) {
@@ -320,7 +320,7 @@ public class sigPlace {
                             d=d.replaceAll(Pattern.quote(k),sigPlace.map.get(k));
                         }
                         d=d.replaceFirst("div class=\"content\"","div class=\"expandedContent\"");
-                        d=d.replaceFirst("","");
+                        d=d.replaceFirst("%CONDITIONAL_EXPAND%","");
                         sb.append(d).append("\n");
                     }
                     for (String d : postContent) {
@@ -347,8 +347,8 @@ public class sigPlace {
                     List<String> content = Files.readAllLines(f);
                     for (int i=0;i<content.size();i++) {
                         String s = content.get(i);
-                        if (s.length()>0&&s.contains("ARTICLE_PREVIEW")) {
-                            String article = ARTICLESDIR+"/"+s.replace("ARTICLE_PREVIEW ","")+".article";
+                        if (s.length()>0&&s.contains("$ARTICLE_PREVIEW")) {
+                            String article = ARTICLESDIR+"/"+s.replace("$ARTICLE_PREVIEW ","")+".article";
                             System.out.println("   Found article preview request in "+f.getFileName()+" for article "+article+".");
                             Path file = Paths.get(OUTDIR,article);
                             List<String> newData = Files.readAllLines(file);
@@ -358,7 +358,7 @@ public class sigPlace {
                                     content.add(i+j, newData.get(j));
                                 }
                                 String lastline=content.get(i+newData.size()-1);
-                                lastline=lastline.replace("","<div class=\"unexpanded\" id=\"expand_"+i+"\" onClick=\"expand(this,'"+Paths.get(OUTDIR,article.toString())+"')\"><br/><br/><br/><br/>&#x2908; Click to expand.</div>");
+                                lastline=lastline.replace("%CONDITIONAL_EXPAND%","<div class=\"unexpanded\" id=\"expand_"+i+"\" onClick=\"expand(this,'"+Paths.get(OUTDIR,article.toString())+"')\"><br/><br/><br/><br/>&#x2908; Click to expand.</div>");
                                 content.set(i+newData.size()-1,lastline);//<div class=\"unexpanded\" id=\"expand_"+i+"\" onClick=\"expand("+i+")\"><br/><br/><br/><br/>&#x2908; Click to expand.</div>");
                             } else {
                                 content.set(i,"");
@@ -416,8 +416,8 @@ public class sigPlace {
         for (String key : map.keySet()) {
             System.out.println("Creating directory listing for "+key+"...");
             StringBuilder sb = new StringBuilder("");
-            List<String> data = Files.readAllLines(ops.get(""));
-            List<String> data2 = Files.readAllLines(ops.get(""));
+            List<String> data = Files.readAllLines(ops.get("%DEFAULT"));
+            List<String> data2 = Files.readAllLines(ops.get("%FOOTER"));
             for (String d : data) {
                 for (String k : sigPlace.map.keySet()) {
                     d=d.replaceAll(Pattern.quote(k),sigPlace.map.get(k));
