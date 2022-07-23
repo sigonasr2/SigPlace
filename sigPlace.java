@@ -24,6 +24,8 @@ public class sigPlace {
     final static String DIRECTORYLISTING_FILENAME = "DIRECTORY_LISTING";
     static int PORT = 8080;
 
+    static double COLOR_ROTATION = 0;
+
     static boolean inCodeBlock = false;
     static String storedCodeBlock = "";
 
@@ -132,7 +134,7 @@ public class sigPlace {
                                 s="<div><figure style=\"text-align:center;"+((splitter[1].equals("left")||splitter[1].equals("right"))?"width:"+splitter[2]+"%;float:"+splitter[1]+";":"")+"\"><img src=\"/"+splitter[0].substring(1)+"\" style=\"margin:auto;width:100%;\"><figcaption>"+captionText.toString()+"</figcaption></figure></div>";
                             } else {
                                 //It's regular content, so add paragraphs.
-                                s="<p>"+s+"</p>";
+                                s="<p class=\"color"+(((int)(COLOR_ROTATION=(COLOR_ROTATION+0.4)%6))+1)+"\">"+s+"</p>";
                             }
                         } else 
                         if (s.length()==0&&isArticleFile(f)) {

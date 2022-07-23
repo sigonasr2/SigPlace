@@ -100,6 +100,30 @@ sup{
     z-index:-1;
 }
 
+    .contentBody .color1{
+        color: #a985e4;
+    }
+
+    .contentBody .color2{
+        color: #85abe4;
+    }
+
+    .contentBody .color3{
+        color: #85e4ad;
+    }
+
+    .contentBody .color4{
+        color: #d3e485;
+    }
+
+    .contentBody .color5{
+        color: #e4a385;
+    }
+
+    .contentBody .color6{
+        color: #e485b1;
+    }
+
     .contentBody .contentWrapper{
         position:relative;
         border-style: none none outset none;
