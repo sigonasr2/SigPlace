@@ -14,4 +14,11 @@
 <br/>
 <div><figure style="text-align:center;width:30%;float:right;"><img src="/Love_Live!_Logo.png" style="margin:auto;width:100%;"><figcaption>Hello there! You can see this is the Love Live logo indeed! It is quite smol right now but that's okay. Let's keep on going with the text. If the caption is really long and with commas, they will now be combined,,,,,see how that works? Amazing!</figcaption></figure></div>
 <p class="color4">Here we demonstrate the love live logo. But wait, it's literally like in the middle wtf is going on.Here we demonstrate the love live logo. But wait, it's literally like in the middle wtf is going on.Here we demonstrate the love live logo. But wait, it's literally like in the middle wtf is going on.</p>
+<br/>
+<p class="color4"><pre></p>
+<p class="color5">test</p>
+<p class="color5">test</p>
+<p class="color6">  test&lt;/pre>&lt;h1>We can't make a big header&lt;/h1></p>
+<p class="color6"> testing</p>
+<p class="color1"></pre></p>
 </div><div class="datebar"></div><div class="date">3 May 2022 10:25AM</div>%CONDITIONAL_EXPAND%</div>

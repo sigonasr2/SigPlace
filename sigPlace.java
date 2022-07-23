@@ -21,6 +21,7 @@ public class sigPlace {
     final static String OUTDIR = "out";
     final static String ARTICLESDIR = "articles";
     final static String UPLOADSDIR = "uploads";
+    final static String COMMENTSDIR = "comments";
     final static String DIRECTORYLISTING_FILENAME = "DIRECTORY_LISTING";
     static int PORT = 8080;
 

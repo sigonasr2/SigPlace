@@ -123,35 +123,41 @@ public class sigServer {
                                         //Send default directory.
                                         if (modifiedDate==null||modifiedDate.isBefore(GetLastModifiedDate(sigPlace.OUTDIR,"testfile.html"))) {
                                             System.out.println(GetLastModifiedDate(sigPlace.OUTDIR,"testfile.html")+"//"+modifiedDate);
-                                            CreateRequest(client,"200","OK","testfile.html");
+                                            CreateRequest(client,"200","OK",Paths.get(sigPlace.OUTDIR,"testfile.html"));
                                         } else {
                                             //System.out.println(" testfile.html is cached! No sending required.");
-                                            CreateRequest(client,"304","Not Modified","testfile.html");
+                                            CreateRequest(client,"304","Not Modified",Paths.get(sigPlace.OUTDIR,"testfile.html"));
                                         }
                                     } else {
                                         String location = URLDecoder.decode(requestloc.replaceFirst("/",""),StandardCharsets.UTF_8);
                                         if (modifiedDate==null||modifiedDate.isBefore(GetLastModifiedDate(sigPlace.OUTDIR,location))) 
                                         {
-                                            CreateRequest(client,"200","OK",location);
+                                            Path file = null;
+                                            if (location.equals("comment")) {
+                                                file = Paths.get(sigPlace.COMMENTSDIR,requestParams.get("article"));
+                                            } else {
+                                                file = Paths.get(sigPlace.OUTDIR,location);
+                                            }
+                                            CreateRequest(client,"200","OK",file);
                                         } else {
                                             //System.out.println(" "+location+" is cached! No sending required.");
-                                            CreateRequest(client,"304","Not Modified",location);
+                                            CreateRequest(client,"304","Not Modified",Paths.get(location));
                                         }
                                     }
                                 }
                             } else 
                             if (splitter[0].equals("POST")) { //This is a POST request.
                                 if (boundary!=null) {
-                                    CreateRequest(client,"200","OK","testfile.html");
+                                    CreateRequest(client,"200","OK",Paths.get(sigPlace.OUTDIR,"testfile.html"));
                                 } else {
-                                    CreateRequest(client,"400","Bad Request","testfile.html");
+                                    CreateRequest(client,"400","Bad Request",Paths.get(sigPlace.OUTDIR,"testfile.html"));
                                 }
                             } else {
-                                CreateRequest(client,"501","Not Implemented","testfile.html");
+                                CreateRequest(client,"501","Not Implemented",Paths.get(sigPlace.OUTDIR,"testfile.html"));
                             }
                         } else {
                             in.close();
-                            CreateRequest(client,"400","Bad Request","testfile.html");
+                            CreateRequest(client,"400","Bad Request",Paths.get(sigPlace.OUTDIR,"testfile.html"));
                         }
                     }
                 } catch(SocketException|NullPointerException e) {
@@ -188,15 +194,14 @@ public class sigServer {
         }
     }
 
-    private void CreateRequest(Socket client, String statusCode, String statusMsg, String string) {
+    private void CreateRequest(Socket client, String statusCode, String statusMsg, Path file) {
         long startTime = System.currentTimeMillis();
-        Path file = Paths.get(sigPlace.OUTDIR,string);
         try {
             OutputStream clientOutput = client.getOutputStream();
             if (statusCode.equals("200")) {
                 if (Files.exists(file)) {
                     if (Files.isDirectory(file)) {
-                        CreateRawRequest(clientOutput,statusCode,statusMsg,"text/html",Files.readAllBytes(Paths.get(sigPlace.OUTDIR,string,sigPlace.DIRECTORYLISTING_FILENAME)),Files.getLastModifiedTime(file));
+                        CreateRawRequest(clientOutput,statusCode,statusMsg,"text/html",Files.readAllBytes(Paths.get(file.toAbsolutePath().toString(),sigPlace.DIRECTORYLISTING_FILENAME)),Files.getLastModifiedTime(file));
                         clientOutput.write(("<div class=\"generateTime\">Webpage generated in "+(System.currentTimeMillis()-startTime)+"ms</div>\r\n").getBytes());
                     } else {
                         CreateRawRequest(clientOutput,statusCode,statusMsg,Files.probeContentType(file),Files.readAllBytes(file),Files.getLastModifiedTime(file));
