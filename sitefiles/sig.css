@@ -261,7 +261,7 @@ pre .variable{
 }
 
 pre .class{
-    color:dodgerblue;
+    color:rgb(216, 107, 74);
 }
 
 pre .function{
@@ -270,4 +270,8 @@ pre .function{
 
 pre .string{
     color:forestgreen;
+}
+
+pre .number{
+    color:#d8f070;
 }

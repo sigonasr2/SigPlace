@@ -65,7 +65,7 @@ public class sigPlace {
         System.out.println("Copying files over to output directory...");
         try {
             copyDirectory("sitefiles","out");
-            Iterator<Path> items = Files.walk(Paths.get("out")).iterator();
+            Iterator<Path> items = Files.walk(Paths.get("out")).filter((p)->!p.toAbsolutePath().toString().contains("images/")).iterator();
             ParseArticleFiles(items);
 
             items = Files.walk(Paths.get("out")).iterator();
@@ -112,6 +112,112 @@ public class sigPlace {
                     System.out.println("  Parsing "+f.getFileName());
                     for (int i=0;i<content.size();i++) {
                         String s = content.get(i);
+                        //System.out.println(s);
+                        if (s.length()>0&&(isHTMLFile(f)||isArticleFile(f))) {
+                            if (!inCodeBlock) {
+                                if (s.contains("<pre>")) {
+                                    //System.out.println("Inside <pre>");
+                                    inCodeBlock=true;
+                                    storedCodeBlock=s.substring(s.indexOf("<pre>"));
+                                    s=s.substring(0,s.indexOf("<pre>"));
+                                }
+                            }
+                            if (inCodeBlock&&s.contains("</pre>")) {
+                                inCodeBlock=false;
+                                boolean keyword=false;
+                                boolean inString=false;
+                                boolean inChar=false;
+                                boolean canBeNumericalConstant=false;
+                                int lengthOfConstant=0;
+                                storedCodeBlock+=s.substring(0,s.indexOf("</pre>")+"</pre>".length());
+                                int startPos=0;
+                                String endText=s.substring(s.indexOf("</pre>")+"</pre>".length(),s.length());
+                                s="";
+                                for (int j=0;j<storedCodeBlock.length();j++) {
+                                    if (storedCodeBlock.charAt(j)=='"') {
+                                        inString=!inString;
+                                        if (inString) {
+                                            s+=SPAN("string")+"\"";
+                                        } else {
+                                            s+="\"</span>";
+                                            startPos=j+1;
+                                        }
+                                    } else
+                                    if (!inString&&!inChar) {
+                                        if (canBeNumericalConstant&&validNumericalConstantCharacters(lengthOfConstant, j)) {
+                                            lengthOfConstant++;
+                                            System.out.println("Length of Constant now "+lengthOfConstant);
+                                        }
+                                        if (canBeNumericalConstant&&lengthOfConstant>0&&!(validNumericalConstantCharacters(lengthOfConstant, j))) {
+                                            s+=SPAN("number")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
+                                            //System.out.println("Setting "+storedCodeBlock.substring(startPos,j)+storedCodeBlock.charAt(j));
+                                            lengthOfConstant=0;
+                                            canBeNumericalConstant=false;
+                                            startPos=j+1;
+                                        } else
+                                        if (!canBeNumericalConstant&&storedCodeBlock.charAt(j)=='.') {
+                                            //Previous section was a member.
+                                            s+=SPAN("class")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
+                                            startPos=j+1;
+                                        } else 
+                                        if (j>3&&storedCodeBlock.substring(j-3,j+1).equals("true")&&!isAlphanumeric(j-4)&&!isAlphanumeric(j+1)) {
+                                            s+=SPAN("number")+storedCodeBlock.substring(startPos,j)+storedCodeBlock.charAt(j)+"</span>";
+                                            startPos=j+1;
+                                        } else 
+                                        if (j>4&&storedCodeBlock.substring(j-4,j+1).equals("false")&&!isAlphanumeric(j-5)&&!isAlphanumeric(j+1)) {
+                                            s+=SPAN("number")+storedCodeBlock.substring(startPos,j)+storedCodeBlock.charAt(j)+"</span>";
+                                            startPos=j+1;
+                                        } else 
+                                        if (storedCodeBlock.charAt(j)=='(') {
+                                            s+=SPAN("function")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
+                                            startPos=j+1;
+                                        } else 
+                                        if (j>0&&isAlphanumeric(j-1) && storedCodeBlock.charAt(j)==' '&&storedCodeBlock.charAt(j-1)!=' ') {
+                                            //Previous section was a keyword.
+                                            keyword=true;
+                                            s+=SPAN("keyword")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
+                                            startPos=j+1;
+                                        } else 
+                                        if (j>0&&isAlphanumeric(j-1) && (storedCodeBlock.charAt(j)==';'||storedCodeBlock.charAt(j)==':')) {
+                                            //Previous section was a keyword.
+                                            //keyword=true;
+                                            s+=SPAN("keyword")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
+                                            startPos=j+1;
+                                        } else 
+                                        if (keyword&&!(storedCodeBlock.charAt(j)>='0'&&storedCodeBlock.charAt(j)<='9'||storedCodeBlock.charAt(j)>='A'&&storedCodeBlock.charAt(j)<='Z'||storedCodeBlock.charAt(j)>='a'&&storedCodeBlock.charAt(j)<='z'||storedCodeBlock.charAt(j)==' ')) {
+                                            keyword=false;
+                                            s+=SPAN("variable")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
+                                            startPos=j+1;
+                                        } else
+                                        if (!isAlphanumeric(j)){
+                                            if (startPos<j) {
+                                                s+=storedCodeBlock.substring(startPos,j)+storedCodeBlock.charAt(j);
+                                            } else {
+                                                s+=storedCodeBlock.charAt(j);
+                                            }
+                                            startPos=j+1;
+                                        }
+                                    } else {
+                                        s+=storedCodeBlock.charAt(j);
+                                        startPos=j+1;
+                                    }
+                                    if (canBeNumericalConstant&&lengthOfConstant==0&&!(storedCodeBlock.charAt(j)>='0'&&storedCodeBlock.charAt(j)<='9')) {
+                                        canBeNumericalConstant=false;
+                                    }
+                                    if (!canBeNumericalConstant&&!isAlphanumeric(j)) {
+                                        canBeNumericalConstant=true;
+                                        lengthOfConstant=0;
+                                        System.out.println("Found "+storedCodeBlock.charAt(j)+", can be numeric...");
+                                    }
+                                }
+                                s+=endText;
+                                //System.out.println("Stored code block: "+storedCodeBlock);
+                            } else 
+                            if (inCodeBlock) {
+                                storedCodeBlock+=s+"\n";
+                                s=" ";
+                            }
+                        }
                         if (s.length()>0&&isArticleFile(f)) {
                             //Check for markdown pieces.
                             if (s.charAt(0)=='-') {
@@ -144,55 +250,6 @@ public class sigPlace {
                         for (String key : map.keySet()) {
                             s=s.replaceAll(Pattern.quote(key),map.get(key));
                         }
-                        if (s.length()>0&&isHTMLFile(f)) {
-                            if (!inCodeBlock) {
-                                if (s.contains("<pre>")) {
-                                    inCodeBlock=true;
-                                    storedCodeBlock+=s.substring(s.indexOf("<pre>"));
-                                    s=s.substring(0,s.indexOf("<pre>"));
-                                }
-                            } else {
-                                if (s.contains("</pre>")) {
-                                    inCodeBlock=false;
-                                    storedCodeBlock+=s.substring(0,s.indexOf("</pre>")+"</pre>".length());
-                                    int startPos=0;
-                                    String endText=s.substring(s.indexOf("</pre>")+"</pre>".length(),s.length());
-                                    s="";
-                                    for (int j=0;j<storedCodeBlock.length();j++) {
-                                        if (storedCodeBlock.charAt(j)=='.') {
-                                            //Previous section was a member.
-                                            s+=SPAN("variable")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
-                                            startPos=j+1;
-                                            continue;
-                                        } else 
-                                        if (storedCodeBlock.charAt(j)=='\n') {
-                                            System.out.println("newline");
-                                            //Previous section is done.
-                                            s+="\r\n";
-                                            startPos=j+1;
-                                            continue;
-                                        } else 
-                                        if (storedCodeBlock.charAt(j)=='(') {
-                                            //Previous section was a keyword.
-                                            s+=SPAN("function")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
-                                            startPos=j+1;
-                                            continue;
-                                        } else 
-                                        if (storedCodeBlock.charAt(j)==' '&&j>0&&storedCodeBlock.charAt(j-1)!=' ') {
-                                            //Previous section was a keyword.
-                                            s+=SPAN("keyword")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
-                                            startPos=j+1;
-                                            continue;
-                                        }
-                                    }
-                                    s+=endText;
-                                    //System.out.println("Stored code block: "+storedCodeBlock);
-                                } else {
-                                    storedCodeBlock+=s;
-                                    s="";
-                                }
-                            }
-                        }
                         content.set(i,s);
                     }
 
@@ -207,6 +264,12 @@ public class sigPlace {
                 }
             }
         }
+    }
+    private static boolean validNumericalConstantCharacters(int lengthOfConstant, int j) {
+        return storedCodeBlock.charAt(j)>='0'&&storedCodeBlock.charAt(j)<='9'||lengthOfConstant>0&&storedCodeBlock.charAt(j)=='.'||lengthOfConstant>0&&storedCodeBlock.charAt(j)>='A'&&lengthOfConstant>0&&storedCodeBlock.charAt(j)<='F'||lengthOfConstant>0&&storedCodeBlock.charAt(j)>='a'&&lengthOfConstant>0&&storedCodeBlock.charAt(j)<='f'||lengthOfConstant>0&&storedCodeBlock.charAt(j)=='x'||lengthOfConstant>0&&storedCodeBlock.charAt(j)=='X';
+    }
+    private static boolean isAlphanumeric(int j) {
+        return storedCodeBlock.charAt(j)>='0'&&storedCodeBlock.charAt(j)<='9'||storedCodeBlock.charAt(j)>='A'&&storedCodeBlock.charAt(j)<='Z'||storedCodeBlock.charAt(j)>='a'&&storedCodeBlock.charAt(j)<='z';
     }
     /**
      * Writes a span tag with the included class.

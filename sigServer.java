@@ -65,6 +65,7 @@ public class sigServer {
                                         } else {
                                             File myFile = new File(new File(sigPlace.OUTDIR,sigPlace.UPLOADSDIR),filename);
                                             // check if file exist, otherwise create the file before writing
+                                            myFile.mkdirs();
                                             if (!myFile.exists()) {
                                                 myFile.createNewFile();
                                             } else {
