@@ -13,3 +13,10 @@ sig.codes
 sig.academy
 sig.fan
 sig.place
+
+**Syntax:**
+## Articles
+Articles must contain a `-` followed by title text on the first line and `===` followed by footer text (usually the date of the article). 
+### Images
+Images can be put in a custom container by using the following syntax:
+`:url,<left|right|center>,<percentage_size 0-100>,image caption text`
