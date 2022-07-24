@@ -112,7 +112,7 @@ public class sigPlace {
                     System.out.println("  Parsing "+f.getFileName());
                     for (int i=0;i<content.size();i++) {
                         String s = content.get(i);
-                        boolean isPreLine=false;
+                        boolean endPreLine=false;
                         //System.out.println(s);
                         if (s.length()>0&&(isHTMLFile(f)||isArticleFile(f))) {
                             if (!inCodeBlock) {
@@ -220,7 +220,7 @@ public class sigPlace {
                                 }
                                 s="<pre>"+s;
                                 s+=endText;
-                                isPreLine=true;
+                                endPreLine=true;
                                 //System.out.println("Stored code block: "+storedCodeBlock);
                             } else 
                             if (inCodeBlock) {
@@ -228,7 +228,7 @@ public class sigPlace {
                                 s=" ";
                             }
                         }
-                        if (s.length()>0&&isArticleFile(f)) {
+                        if (s.length()>0&&isArticleFile(f)&&!inCodeBlock) {
                             //Check for markdown pieces.
                             if (s.charAt(0)=='-') {
                                 //Start of a title piece.
@@ -251,14 +251,14 @@ public class sigPlace {
                                 s="<div><figure style=\"text-align:center;"+((splitter[1].equals("left")||splitter[1].equals("right"))?"width:"+splitter[2]+"%;float:"+splitter[1]+";":"")+"\"><img src=\"/"+splitter[0].substring(1)+"\" style=\"margin:auto;width:100%;\"><figcaption>"+captionText.toString()+"</figcaption></figure></div>";
                             } else {
                                 //It's regular content, so add paragraphs.
-                                s="<p class=\"color"+(((int)(COLOR_ROTATION=(COLOR_ROTATION+0.4)%6))+1)+"\">"+s+"</p>";
+                                s="<p class=\"color"+(((int)(COLOR_ROTATION=(COLOR_ROTATION+0.4)%6))+1)+"\">\n"+s+"\n</p>";
                             }
                         } else {
                             if (s.length()==0&&isArticleFile(f)) {
                                 s="<br/>"; //Setup a line break here.
                             }
                         }
-                        if (!isPreLine) {
+                        if (!endPreLine) {
                             for (String key : map.keySet()) {
                                 s=s.replaceAll(Pattern.quote(key),map.get(key));
                             }
@@ -296,6 +296,7 @@ public class sigPlace {
             Path f = items.next();
             try {
                 if (Files.isRegularFile(f)&&isArticleFile(f)) {
+                    boolean inCodeBlock = false;
                     System.out.println("  Creating article for "+f.getFileName());
                     List<String> content = Files.readAllLines(f);
                     List<String> preContent = Files.readAllLines(ops.get("%DEFAULT"));
@@ -307,12 +308,23 @@ public class sigPlace {
                         }
                         sb.append(d).append("\n");
                     }
+                    int lineNumb=0;
                     for (String d : content) {
-                        for (String k : sigPlace.map.keySet()) {
-                            d=d.replaceAll(Pattern.quote(k),sigPlace.map.get(k));
+                        lineNumb++;
+                        if (d.trim().equals("<pre>")) {
+                            System.out.println("<pre> in "+f+" Line "+lineNumb+": "+d);
+                            inCodeBlock=true;
                         }
-                        d=d.replaceFirst("div class=\"content\"","div class=\"expandedContent\"");
-                        d=d.replaceFirst("%CONDITIONAL_EXPAND%","");
+                        if (inCodeBlock&&d.trim().equals("</pre>")) {
+                            inCodeBlock=false;
+                        }
+                        if (!inCodeBlock) {
+                            for (String k : sigPlace.map.keySet()) {
+                                d=d.replaceAll(Pattern.quote(k),sigPlace.map.get(k));
+                            }
+                            d=d.replaceFirst("div class=\"content\"","div class=\"expandedContent\"");
+                            d=d.replaceFirst("%CONDITIONAL_EXPAND%","");
+                        }
                         sb.append(d).append("\n");
                     }
                     for (String d : postContent) {
