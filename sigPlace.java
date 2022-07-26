@@ -127,6 +127,7 @@ public class sigPlace {
                                 inCodeBlock=false;
                                 boolean keyword=false;
                                 boolean inString=false;
+                                char stringChar=' ';
                                 boolean inChar=false;
                                 boolean canBeNumericalConstant=false;
                                 int lengthOfConstant=0;
@@ -137,9 +138,10 @@ public class sigPlace {
                                 String endText=s.substring(s.indexOf("</pre>")+"</pre>".length(),s.length());
                                 s="";
                                 for (int j=0;j<storedCodeBlock.length();j++) {
-                                    if (storedCodeBlock.charAt(j)=='"') {
+                                    if (!inString&&(storedCodeBlock.charAt(j)=='"'||storedCodeBlock.charAt(j)=='\'')||inString&&(storedCodeBlock.charAt(j)==stringChar)) {
                                         inString=!inString;
                                         if (inString) {
+                                            stringChar=storedCodeBlock.charAt(j);
                                             s+=SPAN("string")+"\"";
                                         } else {
                                             s+="\"</span>";
@@ -210,7 +212,7 @@ public class sigPlace {
                                     if (!canBeNumericalConstant&&!isAlphanumeric(j)) {
                                         canBeNumericalConstant=true;
                                         lengthOfConstant=0;
-                                        System.out.println("Found "+storedCodeBlock.charAt(j)+", can be numeric...");
+                                        //System.out.println("Found "+storedCodeBlock.charAt(j)+", can be numeric...");
                                     }
                                 }
                                 for (int j=0;j<s.length();j++) {

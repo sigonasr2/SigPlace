@@ -1,11 +1,11 @@
 <div class="contentWrapper"><h1>Curabitur vel tempus ex</h1><div class="content" id="content_out/articles/curabitur vel tempus ex.article">
-<p class="color5">
+<p class="color1">
 Curabitur vel tempus ex. Duis cursus sapien nisl, ut pulvinar dui porttitor ut. Nullam odio purus, tristique non turpis sit amet, malesuada ultricies purus. Mauris ut nulla nisl. Aenean sit amet est egestas justo volutpat consequat. Suspendisse in sagittis augue, et mattis tortor. Nullam viverra metus et nibh fringilla iaculis.
 </p>
 <br/>
  
  
-<p class="color5">
+<p class="color2">
 <pre>
 &lt;>&lt;Test><span class="string">"&lt;/test>&lt;/test2>&lt;test3>"</span>
             </pre>   
