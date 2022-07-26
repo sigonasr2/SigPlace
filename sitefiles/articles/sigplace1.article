@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 public class sigPlace {
-
+    /* Test giant multi-line comment ""
     final static String ROOTDIR = "sitefiles";
     final static String REFDIR = "ref";
     final static String OUTDIR = "out";
@@ -42,7 +42,7 @@ public class sigPlace {
     final static String COMMENTSDIR = "comments";
     final static String DIRECTORYLISTING_FILENAME = "DIRECTORY_LISTING";
     static int PORT = 8080;
-
+    */
     static double COLOR_ROTATION = 0;
 
     static boolean inCodeBlock = false;

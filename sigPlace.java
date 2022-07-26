@@ -127,8 +127,9 @@ public class sigPlace {
                                 inCodeBlock=false;
                                 boolean keyword=false;
                                 boolean inString=false;
+                                boolean inComment=false;
+                                boolean inMultiLineComment=false;
                                 char stringChar=' ';
-                                boolean inChar=false;
                                 boolean canBeNumericalConstant=false;
                                 int lengthOfConstant=0;
                                 storedCodeBlock+=s.substring(0,s.indexOf("</pre>"));
@@ -138,21 +139,49 @@ public class sigPlace {
                                 String endText=s.substring(s.indexOf("</pre>")+"</pre>".length(),s.length());
                                 s="";
                                 for (int j=0;j<storedCodeBlock.length();j++) {
-                                    if (!inString&&(storedCodeBlock.charAt(j)=='"'||storedCodeBlock.charAt(j)=='\'')||inString&&(storedCodeBlock.charAt(j)==stringChar)) {
+                                    if (storedCodeBlock.charAt(j)=='\n'&&inString) {
+                                        inString=false;
+                                        s+="</span>";
+                                    } else 
+                                    if (storedCodeBlock.charAt(j)=='\n'&&inComment) {
+                                        inComment=false;
+                                        s+=SPAN("comment")+storedCodeBlock.substring(startPos,j)+"</span>";
+                                        startPos=j+1;
+                                    }
+                                    if (!inComment&&!inMultiLineComment&&(j>0&&storedCodeBlock.charAt(j-1)!='\\'&&(!inString&&(storedCodeBlock.charAt(j)=='"'||storedCodeBlock.charAt(j)=='\'')||inString&&(storedCodeBlock.charAt(j)==stringChar)))) {
                                         inString=!inString;
                                         if (inString) {
                                             stringChar=storedCodeBlock.charAt(j);
-                                            s+=SPAN("string")+"\"";
+                                            s+=SPAN("string")+stringChar;
                                         } else {
-                                            s+="\"</span>";
+                                            s+=stringChar;
+                                            s+="</span>";
                                             startPos=j+1;
                                         }
                                     } else
-                                    if (!inString&&!inChar) {
+                                    if (!inString) {
                                         if (canBeNumericalConstant&&validNumericalConstantCharacters(lengthOfConstant, j)) {
                                             lengthOfConstant++;
                                             System.out.println("Length of Constant now "+lengthOfConstant);
                                         }
+                                        if (j>0&&storedCodeBlock.charAt(j)=='/'&&storedCodeBlock.charAt(j+1)=='*'||inMultiLineComment) {
+                                            if (!inMultiLineComment) {
+                                                inMultiLineComment=true;
+                                            } else {
+                                                if (storedCodeBlock.charAt(j-1)=='*'&&storedCodeBlock.charAt(j)=='/') {
+                                                    inMultiLineComment=false;
+                                                    s+=SPAN("comment")+storedCodeBlock.substring(startPos,j)+storedCodeBlock.charAt(j)+"</span>";
+                                                    startPos=j+1;
+                                                }
+                                            }
+                                            //Stops further execution since we're in a comment.
+                                        } else
+                                        if (j>0&&storedCodeBlock.charAt(j)=='/'&&storedCodeBlock.charAt(j+1)=='/'||inComment) {
+                                            if (!inComment) {
+                                                inComment=true;
+                                            }
+                                            //Stops further execution since we're in a comment.
+                                        } else
                                         if (canBeNumericalConstant&&lengthOfConstant>0&&!(validNumericalConstantCharacters(lengthOfConstant, j))) {
                                             s+=SPAN("number")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
                                             //System.out.println("Setting "+storedCodeBlock.substring(startPos,j)+storedCodeBlock.charAt(j));
@@ -189,7 +218,7 @@ public class sigPlace {
                                             s+=SPAN("keyword")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
                                             startPos=j+1;
                                         } else 
-                                        if (keyword&&!(storedCodeBlock.charAt(j)>='0'&&storedCodeBlock.charAt(j)<='9'||storedCodeBlock.charAt(j)>='A'&&storedCodeBlock.charAt(j)<='Z'||storedCodeBlock.charAt(j)>='a'&&storedCodeBlock.charAt(j)<='z'||storedCodeBlock.charAt(j)==' ')) {
+                                        if (keyword&&!(storedCodeBlock.charAt(j)=='_'||storedCodeBlock.charAt(j)>='0'&&storedCodeBlock.charAt(j)<='9'||storedCodeBlock.charAt(j)>='A'&&storedCodeBlock.charAt(j)<='Z'||storedCodeBlock.charAt(j)>='a'&&storedCodeBlock.charAt(j)<='z'||storedCodeBlock.charAt(j)==' ')) {
                                             keyword=false;
                                             s+=SPAN("variable")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
                                             startPos=j+1;

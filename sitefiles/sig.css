@@ -245,7 +245,7 @@ sup{
 pre{
     font-family:'Courier New', Courier, monospace;
     padding:3px;
-    font-size:1.25em;
+    font-size:1.15em;
     position:relative;
     width:85vw;
     color:darkseagreen;
@@ -274,4 +274,8 @@ pre .string{
 
 pre .number{
     color:#d8f070;
+}
+
+pre .comment{
+    color:#6b235e;
 }

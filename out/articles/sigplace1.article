@@ -51,7 +51,6 @@ Here we demonstrate the love live logo. But wait, it's literally like in the mid
  
 <br/>
  
-<br/>
  
  
  
@@ -60,7 +59,8 @@ Here we demonstrate the love live logo. But wait, it's literally like in the mid
  
  
  
-<br/>
+ 
+ 
  
 <br/>
  
@@ -514,24 +514,26 @@ Here we demonstrate the love live logo. But wait, it's literally like in the mid
 <span class="keyword">import</span> <span class="class">java</span>.<span class="class">util</span>.<span class="keyword">Map</span>;<span class="variable"></span>
 <span class="keyword">import</span> <span class="class">java</span>.<span class="class">util</span>.<span class="class">regex</span>.<span class="keyword">Pattern</span>;<span class="variable"></span>
 <span class="keyword">public</span> <span class="keyword">class</span> <span class="keyword">sigPlace</span> <span class="variable"></span>{
-    <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">String</span> <span class="keyword">ROOTDIR</span> <span class="variable"></span>= <span class="string">"sitefiles"</span>;
-    <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">String</span> <span class="keyword">REFDIR</span> <span class="variable"></span>= <span class="string">"ref"</span>;
-    <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">String</span> <span class="keyword">OUTDIR</span> <span class="variable"></span>= <span class="string">"out"</span>;
-    <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">String</span> <span class="keyword">ARTICLESDIR</span> <span class="variable"></span>= <span class="string">"articles"</span>;
-    <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">String</span> <span class="keyword">UPLOADSDIR</span> <span class="variable"></span>= <span class="string">"uploads"</span>;
-    <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">String</span> <span class="keyword">COMMENTSDIR</span> <span class="variable"></span>= <span class="string">"comments"</span>;
-    <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">String</span> <span class="variable">DIRECTORYLISTING</span>_<span class="keyword">FILENAME</span> <span class="variable"></span>= <span class="string">"DIRECTORY_LISTING"</span>;
-    <span class="keyword">static</span> <span class="keyword">int</span> <span class="keyword">PORT</span> <span class="variable"></span>= <span class="number">8080</span>;
-    <span class="keyword">static</span> <span class="keyword">double</span> <span class="variable">COLOR</span>_<span class="keyword">ROTATION</span> <span class="variable"></span>= <span class="number">0</span>;
+    <span class="comment">/* Test giant multi-line comment ""
+    final static String ROOTDIR = "sitefiles";
+    final static String REFDIR = "ref";
+    final static String OUTDIR = "out";
+    final static String ARTICLESDIR = "articles";
+    final static String UPLOADSDIR = "uploads";
+    final static String COMMENTSDIR = "comments";
+    final static String DIRECTORYLISTING_FILENAME = "DIRECTORY_LISTING";
+    static int PORT = 8080;
+    */</span><span class="number"></span>
+    <span class="keyword">static</span> <span class="keyword">double</span> COLOR_<span class="keyword">ROTATION</span> <span class="variable"></span>= <span class="number">0</span>;
     <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="keyword">inCodeBlock</span> <span class="variable"></span>= <span class="number">false</span><span class="keyword"></span>;
     <span class="keyword">static</span> <span class="keyword">String</span> <span class="keyword">storedCodeBlock</span> <span class="variable"></span>= <span class="string">""</span>;
     <span class="keyword">final</span> <span class="keyword">static</span> <span class="variable">HashMap</span>&lt;String,String> <span class="keyword">map</span> <span class="variable"></span>= <span class="keyword">new</span> <span class="variable">HashMap</span>&lt;><span class="function"></span>(<span class="class">Map</span>.<span class="function">ofEntries</span>(
         <span class="keyword">new</span> <span class="class">AbstractMap</span>.<span class="variable">SimpleEntry</span>&lt;><span class="function"></span>(<span class="string">"$SITENAME"</span>, <span class="string">"SigPlace"</span>),
         <span class="keyword">new</span> <span class="class">AbstractMap</span>.<span class="variable">SimpleEntry</span>&lt;><span class="function"></span>(<span class="string">"$SITE_BACKCOL"</span>, <span class="string">"#111"</span>),
-        <span class="keyword">new</span> <span class="class">AbstractMap</span>.<span class="variable">SimpleEntry</span>&lt;><span class="function"></span>(<span class="string">"$TITLE_CONTENT_START"</span>, <span class="string">"&lt;div class=\"</span>contentWrapper\<span class="string">">&lt;h1>"</span>),
-        <span class="keyword">new</span> <span class="class">AbstractMap</span>.<span class="variable">SimpleEntry</span>&lt;><span class="function"></span>(<span class="string">"$TITLE_CONTENT_END"</span>, <span class="string">"&lt;/h1>&lt;div class=\"</span>content\<span class="string">" %ID%>"</span>),
+        <span class="keyword">new</span> <span class="class">AbstractMap</span>.<span class="variable">SimpleEntry</span>&lt;><span class="function"></span>(<span class="string">"$TITLE_CONTENT_START"</span>, <span class="string">"&lt;div class=\"contentWrapper\">&lt;h1>"</span>),
+        <span class="keyword">new</span> <span class="class">AbstractMap</span>.<span class="variable">SimpleEntry</span>&lt;><span class="function"></span>(<span class="string">"$TITLE_CONTENT_END"</span>, <span class="string">"&lt;/h1>&lt;div class=\"content\" %ID%>"</span>),
         <span class="keyword">new</span> <span class="class">AbstractMap</span>.<span class="variable">SimpleEntry</span>&lt;><span class="function"></span>(<span class="string">"$CONTENT_END"</span>, <span class="string">"&lt;/div>"</span>),
-        <span class="keyword">new</span> <span class="class">AbstractMap</span>.<span class="variable">SimpleEntry</span>&lt;><span class="function"></span>(<span class="string">"$DATE_CONTENT_START"</span>, <span class="string">"&lt;div class=\"</span>datebar\<span class="string">">&lt;/div>&lt;div class=\"</span>date\<span class="string">">"</span>)
+        <span class="keyword">new</span> <span class="class">AbstractMap</span>.<span class="variable">SimpleEntry</span>&lt;><span class="function"></span>(<span class="string">"$DATE_CONTENT_START"</span>, <span class="string">"&lt;div class=\"datebar\">&lt;/div>&lt;div class=\"date\">"</span>)
     ));
     <span class="keyword">final</span> <span class="keyword">static</span> <span class="variable">HashMap</span>&lt;String,Path> <span class="keyword">ops</span> <span class="variable"></span>= <span class="keyword">new</span> <span class="variable">HashMap</span>&lt;><span class="function"></span>(<span class="class">Map</span>.<span class="function">ofEntries</span>(
         <span class="keyword">new</span> <span class="class">AbstractMap</span>.<span class="variable">SimpleEntry</span>&lt;><span class="function"></span>(
@@ -550,7 +552,7 @@ Here we demonstrate the love live logo. But wait, it's literally like in the mid
                     PORT=<span class="class">Integer</span>.<span class="function">parseInt</span>(arg2);
                     <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"Port set to "</span>+PORT+<span class="string">"."</span>);
                 } <span class="keyword">else</span> <span class="variable"></span>{
-                    <span class="class">System</span>.<span class="class">err</span>.<span class="function">println</span>(<span class="string">"Invalid argument \"</span><span class="string">"+arg1+"</span>\<span class="string">"."</span>);
+                    <span class="class">System</span>.<span class="class">err</span>.<span class="function">println</span>(<span class="string">"Invalid argument \""</span>+arg1+<span class="string">"\"."</span>);
                     <span class="keyword">return</span>;
                 }
             }
@@ -597,11 +599,11 @@ Here we demonstrate the love live logo. But wait, it's literally like in the mid
                     <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"  Parsing "</span>+<span class="class">f</span>.<span class="function">getFileName</span>());
                     <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">int</span> <span class="variable">i</span>=<span class="number">0</span>;i&lt;<span class="class">content</span>.<span class="function">size</span>();i++) {
                         <span class="keyword">String</span> <span class="keyword">s</span> <span class="variable"></span>= <span class="class">content</span>.<span class="function">get</span>(i);
-                        //<span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(s);
+                        <span class="comment">//System.out.println(s);</span>
                         <span class="keyword">if</span> <span class="function"></span>(<span class="class">s</span>.<span class="function">length</span>(<span class="variable"></span>)><span class="number">0</span>&&<span class="function"></span>(<span class="function">isHTMLFile</span>(f)||<span class="function">isArticleFile</span>(f))) {
                             <span class="keyword">if</span> <span class="function"></span>(<span class="variable"></span>!inCodeBlock) {
                                 <span class="keyword">if</span> <span class="function"></span>(<span class="class">s</span>.<span class="function">contains</span>(<span class="string">"&lt;pre>"</span><span class="variable"></span>)) {
-                                    //<span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"Inside &lt;pre>"</span>);
+                                    <span class="comment">//System.out.println("Inside &lt;pre>");</span>
                                     inCodeBlock=<span class="number">true</span><span class="keyword"></span>;
                                     storedCodeBlock=<span class="string">""</span>;
                                     s=<span class="class">s</span>.<span class="function">substring</span>(<span class="number">0</span>,<span class="class">s</span>.<span class="function">indexOf</span>(<span class="string">"&lt;pre>"</span>));
@@ -622,12 +624,12 @@ Here we demonstrate the love live logo. But wait, it's literally like in the mid
                                 <span class="keyword">String</span> <span class="variable">endText</span>=<span class="class">s</span>.<span class="function">substring</span>(<span class="class">s</span>.<span class="function">indexOf</span>(<span class="string">"&lt;/pre>"</span>)+<span class="string">"&lt;/pre>"</span>.<span class="function">length</span>(),<span class="class">s</span>.<span class="function">length</span>());
                                 s=<span class="string">""</span>;
                                 <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">int</span> <span class="variable">j</span>=<span class="number">0</span>;j&lt;<span class="class">storedCodeBlock</span>.<span class="function">length</span>();j++) {
-                                    <span class="keyword">if</span> <span class="function"></span>(<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(<span class="variable">j</span>)==<span class="string">"""</span>) {
+                                    <span class="keyword">if</span> <span class="function"></span>(<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(<span class="variable">j</span>)==<span class="string">'"'</span>) {
                                         inString=!<span class="keyword">inString</span>;
                                         <span class="keyword">if</span> <span class="function"></span>(<span class="variable">inString</span>) {
-                                            s+=<span class="function">SPAN</span>(<span class="string">"string"</span>)+<span class="string">"\"</span><span class="string">";
-                                        } else {
-                                            s+="</span>\<span class="string">"&lt;/span>"</span>;
+                                            s+=<span class="function">SPAN</span>(<span class="string">"string"</span>)+<span class="string">"\""</span>;
+                                        } <span class="keyword">else</span> <span class="variable"></span>{
+                                            s+=<span class="string">"\"&lt;/span>"</span>;
                                             startPos=j+<span class="number">1</span>;
                                         }
                                     } else
@@ -638,13 +640,13 @@ Here we demonstrate the love live logo. But wait, it's literally like in the mid
                                         }
                                         <span class="keyword">if</span> <span class="function"></span>(<span class="variable">canBeNumericalConstant</span>&&lengthOfConstant><span class="number">0</span>&&!<span class="function"></span>(<span class="function">validNumericalConstantCharacters</span>(lengthOfConstant, j))) {
                                             s+=<span class="function">SPAN</span>(<span class="string">"number"</span>)+<span class="class">storedCodeBlock</span>.<span class="function">substring</span>(startPos,j)+<span class="string">"&lt;/span>"</span>+<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j);
-                                            //<span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"Setting "</span>+<span class="class">storedCodeBlock</span>.<span class="function">substring</span>(startPos,j)+<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j));
+                                            <span class="comment">//System.out.println("Setting "+storedCodeBlock.substring(startPos,j)+storedCodeBlock.charAt(j));</span>
                                             lengthOfConstant=<span class="number">0</span>;
                                             canBeNumericalConstant=<span class="number">false</span><span class="keyword"></span>;
                                             startPos=j+<span class="number">1</span>;
                                         } else
-                                        <span class="keyword">if</span> <span class="function"></span>(<span class="variable"></span>!canBeNumericalConstant&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)==<span class="string">"."</span>) {
-                                            //<span class="keyword">Previous</span> <span class="keyword">section</span> <span class="keyword">was</span> <span class="keyword">a</span> <span class="class">member</span>.<span class="variable"></span>
+                                        <span class="keyword">if</span> <span class="function"></span>(<span class="variable"></span>!canBeNumericalConstant&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)==<span class="string">'.'</span>) {
+                                            <span class="comment">//Previous section was a member.</span>
                                             s+=<span class="function">SPAN</span>(<span class="string">"class"</span>)+<span class="class">storedCodeBlock</span>.<span class="function">substring</span>(startPos,j)+<span class="string">"&lt;/span>"</span>+<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j);
                                             startPos=j+<span class="number">1</span>;
                                         } <span class="keyword">else</span> <span class="variable"></span>
@@ -656,23 +658,23 @@ Here we demonstrate the love live logo. But wait, it's literally like in the mid
                                             s+=<span class="function">SPAN</span>(<span class="string">"number"</span>)+<span class="class">storedCodeBlock</span>.<span class="function">substring</span>(startPos,j)+<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)+<span class="string">"&lt;/span>"</span>;
                                             startPos=j+<span class="number">1</span>;
                                         } <span class="keyword">else</span> <span class="variable"></span>
-                                        <span class="keyword">if</span> <span class="function"></span>(<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(<span class="variable">j</span>)==<span class="string">"("</span>) {
+                                        <span class="keyword">if</span> <span class="function"></span>(<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(<span class="variable">j</span>)==<span class="string">'('</span>) {
                                             s+=<span class="function">SPAN</span>(<span class="string">"function"</span>)+<span class="class">storedCodeBlock</span>.<span class="function">substring</span>(startPos,j)+<span class="string">"&lt;/span>"</span>+<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j);
                                             startPos=j+<span class="number">1</span>;
                                         } <span class="keyword">else</span> <span class="variable"></span>
-                                        <span class="keyword">if</span> <span class="function"></span>(<span class="variable">j</span>><span class="number">0</span>&&<span class="function">isAlphanumeric</span>(j-<span class="number">1</span>) && <span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)==<span class="string">" "</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j-<span class="number">1</span>)!=<span class="string">" "</span>) {
-                                            //<span class="keyword">Previous</span> <span class="keyword">section</span> <span class="keyword">was</span> <span class="keyword">a</span> <span class="class">keyword</span>.<span class="variable"></span>
+                                        <span class="keyword">if</span> <span class="function"></span>(<span class="variable">j</span>><span class="number">0</span>&&<span class="function">isAlphanumeric</span>(j-<span class="number">1</span>) && <span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)==<span class="string">' '</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j-<span class="number">1</span>)!=<span class="string">' '</span>) {
+                                            <span class="comment">//Previous section was a keyword.</span>
                                             keyword=<span class="number">true</span><span class="keyword"></span>;
                                             s+=<span class="function">SPAN</span>(<span class="string">"keyword"</span>)+<span class="class">storedCodeBlock</span>.<span class="function">substring</span>(startPos,j)+<span class="string">"&lt;/span>"</span>+<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j);
                                             startPos=j+<span class="number">1</span>;
                                         } <span class="keyword">else</span> <span class="variable"></span>
-                                        <span class="keyword">if</span> <span class="function"></span>(<span class="variable">j</span>><span class="number">0</span>&&<span class="function">isAlphanumeric</span>(j-<span class="number">1</span>) && <span class="function"></span>(<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)==<span class="string">";"</span>||<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)==<span class="string">":"</span>)) {
-                                            //<span class="keyword">Previous</span> <span class="keyword">section</span> <span class="keyword">was</span> <span class="keyword">a</span> <span class="class">keyword</span>.<span class="variable"></span>
-                                            //keyword=<span class="number">true</span><span class="keyword"></span>;
+                                        <span class="keyword">if</span> <span class="function"></span>(<span class="variable">j</span>><span class="number">0</span>&&<span class="function">isAlphanumeric</span>(j-<span class="number">1</span>) && <span class="function"></span>(<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)==<span class="string">';'</span>||<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)==<span class="string">':'</span>)) {
+                                            <span class="comment">//Previous section was a keyword.</span>
+                                            <span class="comment">//keyword=true;</span>
                                             s+=<span class="function">SPAN</span>(<span class="string">"keyword"</span>)+<span class="class">storedCodeBlock</span>.<span class="function">substring</span>(startPos,j)+<span class="string">"&lt;/span>"</span>+<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j);
                                             startPos=j+<span class="number">1</span>;
                                         } <span class="keyword">else</span> <span class="variable"></span>
-                                        <span class="keyword">if</span> <span class="function"></span>(<span class="variable">keyword</span>&&!<span class="function"></span>(<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)>=<span class="string">"0"</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">"9"</span>||<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)>=<span class="string">"A"</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">"Z"</span>||<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)>=<span class="string">"a"</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">"z"</span>||<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)==<span class="string">" "</span>)) {
+                                        <span class="keyword">if</span> <span class="function"></span>(<span class="variable">keyword</span>&&!<span class="function"></span>(<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)>=<span class="string">'0'</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">'9'</span>||<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)>=<span class="string">'A'</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">'Z'</span>||<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)>=<span class="string">'a'</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">'z'</span>||<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)==<span class="string">' '</span>)) {
                                             keyword=<span class="number">false</span><span class="keyword"></span>;
                                             s+=<span class="function">SPAN</span>(<span class="string">"variable"</span>)+<span class="class">storedCodeBlock</span>.<span class="function">substring</span>(startPos,j)+<span class="string">"&lt;/span>"</span>+<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j);
                                             startPos=j+<span class="number">1</span>;
@@ -689,7 +691,7 @@ Here we demonstrate the love live logo. But wait, it's literally like in the mid
                                         s+=<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j);
                                         startPos=j+<span class="number">1</span>;
                                     }
-                                    <span class="keyword">if</span> <span class="function"></span>(<span class="variable">canBeNumericalConstant</span>&&lengthOfConstant==<span class="number">0</span>&&!<span class="function"></span>(<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)>=<span class="string">"0"</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">"9"</span>)) {
+                                    <span class="keyword">if</span> <span class="function"></span>(<span class="variable">canBeNumericalConstant</span>&&lengthOfConstant==<span class="number">0</span>&&!<span class="function"></span>(<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)>=<span class="string">'0'</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">'9'</span>)) {
                                         canBeNumericalConstant=<span class="number">false</span><span class="keyword"></span>;
                                     }
                                     <span class="keyword">if</span> <span class="function"></span>(<span class="variable"></span>!canBeNumericalConstant&&!<span class="function">isAlphanumeric</span>(j)) {
@@ -699,7 +701,7 @@ Here we demonstrate the love live logo. But wait, it's literally like in the mid
                                     }
                                 }
                                 s+=<span class="keyword">endText</span>;
-                                //<span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"Stored code block: "</span>+storedCodeBlock);
+                                <span class="comment">//System.out.println("Stored code block: "+storedCodeBlock);</span>
                             } <span class="keyword">else</span> <span class="variable"></span>
                             <span class="keyword">if</span> <span class="function"></span>(<span class="variable">inCodeBlock</span>) {
                                 storedCodeBlock+=s+<span class="string">"\n"</span>;
@@ -707,33 +709,33 @@ Here we demonstrate the love live logo. But wait, it's literally like in the mid
                             }
                         }
                         <span class="keyword">if</span> <span class="function"></span>(<span class="class">s</span>.<span class="function">length</span>(<span class="variable"></span>)><span class="number">0</span>&&<span class="function">isArticleFile</span>(f)) {
-                            //<span class="keyword">Check</span> <span class="keyword">for</span> <span class="keyword">markdown</span> <span class="class">pieces</span>.<span class="variable"></span>
-                            <span class="keyword">if</span> <span class="function"></span>(<span class="class">s</span>.<span class="function">charAt</span>(<span class="number">0</span>)<span class="variable"></span>==<span class="string">"-"</span>) {
-                                //<span class="keyword">Start</span> <span class="keyword">of</span> <span class="keyword">a</span> <span class="keyword">title</span> <span class="class">piece</span>.<span class="variable"></span>
+                            <span class="comment">//Check for markdown pieces.</span>
+                            <span class="keyword">if</span> <span class="function"></span>(<span class="class">s</span>.<span class="function">charAt</span>(<span class="number">0</span>)<span class="variable"></span>==<span class="string">'-'</span>) {
+                                <span class="comment">//Start of a title piece.</span>
                                 s=<span class="class">s</span>.<span class="function">replace</span>(<span class="string">"-"</span>,<span class="class">map</span>.<span class="function">get</span>(<span class="string">"$TITLE_CONTENT_START"</span>));
-                                s=s+<span class="class">map</span>.<span class="function">get</span>(<span class="string">"$TITLE_CONTENT_END"</span>).<span class="function">replace</span>(<span class="string">"%ID%"</span>,<span class="string">"id=\"</span>content_<span class="string">"+f+"</span>\<span class="string">""</span>);
-                                //<span class="keyword">Use</span> <span class="variable"></span>⤈ <span class="keyword">if</span> <span class="string">"s more text to be shown than can fit.
+                                s=s+<span class="class">map</span>.<span class="function">get</span>(<span class="string">"$TITLE_CONTENT_END"</span>).<span class="function">replace</span>(<span class="string">"%ID%"</span>,<span class="string">"id=\"content_"</span>+f+<span class="string">"\""</span>);
+                                <span class="comment">//Use ⤈ if there's more text to be shown than can fit.</span>
                             } else
-                            if (s.contains("===")) {
-                                s=map.get("$CONTENT_END")+map.get("$DATE_CONTENT_START")+s.replace("===","")+map.get("$CONTENT_END")+"%CONDITIONAL_EXPAND%"+map.get("$CONTENT_END");
-                            } else 
-                            if (s.charAt(0)=="</span><span class="variable"></span>:<span class="string">") {
-                                //Image with caption.
-                                //Format:
-                                //:&lt;url>,&lt;left|right|center>,&lt;width>,&lt;caption>
-                                String[] splitter = s.split(Pattern.quote(","));
-                                StringBuilder captionText = new StringBuilder(splitter[3]);
-                                for (int j=4;j&lt;splitter.length;j++) {
-                                    captionText.append(",").append(splitter[j]);
+                            <span class="keyword">if</span> <span class="function"></span>(<span class="class">s</span>.<span class="function">contains</span>(<span class="string">"==="</span><span class="variable"></span>)) {
+                                s=<span class="class">map</span>.<span class="function">get</span>(<span class="string">"$CONTENT_END"</span>)+<span class="class">map</span>.<span class="function">get</span>(<span class="string">"$DATE_CONTENT_START"</span>)+<span class="class">s</span>.<span class="function">replace</span>(<span class="string">"==="</span>,<span class="string">""</span>)+<span class="class">map</span>.<span class="function">get</span>(<span class="string">"$CONTENT_END"</span>)+<span class="string">"%CONDITIONAL_EXPAND%"</span>+<span class="class">map</span>.<span class="function">get</span>(<span class="string">"$CONTENT_END"</span>);
+                            } <span class="keyword">else</span> <span class="variable"></span>
+                            <span class="keyword">if</span> <span class="function"></span>(<span class="class">s</span>.<span class="function">charAt</span>(<span class="number">0</span>)<span class="variable"></span>==<span class="string">':'</span>) {
+                                <span class="comment">//Image with caption.</span>
+                                <span class="comment">//Format:</span>
+                                <span class="comment">//:&lt;url>,&lt;left|right|center>,&lt;width>,&lt;caption></span>
+                                String[] <span class="keyword">splitter</span> <span class="variable"></span>= <span class="class">s</span>.<span class="function">split</span>(<span class="class">Pattern</span>.<span class="function">quote</span>(<span class="string">","</span>));
+                                <span class="keyword">StringBuilder</span> <span class="keyword">captionText</span> <span class="variable"></span>= <span class="keyword">new</span> <span class="function">StringBuilder</span>(<span class="variable">splitter</span>[<span class="number">3</span>]);
+                                <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">int</span> <span class="variable">j</span>=<span class="number">4</span>;j&lt;<span class="class">splitter</span>.<span class="keyword">length</span>;j++) {
+                                    <span class="class">captionText</span>.<span class="function">append</span>(<span class="string">","</span>).<span class="function">append</span>(splitter[j]);
                                 }
-                                s="&lt;div>&lt;figure style=\"text-align:center;"+((splitter[1].equals("left")||splitter[1].equals("right"))?"width:"+splitter[2]+"%;float:"+splitter[1]+";":"")+"\">&lt;img src=\"/"+splitter[0].substring(1)+"\" style=\"margin:auto;width:100%;\">&lt;figcaption>"+captionText.toString()+"&lt;/figcaption>&lt;/figure>&lt;/div>";
-                            } else {
-                                //It"</span><span class="keyword">s</span> <span class="keyword">regular</span> <span class="variable">content</span>, <span class="keyword">so</span> <span class="keyword">add</span> <span class="class">paragraphs</span>.<span class="variable"></span>
-                                s=<span class="string">"&lt;p class=\"</span><span class="string">"+(((int)(COLOR_ROTATION=(COLOR_ROTATION+0.4)%6))+1)+"</span>\<span class="string">">"</span>+s+<span class="string">"&lt;/p>"</span>;
+                                s=<span class="string">"&lt;div>&lt;figure style=\"text-align:center;"</span>+<span class="function"></span>(<span class="function"></span>(splitter[<span class="number">1</span>].<span class="function">equals</span>(<span class="string">"left"</span>)||splitter[<span class="number">1</span>].<span class="function">equals</span>(<span class="string">"right"</span>))?<span class="string">"width:"</span>+splitter[<span class="number">2</span>]+<span class="string">"%;float:"</span>+splitter[<span class="number">1</span>]+<span class="string">";"</span>:<span class="string">""</span>)+<span class="string">"\">&lt;img src=\"/"</span>+splitter[<span class="number">0</span>].<span class="function">substring</span>(<span class="number">1</span>)+<span class="string">"\" style=\"margin:auto;width:100%;\">&lt;figcaption>"</span>+<span class="class">captionText</span>.<span class="function">toString</span>()+<span class="string">"&lt;/figcaption>&lt;/figure>&lt;/div>"</span>;
+                            } <span class="keyword">else</span> <span class="variable"></span>{
+                                <span class="comment">//It's regular content, so add paragraphs.</span>
+                                s=<span class="string">"&lt;p class=\"color"</span>+<span class="function"></span>(<span class="function"></span>(<span class="function"></span>(int)<span class="function"></span>(COLOR_ROTATION=<span class="function"></span>(COLOR_ROTATION+0.<span class="number">4</span>)%<span class="number">6</span>))+<span class="number">1</span>)+<span class="string">"\">"</span>+s+<span class="string">"&lt;/p>"</span>;
                             }
                         } <span class="keyword">else</span> <span class="variable"></span>
                         <span class="keyword">if</span> <span class="function"></span>(<span class="class">s</span>.<span class="function">length</span>(<span class="variable"></span>)==<span class="number">0</span>&&<span class="function">isArticleFile</span>(f)) {
-                            s=<span class="string">"&lt;br/>"</span>; //<span class="keyword">Setup</span> <span class="keyword">a</span> <span class="keyword">line</span> <span class="keyword">break</span> <span class="class">here</span>.<span class="variable"></span>
+                            s=<span class="string">"&lt;br/>"</span>; <span class="comment">//Setup a line break here.</span>
                         }
                         <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">String</span> <span class="keyword">key</span> <span class="variable"></span>: <span class="class">map</span>.<span class="function">keySet</span>()) {
                             s=<span class="class">s</span>.<span class="function">replaceAll</span>(<span class="class">Pattern</span>.<span class="function">quote</span>(key),<span class="class">map</span>.<span class="function">get</span>(key));
@@ -751,16 +753,16 @@ Here we demonstrate the love live logo. But wait, it's literally like in the mid
         }
     }
     <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="function">validNumericalConstantCharacters</span>(<span class="keyword">int</span> <span class="variable">lengthOfConstant</span>, <span class="keyword">int</span> <span class="variable">j</span>) {
-        <span class="keyword">return</span> <span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(<span class="variable">j</span>)>=<span class="string">"0"</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">"9"</span>||lengthOfConstant><span class="number">0</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)==<span class="string">"."</span>||lengthOfConstant><span class="number">0</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)>=<span class="string">"A"</span>&&lengthOfConstant><span class="number">0</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">"F"</span>||lengthOfConstant><span class="number">0</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)>=<span class="string">"a"</span>&&lengthOfConstant><span class="number">0</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">"f"</span>||lengthOfConstant><span class="number">0</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)==<span class="string">"x"</span>||lengthOfConstant><span class="number">0</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)==<span class="string">"X"</span>;
+        <span class="keyword">return</span> <span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(<span class="variable">j</span>)>=<span class="string">'0'</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">'9'</span>||lengthOfConstant><span class="number">0</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)==<span class="string">'.'</span>||lengthOfConstant><span class="number">0</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)>=<span class="string">'A'</span>&&lengthOfConstant><span class="number">0</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">'F'</span>||lengthOfConstant><span class="number">0</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)>=<span class="string">'a'</span>&&lengthOfConstant><span class="number">0</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">'f'</span>||lengthOfConstant><span class="number">0</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)==<span class="string">'x'</span>||lengthOfConstant><span class="number">0</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)==<span class="string">'X'</span>;
     }
     <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="function">isAlphanumeric</span>(<span class="keyword">int</span> <span class="variable">j</span>) {
-        <span class="keyword">return</span> <span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(<span class="variable">j</span>)>=<span class="string">"0"</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">"9"</span>||<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)>=<span class="string">"A"</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">"Z"</span>||<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)>=<span class="string">"a"</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">"z"</span>;
+        <span class="keyword">return</span> <span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(<span class="variable">j</span>)>=<span class="string">'0'</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">'9'</span>||<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)>=<span class="string">'A'</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">'Z'</span>||<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)>=<span class="string">'a'</span>&&<span class="class">storedCodeBlock</span>.<span class="function">charAt</span>(j)&lt;=<span class="string">'z'</span>;
     }
-    /**
-     * <span class="keyword">Writes</span> <span class="keyword">a</span> <span class="keyword">span</span> <span class="keyword">tag</span> <span class="keyword">with</span> <span class="keyword">the</span> <span class="keyword">included</span> <span class="class">class</span>.<span class="variable"></span>
-     * **/
+    <span class="comment">/**
+     * Writes a span tag with the included class.
+     * **/</span>
     <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">String</span> <span class="function">SPAN</span>(<span class="keyword">String</span> <span class="variable">className</span>) {
-        <span class="keyword">return</span> <span class="string">"&lt;span class=\"</span><span class="string">"+className+"</span><span class="variable"></span>\<span class="string">">"</span>;
+        <span class="keyword">return</span> <span class="string">"&lt;span class=\""</span><span class="variable"></span>+className+<span class="string">"\">"</span>;
     }
     <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="function">GenerateArticleFiles</span>(<span class="variable">Iterator</span>&lt;Path> items){
         <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">" Generating article files..."</span>);
@@ -783,7 +785,7 @@ Here we demonstrate the love live logo. But wait, it's literally like in the mid
                         <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">String</span> <span class="keyword">k</span> <span class="variable"></span>: <span class="class">sigPlace</span>.<span class="class">map</span>.<span class="function">keySet</span>()) {
                             d=<span class="class">d</span>.<span class="function">replaceAll</span>(<span class="class">Pattern</span>.<span class="function">quote</span>(k),<span class="class">sigPlace</span>.<span class="class">map</span>.<span class="function">get</span>(k));
                         }
-                        d=<span class="class">d</span>.<span class="function">replaceFirst</span>(<span class="string">"div class=\"</span>content\<span class="string">""</span>,<span class="string">"div class=\"</span>expandedContent\<span class="string">""</span>);
+                        d=<span class="class">d</span>.<span class="function">replaceFirst</span>(<span class="string">"div class=\"content\""</span>,<span class="string">"div class=\"expandedContent\""</span>);
                         d=<span class="class">d</span>.<span class="function">replaceFirst</span>(<span class="string">"%CONDITIONAL_EXPAND%"</span>,<span class="string">""</span>);
                         <span class="class">sb</span>.<span class="function">append</span>(d).<span class="function">append</span>(<span class="string">"\n"</span>);
                     }
@@ -822,122 +824,122 @@ Here we demonstrate the love live logo. But wait, it's literally like in the mid
                                     <span class="class">content</span>.<span class="function">add</span>(i+j, <span class="class">newData</span>.<span class="function">get</span>(j));
                                 }
                                 <span class="keyword">String</span> <span class="variable">lastline</span>=<span class="class">content</span>.<span class="function">get</span>(i+<span class="class">newData</span>.<span class="function">size</span>()-<span class="number">1</span>);
-                                lastline=<span class="class">lastline</span>.<span class="function">replace</span>(<span class="string">"%CONDITIONAL_EXPAND%"</span>,<span class="string">"&lt;div class=\"</span>unexpanded\<span class="string">" id=\"</span>expand_<span class="string">"+i+"</span>\<span class="string">" onClick=\"</span><span class="function">expand</span>(this,<span class="string">""+Paths.get(OUTDIR,article.toString())+""</span>)\<span class="string">">&lt;br/>&lt;br/>&lt;br/>&lt;br/>&#x2908; Click to expand.&lt;/div>"</span>);
-                                <span class="class">content</span>.<span class="function">set</span>(i+<span class="class">newData</span>.<span class="function">size</span>()-<span class="number">1</span>,lastline);//&lt;<span class="keyword">div</span> <span class="variable">class</span>=\<span class="string">"unexpanded\"</span> id=\<span class="string">"expand_"</span>+i+<span class="string">"\"</span> onClick=\<span class="string">"expand("</span>+i+<span class="string">")\"</span>>&lt;br/>&lt;br/>&lt;br/>&lt;br/>&#<span class="keyword">x2908</span>; <span class="keyword">Click</span> <span class="keyword">to</span> <span class="class">expand</span>.<span class="variable"></span>&lt;/div><span class="string">");
-                            } else {
-                                content.set(i,"</span><span class="string">");
+                                lastline=<span class="class">lastline</span>.<span class="function">replace</span>(<span class="string">"%CONDITIONAL_EXPAND%"</span>,<span class="string">"&lt;div class=\"unexpanded\" id=\"expand_"</span>+i+<span class="string">"\" onClick=\"expand(this,'"</span>+<span class="class">Paths</span>.<span class="function">get</span>(OUTDIR,<span class="class">article</span>.<span class="function">toString</span>())+<span class="string">"')\">&lt;br/>&lt;br/>&lt;br/>&lt;br/>&#x2908; Click to expand.&lt;/div>"</span>);
+                                <span class="class">content</span>.<span class="function">set</span>(i+<span class="class">newData</span>.<span class="function">size</span>()-<span class="number">1</span>,lastline);<span class="comment">//&lt;div class=\"unexpanded\" id=\"expand_"+i+"\" onClick=\"expand("+i+")\">&lt;br/>&lt;br/>&lt;br/>&lt;br/>&#x2908; Click to expand.&lt;/div>");</span>
+                            } <span class="keyword">else</span> <span class="variable"></span>{
+                                <span class="class">content</span>.<span class="function">set</span>(i,<span class="string">""</span>);
                             }
-                            if (!articleJavascriptIncluded) {
-                                List&lt;String> articlejs = Files.readAllLines(Paths.get(REFDIR,"</span><span class="class">article</span>.<span class="string">"));
-                                for (int j=articlejs.size()-1;j>=0;j--) {
-                                    content.add(i,articlejs.get(j));
+                            <span class="keyword">if</span> <span class="function"></span>(<span class="variable"></span>!articleJavascriptIncluded) {
+                                List&lt;String> <span class="keyword">articlejs</span> <span class="variable"></span>= <span class="class">Files</span>.<span class="function">readAllLines</span>(<span class="class">Paths</span>.<span class="function">get</span>(REFDIR,<span class="string">"article.js"</span>));
+                                <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">int</span> <span class="variable">j</span>=<span class="class">articlejs</span>.<span class="function">size</span>()-<span class="number">1</span>;j>=<span class="number">0</span>;j--) {
+                                    <span class="class">content</span>.<span class="function">add</span>(i,<span class="class">articlejs</span>.<span class="function">get</span>(j));
                                 }
-                                articleJavascriptIncluded=true;
+                                articleJavascriptIncluded=<span class="number">true</span><span class="keyword"></span>;
                             }
                         }
                     }
-                    Files.write(f,content);
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    <span class="class">Files</span>.<span class="function">write</span>(f,content);
+                } <span class="keyword">catch</span> <span class="function"></span>(<span class="keyword">IOException</span> <span class="variable">e</span>) {
+                    <span class="class">e</span>.<span class="function">printStackTrace</span>();
                 }
             }
         }
     }
-    static void copyDirectory(String sourceDirectoryLocation, String destinationDirectoryLocation) 
-    throws IOException {
-        Files.walk(Paths.get(sourceDirectoryLocation))
-        .forEach(source -> {
-            Path destination = Paths.get(destinationDirectoryLocation, source.toString()
-                .substring(sourceDirectoryLocation.length()));
-            try {
-                if (Files.isDirectory(destination)) {
-                    Files.createDirectories(destination);
-                } else {
-                    Files.copy(source, destination, new CopyOption[]{StandardCopyOption.COPY_ATTRIBUTES,StandardCopyOption.REPLACE_EXISTING});
+    <span class="keyword">static</span> <span class="keyword">void</span> <span class="function">copyDirectory</span>(<span class="keyword">String</span> <span class="variable">sourceDirectoryLocation</span>, <span class="keyword">String</span> <span class="variable">destinationDirectoryLocation</span>) 
+    <span class="keyword">throws</span> <span class="keyword">IOException</span> <span class="variable"></span>{
+        <span class="class">Files</span>.<span class="function">walk</span>(<span class="class">Paths</span>.<span class="function">get</span>(sourceDirectoryLocation))
+        .<span class="function">forEach</span>(<span class="keyword">source</span> <span class="variable"></span>-> {
+            <span class="keyword">Path</span> <span class="keyword">destination</span> <span class="variable"></span>= <span class="class">Paths</span>.<span class="function">get</span>(destinationDirectoryLocation, <span class="class">source</span>.<span class="function">toString</span>()
+                .<span class="function">substring</span>(<span class="class">sourceDirectoryLocation</span>.<span class="function">length</span>()));
+            <span class="keyword">try</span> <span class="variable"></span>{
+                <span class="keyword">if</span> <span class="function"></span>(<span class="class">Files</span>.<span class="function">isDirectory</span>(<span class="variable">destination</span>)) {
+                    <span class="class">Files</span>.<span class="function">createDirectories</span>(destination);
+                } <span class="keyword">else</span> <span class="variable"></span>{
+                    <span class="class">Files</span>.<span class="function">copy</span>(source, destination, <span class="keyword">new</span> <span class="variable">CopyOption</span>[]{<span class="class">StandardCopyOption</span>.COPY_ATTRIBUTES,<span class="class">StandardCopyOption</span>.REPLACE_EXISTING});
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+            } <span class="keyword">catch</span> <span class="function"></span>(<span class="keyword">IOException</span> <span class="variable">e</span>) {
+                <span class="class">e</span>.<span class="function">printStackTrace</span>();
             }
         });
     }
-    static void buildDirectoryListings() 
-    throws IOException {
-        String startingPath=Paths.get(sigPlace.OUTDIR).toAbsolutePath().toString();
-        HashMap&lt;String,List&lt;Path>> map = new HashMap&lt;>();
-        Iterator&lt;Path> it = Files.walk(Paths.get(sigPlace.OUTDIR)).iterator();
-        map.put("</span>/<span class="string">",new ArrayList&lt;Path>());
-        while (it.hasNext()) {
-            Path f = it.next();
-            if (!f.getFileName().toString().equals(OUTDIR)) {
-                String myKey = f.toAbsolutePath().toString().replace(startingPath,"</span><span class="string">").replace(f.getFileName().toString(),"</span><span class="string">");
-                //System.out.println(myKey+"</span>,<span class="string">"+f);
-                map.putIfAbsent(myKey,new ArrayList&lt;Path>());
-                map.get(myKey).add(f);
+    <span class="keyword">static</span> <span class="keyword">void</span> <span class="function">buildDirectoryListings</span>(<span class="variable"></span>) 
+    <span class="keyword">throws</span> <span class="keyword">IOException</span> <span class="variable"></span>{
+        <span class="keyword">String</span> <span class="variable">startingPath</span>=<span class="class">Paths</span>.<span class="function">get</span>(<span class="class">sigPlace</span>.OUTDIR).<span class="function">toAbsolutePath</span>().<span class="function">toString</span>();
+        HashMap&lt;String,List&lt;Path>> <span class="keyword">map</span> <span class="variable"></span>= <span class="keyword">new</span> <span class="variable">HashMap</span>&lt;><span class="function"></span>();
+        Iterator&lt;Path> <span class="keyword">it</span> <span class="variable"></span>= <span class="class">Files</span>.<span class="function">walk</span>(<span class="class">Paths</span>.<span class="function">get</span>(<span class="class">sigPlace</span>.OUTDIR)).<span class="function">iterator</span>();
+        <span class="class">map</span>.<span class="function">put</span>(<span class="string">"/"</span>,<span class="keyword">new</span> <span class="variable">ArrayList</span>&lt;Path><span class="function"></span>());
+        <span class="keyword">while</span> <span class="function"></span>(<span class="class">it</span>.<span class="function">hasNext</span>(<span class="variable"></span>)) {
+            <span class="keyword">Path</span> <span class="keyword">f</span> <span class="variable"></span>= <span class="class">it</span>.<span class="function">next</span>();
+            <span class="keyword">if</span> <span class="function"></span>(<span class="variable"></span>!<span class="class">f</span>.<span class="function">getFileName</span>().<span class="function">toString</span>().<span class="function">equals</span>(OUTDIR)) {
+                <span class="keyword">String</span> <span class="keyword">myKey</span> <span class="variable"></span>= <span class="class">f</span>.<span class="function">toAbsolutePath</span>().<span class="function">toString</span>().<span class="function">replace</span>(startingPath,<span class="string">""</span>).<span class="function">replace</span>(<span class="class">f</span>.<span class="function">getFileName</span>().<span class="function">toString</span>(),<span class="string">""</span>);
+                <span class="comment">//System.out.println(myKey+","+f);</span>
+                <span class="class">map</span>.<span class="function">putIfAbsent</span>(myKey,<span class="keyword">new</span> <span class="variable">ArrayList</span>&lt;Path><span class="function"></span>());
+                <span class="class">map</span>.<span class="function">get</span>(myKey).<span class="function">add</span>(f);
             }
         }
-        System.out.println("</span><span class="keyword">Directory</span> <span class="keyword">structure</span> <span class="keyword">determined</span>:<span class="string">");
-        System.out.println("</span>    <span class="string">"+map);
-        for (String key : map.keySet()) {
-            System.out.println("</span><span class="keyword">Creating</span> <span class="keyword">directory</span> <span class="keyword">listing</span> <span class="keyword">for</span> <span class="string">"+key+"</span><span class="variable"></span>...<span class="string">");
-            StringBuilder sb = new StringBuilder("</span><span class="string">");
-            List&lt;String> data = Files.readAllLines(ops.get("</span>%<span class="string">"));
-            List&lt;String> data2 = Files.readAllLines(ops.get("</span>%<span class="string">"));
-            for (String d : data) {
-                for (String k : sigPlace.map.keySet()) {
-                    d=d.replaceAll(Pattern.quote(k),sigPlace.map.get(k));
+        <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"Directory structure determined:"</span>);
+        <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"    "</span>+map);
+        <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">String</span> <span class="keyword">key</span> <span class="variable"></span>: <span class="class">map</span>.<span class="function">keySet</span>()) {
+            <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"Creating directory listing for "</span>+key+<span class="string">"..."</span>);
+            <span class="keyword">StringBuilder</span> <span class="keyword">sb</span> <span class="variable"></span>= <span class="keyword">new</span> <span class="function">StringBuilder</span>(<span class="string">""</span><span class="variable"></span>);
+            List&lt;String> <span class="keyword">data</span> <span class="variable"></span>= <span class="class">Files</span>.<span class="function">readAllLines</span>(<span class="class">ops</span>.<span class="function">get</span>(<span class="string">"%DEFAULT"</span>));
+            List&lt;String> <span class="keyword">data2</span> <span class="variable"></span>= <span class="class">Files</span>.<span class="function">readAllLines</span>(<span class="class">ops</span>.<span class="function">get</span>(<span class="string">"%FOOTER"</span>));
+            <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">String</span> <span class="keyword">d</span> <span class="variable"></span>: data) {
+                <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">String</span> <span class="keyword">k</span> <span class="variable"></span>: <span class="class">sigPlace</span>.<span class="class">map</span>.<span class="function">keySet</span>()) {
+                    d=<span class="class">d</span>.<span class="function">replaceAll</span>(<span class="class">Pattern</span>.<span class="function">quote</span>(k),<span class="class">sigPlace</span>.<span class="class">map</span>.<span class="function">get</span>(k));
                 }
-                sb.append(d).append("</span>\<span class="string">");
+                <span class="class">sb</span>.<span class="function">append</span>(d).<span class="function">append</span>(<span class="string">"\n"</span>);
             }
-            sb.append("</span>&lt;h2><span class="keyword">Directory</span> <span class="keyword">Listing</span> <span class="keyword">for</span> <span class="string">"+key+"</span><span class="variable"></span>&lt;/h2><span class="string">");
-            sb.append("</span>&lt;<span class="keyword">div</span> <span class="variable">class</span>=\<span class="string">"folderlisting\"</span>>&lt;<span class="keyword">a</span> <span class="variable">href</span>=\<span class="string">""</span>)
+            <span class="class">sb</span>.<span class="function">append</span>(<span class="string">"&lt;h2>Directory Listing for "</span>+key+<span class="string">"&lt;/h2>"</span>);
+            <span class="class">sb</span>.<span class="function">append</span>(<span class="string">"&lt;div class=\"folderlisting\">&lt;a href=\""</span>)
             .<span class="function">append</span>(key)
-            .<span class="function">append</span>(<span class="string">"..\"</span> class=\<span class="string">"icon\"</span>>&#<span class="keyword">x1F4C1</span>;&lt;/a>&lt;<span class="keyword">a</span> <span class="variable">href</span>=\<span class="string">""</span>)
+            .<span class="function">append</span>(<span class="string">"..\" class=\"icon\">&#x1F4C1;&lt;/a>&lt;a href=\""</span>)
             .<span class="function">append</span>(key)
-            .<span class="function">append</span>(<span class="string">"..\"</span>>.. &lt;/a>&lt;<span class="keyword">a</span> <span class="variable">href</span>=\<span class="string">""</span>)
+            .<span class="function">append</span>(<span class="string">"..\">.. &lt;/a>&lt;a href=\""</span>)
             .<span class="function">append</span>(key)
-            .<span class="function">append</span>(<span class="string">"..\"</span> class=\<span class="string">"nounderline\"</span>><span class="function"></span>(<span class="keyword">Previous</span> <span class="variable">Directory</span>)&lt;/a>&lt;/div><span class="string">");
-            for (Path f : map.get(key)) {
-                sb.append("</span>&lt;<span class="keyword">div</span> <span class="variable">class</span>=\<span class="string">""</span>).<span class="function">append</span>(<span class="function"></span>(<span class="class">Files</span>.<span class="function">isDirectory</span>(f)?<span class="string">"folderlisting"</span>:<span class="string">"filelisting"</span>)).<span class="function">append</span>(<span class="string">"\"</span>><span class="string">")
-                .append("</span>&lt;<span class="keyword">a</span> <span class="variable">href</span>=\<span class="string">""</span>+<span class="function"></span>(<span class="class">f</span>.<span class="function">toAbsolutePath</span>().<span class="function">toString</span>().<span class="function">replace</span>(<span class="class">Paths</span>.<span class="function">get</span>(OUTDIR).<span class="function">toAbsolutePath</span>().<span class="function">toString</span>(),<span class="string">""</span>))+<span class="string">"\"</span> class=\<span class="string">"icon\"</span>><span class="string">")
-                .append((Files.isDirectory(f)?"</span>&#<span class="keyword">x1F4C1</span>;<span class="string">":"</span>&#<span class="keyword">x1F5CE</span>;<span class="string">"))
-                .append("</span>&lt;/a><span class="string">")
-                .append("</span>&lt;<span class="keyword">a</span> <span class="variable">href</span>=\<span class="string">""</span>+<span class="function"></span>(<span class="class">f</span>.<span class="function">toAbsolutePath</span>().<span class="function">toString</span>().<span class="function">replace</span>(<span class="class">Paths</span>.<span class="function">get</span>(OUTDIR).<span class="function">toAbsolutePath</span>().<span class="function">toString</span>(),<span class="string">""</span>))+<span class="string">"\"</span>><span class="string">")
-                .append(f.getFileName())
-                .append("</span>&lt;/a>\<span class="string">")
-                .append(Files.getLastModifiedTime(f))
-                .append("</span>\<span class="string">")
-                .append(Files.getOwner(f))
-                .append("</span>\<span class="string">")
-                .append(Files.size(f))
-                .append("</span>&lt;/div>\<span class="string">");
+            .<span class="function">append</span>(<span class="string">"..\" class=\"nounderline\">(Previous Directory)&lt;/a>&lt;/div>"</span>);
+            <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">Path</span> <span class="keyword">f</span> <span class="variable"></span>: <span class="class">map</span>.<span class="function">get</span>(key)) {
+                <span class="class">sb</span>.<span class="function">append</span>(<span class="string">"&lt;div class=\""</span>).<span class="function">append</span>(<span class="function"></span>(<span class="class">Files</span>.<span class="function">isDirectory</span>(f)?<span class="string">"folderlisting"</span>:<span class="string">"filelisting"</span>)).<span class="function">append</span>(<span class="string">"\">"</span>)
+                .<span class="function">append</span>(<span class="string">"&lt;a href=\""</span>+<span class="function"></span>(<span class="class">f</span>.<span class="function">toAbsolutePath</span>().<span class="function">toString</span>().<span class="function">replace</span>(<span class="class">Paths</span>.<span class="function">get</span>(OUTDIR).<span class="function">toAbsolutePath</span>().<span class="function">toString</span>(),<span class="string">""</span>))+<span class="string">"\" class=\"icon\">"</span>)
+                .<span class="function">append</span>(<span class="function"></span>(<span class="class">Files</span>.<span class="function">isDirectory</span>(f)?<span class="string">"&#x1F4C1;"</span>:<span class="string">"&#x1F5CE;"</span>))
+                .<span class="function">append</span>(<span class="string">"&lt;/a>"</span>)
+                .<span class="function">append</span>(<span class="string">"&lt;a href=\""</span>+<span class="function"></span>(<span class="class">f</span>.<span class="function">toAbsolutePath</span>().<span class="function">toString</span>().<span class="function">replace</span>(<span class="class">Paths</span>.<span class="function">get</span>(OUTDIR).<span class="function">toAbsolutePath</span>().<span class="function">toString</span>(),<span class="string">""</span>))+<span class="string">"\">"</span>)
+                .<span class="function">append</span>(<span class="class">f</span>.<span class="function">getFileName</span>())
+                .<span class="function">append</span>(<span class="string">"&lt;/a>\t"</span>)
+                .<span class="function">append</span>(<span class="class">Files</span>.<span class="function">getLastModifiedTime</span>(f))
+                .<span class="function">append</span>(<span class="string">"\t"</span>)
+                .<span class="function">append</span>(<span class="class">Files</span>.<span class="function">getOwner</span>(f))
+                .<span class="function">append</span>(<span class="string">"\t"</span>)
+                .<span class="function">append</span>(<span class="class">Files</span>.<span class="function">size</span>(f))
+                .<span class="function">append</span>(<span class="string">"&lt;/div>\n"</span>);
             }
-            for (String d : data2) {
-                for (String k : sigPlace.map.keySet()) {
-                    d=d.replaceAll(Pattern.quote(k),sigPlace.map.get(k));
+            <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">String</span> <span class="keyword">d</span> <span class="variable"></span>: data2) {
+                <span class="keyword">for</span> <span class="function"></span>(<span class="keyword">String</span> <span class="keyword">k</span> <span class="variable"></span>: <span class="class">sigPlace</span>.<span class="class">map</span>.<span class="function">keySet</span>()) {
+                    d=<span class="class">d</span>.<span class="function">replaceAll</span>(<span class="class">Pattern</span>.<span class="function">quote</span>(k),<span class="class">sigPlace</span>.<span class="class">map</span>.<span class="function">get</span>(k));
                 }
-                sb.append(d).append("</span>\<span class="string">");
+                <span class="class">sb</span>.<span class="function">append</span>(d).<span class="function">append</span>(<span class="string">"\n"</span>);
             }
-            Path newf = Files.write(Paths.get(OUTDIR,key,DIRECTORYLISTING_FILENAME),sb.toString().getBytes());
-            System.out.println("</span>  <span class="keyword">Added</span> <span class="keyword">info</span> <span class="keyword">for</span> <span class="function"></span>(<span class="string">"+map.size()+"</span><span class="variable"></span>) <span class="keyword">files</span> <span class="keyword">to</span> <span class="string">"+newf.toAbsolutePath());
+            <span class="keyword">Path</span> <span class="keyword">newf</span> <span class="variable"></span>= <span class="class">Files</span>.<span class="function">write</span>(<span class="class">Paths</span>.<span class="function">get</span>(OUTDIR,key,DIRECTORYLISTING_FILENAME),<span class="class">sb</span>.<span class="function">toString</span>().<span class="function">getBytes</span>());
+            <span class="class">System</span>.<span class="class">out</span>.<span class="function">println</span>(<span class="string">"  Added info for ("</span>+<span class="class">map</span>.<span class="function">size</span>()+<span class="string">") files to "</span>+<span class="class">newf</span>.<span class="function">toAbsolutePath</span>());
         }
     }
-    private static boolean isArticleFile(Path f) {
-        return f.getFileName().toString().contains("</span><span class="variable"></span>.<span class="string">");
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="function">isArticleFile</span>(<span class="keyword">Path</span> <span class="variable">f</span>) {
+        <span class="keyword">return</span> <span class="class">f</span>.<span class="function">getFileName</span>(<span class="variable"></span>).<span class="function">toString</span>().<span class="function">contains</span>(<span class="string">".article"</span>);
     }
-    private static boolean isHTMLFile(Path f) {
-        return f.getFileName().toString().contains("</span>.<span class="string">");
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="function">isHTMLFile</span>(<span class="keyword">Path</span> <span class="variable">f</span>) {
+        <span class="keyword">return</span> <span class="class">f</span>.<span class="function">getFileName</span>(<span class="variable"></span>).<span class="function">toString</span>().<span class="function">contains</span>(<span class="string">".html"</span>);
     }
-    private static void ExportCodeFile() {
-        try {
-            Path file = Paths.get("</span><span class="class">sigServer</span>.<span class="string">");
-            List&lt;String> data = Files.readAllLines(file);
-            int i=0;
-            while (!data.get(i++).contains("</span><span class="function">sigServer</span>()<span class="string">")&&i&lt;data.size());
-            if (i&lt;data.size()) {
-                Files.write(Paths.get(OUTDIR,"</span><span class="string">"),data.subList(i, Math.min(i+40,data.size())),Charset.defaultCharset(),StandardOpenOption.CREATE,StandardOpenOption.TRUNCATE_EXISTING,StandardOpenOption.WRITE);
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="function">ExportCodeFile</span>(<span class="variable"></span>) {
+        <span class="keyword">try</span> <span class="variable"></span>{
+            <span class="keyword">Path</span> <span class="keyword">file</span> <span class="variable"></span>= <span class="class">Paths</span>.<span class="function">get</span>(<span class="string">"sigServer.java"</span>);
+            List&lt;String> <span class="keyword">data</span> <span class="variable"></span>= <span class="class">Files</span>.<span class="function">readAllLines</span>(file);
+            <span class="keyword">int</span> <span class="variable">i</span>=<span class="number">0</span>;
+            <span class="keyword">while</span> <span class="function"></span>(<span class="variable"></span>!<span class="class">data</span>.<span class="function">get</span>(i++).<span class="function">contains</span>(<span class="string">"sigServer()"</span>)&&i&lt;<span class="class">data</span>.<span class="function">size</span>());
+            <span class="keyword">if</span> <span class="function"></span>(<span class="variable">i</span>&lt;<span class="class">data</span>.<span class="function">size</span>()) {
+                <span class="class">Files</span>.<span class="function">write</span>(<span class="class">Paths</span>.<span class="function">get</span>(OUTDIR,<span class="string">"codeBackground"</span>),<span class="class">data</span>.<span class="function">subList</span>(i, <span class="class">Math</span>.<span class="function">min</span>(i+<span class="number">40</span>,<span class="class">data</span>.<span class="function">size</span>())),<span class="class">Charset</span>.<span class="function">defaultCharset</span>(),<span class="class">StandardOpenOption</span>.CREATE,<span class="class">StandardOpenOption</span>.TRUNCATE_EXISTING,<span class="class">StandardOpenOption</span>.WRITE);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } <span class="keyword">catch</span> <span class="function"></span>(<span class="keyword">IOException</span> <span class="variable">e</span>) {
+            <span class="class">e</span>.<span class="function">printStackTrace</span>();
         }
         
     }
