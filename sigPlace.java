@@ -294,7 +294,11 @@ public class sigPlace {
                                 s=s.replaceAll(Pattern.quote(key),map.get(key));
                             }
                         }
-                        content.set(i,s);
+                        if (s.trim().length()==0) {
+                            content.remove(i--);
+                        } else {
+                            content.set(i,s);
+                        }
                     }
 
                     System.out.println("  Writing to "+f.toAbsolutePath());

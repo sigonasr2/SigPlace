@@ -1,5 +1,3 @@
-
-
 a:link{
     color:#D7F;
     font-size:0.8em;
@@ -12,27 +10,22 @@ a:hover{
     color:white;
     font-size:0.8em;
 }
-
     a.nounderline:link{
         text-decoration:none;
     }
-
     a.nounderline:visited{
         text-decoration:none;
     }
     a.nounderline:hover{
         text-decoration:none;
     }
-
 h2{
     font-size:3em;
 }
-
 .generateTime{
     font-size:10px;
     color:blue;
 }
-
 .codeForeground{
     font-family:'Courier New', Courier, monospace;
     position:fixed;
@@ -51,7 +44,6 @@ h2{
     max-width:98vw;
     max-height:90vh;
 }
-
 .codeBackground{
     font-family:'Courier New', Courier, monospace;
     position:fixed;
@@ -65,7 +57,6 @@ h2{
     max-width:98vw;
     max-height:90vh;
 }
-
 @keyframes backgroundMove{
     0%{
         background-position: 0% 50%;
@@ -74,24 +65,20 @@ h2{
         background-position: 100% 50%;
     }
 }
-
 body{
     font-family: 'Trebuchet MS', Garamond, serif, 'Tahoma', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color:#111;
 }
-
 sub{
     font-size:0.65em;
     position:relative;
     bottom:-4px;
 }
-
 sup{
     font-size:0.65em;
     position:relative;
     top:-8px;
 }
-
 .contentBody{
     backdrop-filter: blur(4px);
     color: #a985e4;
@@ -99,31 +86,24 @@ sup{
     text-shadow: 0.3px 0.3px 3px #666666;
     z-index:-1;
 }
-
     .contentBody .color1{
         color: #a985e4;
     }
-
     .contentBody .color2{
         color: #85abe4;
     }
-
     .contentBody .color3{
         color: #85e4ad;
     }
-
     .contentBody .color4{
         color: #d3e485;
     }
-
     .contentBody .color5{
         color: #e4a385;
     }
-
     .contentBody .color6{
         color: #e485b1;
     }
-
     .contentBody .contentWrapper{
         position:relative;
         border-style: none none outset none;
@@ -134,11 +114,9 @@ sup{
         min-width:98vw;
         z-index:0;
     }
-
     .contentBody .contentWrapper:hover{
         border-color: rgb(17, 153, 17, .8);
     }
-
         .contentBody .contentWrapper h1{
             display: inline-block;
             font-size:3.25em;
@@ -150,7 +128,6 @@ sup{
             background-color:rgba(255, 255, 255, .06);
             z-index:0;
         }
-
         .contentBody .contentWrapper .content{
             display: inline-block;
             min-width:97vw;
@@ -163,7 +140,6 @@ sup{
             max-height:120px;
             overflow:hidden;
         }
-
         .contentBody .contentWrapper .expandedContent{
             display: inline-block;
             min-width:97vw;
@@ -174,19 +150,16 @@ sup{
             background-color: rgba(255, 255, 255, .06);
             z-index:0;
         }
-
         .contentBody .contentWrapper figure{
             border: 2px ridge rgb(88, 35, 86);
             border-radius:4px;
             margin:12px 20px 12px 20px;
         }
-
         .contentBody .contentWrapper figcaption{
             font-size: 0.85em;
             font-style: italic;
             color:rgb(221, 105, 217);
         }
-        
         .contentBody .contentWrapper .datebar{
             font-size:0.75em;
             margin: 0px 4px 0px 4px;
@@ -195,7 +168,6 @@ sup{
             z-index:0;
             background: linear-gradient(90deg,rgba(255, 255, 255, .06) 0%, rgba(255, 255, 255, .3) 20%,rgba(255, 255, 255, .06) 45%,rgba(255, 255, 255, .06) 0%);
         }
-
         .contentBody .contentWrapper .date{
             font-size:0.75em;
             margin: 0px 4px 0px 4px;
@@ -204,7 +176,6 @@ sup{
             z-index:0;
             background-color: rgba(255, 255, 255, .06);
         }
-
         .contentBody .contentWrapper .unexpanded{
             position:absolute;
             bottom:0px;
@@ -214,34 +185,28 @@ sup{
             background: linear-gradient(180deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 5%, rgba(32,32,32,1.0) 100%);
             user-select:none;
         }
-
         .contentBody .contentWrapper .unexpanded:hover{
             bottom:-8px;
             background: linear-gradient(180deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 5%, rgba(64,64,64,1.0) 100%);
             cursor:pointer;
         }
-    
     .contentBody .filelisting{
         padding:12px 4px 2px 4px;
         font-size:1.75em;
     }
-
     .contentBody .folderlisting{
         padding:12px 4px 2px 4px;
         font-size:1.75em;
     }
-
     .contentBody .icon:link{
         text-decoration:none;
     }
-
     .contentBody .icon:visited{
         text-decoration:none;
     }
     .contentBody .icon:hover{
         text-decoration:none;
     }
-
 pre{
     font-family:'Courier New', Courier, monospace;
     display:inline-block;
@@ -266,17 +231,14 @@ pre{
       width: 16px;
       height: 16px;
     }
-  
   /* Track */
   ::-webkit-scrollbar-track {
     background:rgba(0,0,0,0);
   }
-  
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: rgb(161, 46, 161);
   }
-  
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: rgb(197, 34, 189);
@@ -289,31 +251,24 @@ pre{
       width:16px;
       height:16px;
     }
-
 pre .keyword{
     color:cornflowerblue;
 }
-
 pre .variable{
     color:#AA77FF;
 }
-
 pre .class{
     color:rgb(216, 107, 74);
 }
-
 pre .function{
     color:darkgoldenrod;
 }
-
 pre .string{
     color:forestgreen;
 }
-
 pre .number{
     color:#d8f070;
 }
-
 pre .comment{
     color:#6b235e;
 }
