@@ -6,16 +6,23 @@ For over a year since I first got into <u>Love Live! School Idol Festival ~after
 <br/>
 </div><div class="datebar"></div><div class="date">15 July 2022 1:53PM</div>%CONDITIONAL_EXPAND%</div>
 <hr/>
-<h2>Comments</h2><div class="commentCounter" id="commentCounter">0</div>
-<div class="comments" id="comments"></div>
+<div id="commentContainer" style="visibility:hidden;">
+    <h2>Comments</h2><div class="commentCounter" id="commentCounter">0</div>
+    <div class="comments" id="comments"></div>
+</div>
 <script type="text/javascript">
     function fetchComments() {
         fetch("/COMMENTS?article=Love Live! Custom Arcade Controller.comment").then((data)=>data.text())
         .then((data)=>{
             data=data.split("\n");
             for (var i=0;i<data.length;i++) {
-                document.getElementById("comments").innerHTML+=data[i]+"<br>"
+                if (i==0) {
+                    document.getElementById("commentCounter").innerText=data[i]
+                } else {
+                    document.getElementById("comments").innerHTML+=data[i]+"<br>"
+                }
             }
+            document.getElementById("commentContainer").style.visibility="visible"
         })
     }
     fetchComments()

@@ -139,7 +139,7 @@ public class sigServer {
                                             file = Paths.get(sigPlace.OUTDIR,location);
                                         }
 
-                                        if (modifiedDate==null||modifiedDate.isBefore(GetLastModifiedDate(sigPlace.OUTDIR,location))) 
+                                        if (modifiedDate==null||Files.exists(file)&&modifiedDate.isBefore(GetLastModifiedDate(sigPlace.OUTDIR,location))) 
                                         {
                                             CreateRequest(client,"200","OK",file);
                                         } else {
