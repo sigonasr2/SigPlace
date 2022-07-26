@@ -7,7 +7,11 @@
         .then((data)=>{
             data=data.split("\n");
             for (var i=0;i<data.length;i++) {
-                document.getElementById("comments").innerHTML+=data[i]+"<br>"
+                if (i==0) {
+                    document.getElementById("commentCounter").innerText=data[i]
+                } else {
+                    document.getElementById("comments").innerHTML+=data[i]+"<br>"
+                }
             }
         })
     }
