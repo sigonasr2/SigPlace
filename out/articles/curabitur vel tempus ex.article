@@ -10,13 +10,16 @@ Curabitur vel tempus ex. Duis cursus sapien nisl, ut pulvinar dui porttitor ut. 
 </p>
 </div><div class="datebar"></div><div class="date">29 Apr 2022 7:37PM</div>%CONDITIONAL_EXPAND%</div>
 <hr/>
-<h2>Comments</h2><div class="commentCounter">0</div>
-<div class="comments"></div>
+<h2>Comments</h2><div class="commentCounter" id="commentCounter">0</div>
+<div class="comments" id="comments"></div>
 <script type="text/javascript">
     function fetchComments() {
-        fetch("/COMMENTS/curabitur vel tempus ex.comment").then((data)=>data.text())
+        fetch("/COMMENTS?article=curabitur vel tempus ex.comment").then((data)=>data.text())
         .then((data)=>{
-            document.getElementById("comments").innerHTML=data
+            data=data.split("\n");
+            for (var i=0;i<data.length;i++) {
+                document.getElementById("comments").innerHTML+=data[i]+"<br>"
+            }
         })
     }
     fetchComments()

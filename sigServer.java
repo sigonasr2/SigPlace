@@ -131,18 +131,20 @@ public class sigServer {
                                         }
                                     } else {
                                         String location = URLDecoder.decode(requestloc.replaceFirst("/",""),StandardCharsets.UTF_8);
+
+                                        Path file = null;
+                                        if (location.equals("COMMENTS")) {
+                                            file = Paths.get(sigPlace.COMMENTSDIR,requestParams.get("article"));
+                                        } else {
+                                            file = Paths.get(sigPlace.OUTDIR,location);
+                                        }
+
                                         if (modifiedDate==null||modifiedDate.isBefore(GetLastModifiedDate(sigPlace.OUTDIR,location))) 
                                         {
-                                            Path file = null;
-                                            if (location.equals("comment")) {
-                                                file = Paths.get(sigPlace.COMMENTSDIR,requestParams.get("article"));
-                                            } else {
-                                                file = Paths.get(sigPlace.OUTDIR,location);
-                                            }
                                             CreateRequest(client,"200","OK",file);
                                         } else {
                                             //System.out.println(" "+location+" is cached! No sending required.");
-                                            CreateRequest(client,"304","Not Modified",Paths.get(location));
+                                            CreateRequest(client,"304","Not Modified",file);
                                         }
                                     }
                                 }

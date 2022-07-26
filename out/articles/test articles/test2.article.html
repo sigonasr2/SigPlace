@@ -23,13 +23,16 @@
 </p>
 </div><div class="datebar"></div><div class="date">1 May 2022 05:13AM</div></div>
 <hr/>
-<h2>Comments</h2><div class="commentCounter">0</div>
-<div class="comments"></div>
+<h2>Comments</h2><div class="commentCounter" id="commentCounter">0</div>
+<div class="comments" id="comments"></div>
 <script type="text/javascript">
     function fetchComments() {
-        fetch("/COMMENTS/test2.comment").then((data)=>data.text())
+        fetch("/COMMENTS?article=test2.comment").then((data)=>data.text())
         .then((data)=>{
-            document.getElementById("comments").innerHTML=data
+            data=data.split("\n");
+            for (var i=0;i<data.length;i++) {
+                document.getElementById("comments").innerHTML+=data[i]+"<br>"
+            }
         })
     }
     fetchComments()
