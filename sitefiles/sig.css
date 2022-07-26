@@ -248,6 +248,7 @@ pre{
     font-size:1.15em;
     position:relative;
     width:85vw;
+    overflow:scroll;
     color:darkseagreen;
     background:radial-gradient(farthest-side at 90% 90%,rgba(0, 255, 0, .06) 0%, rgba(255, 255, 255, .06) 100%);
 }
