@@ -251,7 +251,7 @@ pre{
     position:relative;
     width:85vw;
     max-height:480px;
-    overflow:hidden;
+    overflow:scroll;
     inline-size: 85vw;
     color:darkseagreen;
     background:radial-gradient(farthest-side at 90% 90%,rgba(0, 255, 0, .06) 0%, rgba(255, 255, 255, .06) 100%);
@@ -289,9 +289,6 @@ pre{
       width:16px;
       height:16px;
     }
-pre:hover{
-    overflow:scroll;
-}
 
 pre .keyword{
     color:cornflowerblue;

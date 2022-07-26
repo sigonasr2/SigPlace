@@ -285,7 +285,7 @@ public class sigPlace {
                                 s="<p class=\"color"+(((int)(COLOR_ROTATION=(COLOR_ROTATION+0.4)%6))+1)+"\">\n"+s+"\n</p>";
                             }
                         } else {
-                            if (s.length()==0&&isArticleFile(f)) {
+                            if (s.length()==0&&isArticleFile(f)&&!inCodeBlock) {
                                 s="<br/>"; //Setup a line break here.
                             }
                         }
