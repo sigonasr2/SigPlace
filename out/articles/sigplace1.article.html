@@ -503,6 +503,18 @@ Here we demonstrate the love live logo. But wait, it's literally like in the mid
 </pre>
 </p>
 </div><div class="datebar"></div><div class="date">3 May 2022 10:25AM</div></div>
+<hr/>
+<h2>Comments</h2><div class="commentCounter">0</div>
+<div class="comments"></div>
+<script type="text/javascript">
+    function fetchComments() {
+        fetch("/COMMENTS/sigplace1.comment").then((data)=>data.text())
+        .then((data)=>{
+            document.getElementById("comments").innerHTML=data
+        })
+    }
+    fetchComments()
+</script>
 
 </div> <!--End Content Body-->
 <div class="codeForeground" id="codeForeground"></div>

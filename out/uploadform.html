@@ -29,3 +29,15 @@ SigPlace
 <footer>
 </footer>
 </html>
+<hr/>
+<h2>Comments</h2><div class="commentCounter">0</div>
+<div class="comments"></div>
+<script type="text/javascript">
+    function fetchComments() {
+        fetch("/COMMENTS/uploadform.html.comment").then((data)=>data.text())
+        .then((data)=>{
+            document.getElementById("comments").innerHTML=data
+        })
+    }
+    fetchComments()
+</script>

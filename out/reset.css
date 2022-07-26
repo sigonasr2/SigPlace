@@ -45,3 +45,15 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+<hr/>
+<h2>Comments</h2><div class="commentCounter">0</div>
+<div class="comments"></div>
+<script type="text/javascript">
+    function fetchComments() {
+        fetch("/COMMENTS/reset.css.comment").then((data)=>data.text())
+        .then((data)=>{
+            document.getElementById("comments").innerHTML=data
+        })
+    }
+    fetchComments()
+</script>
