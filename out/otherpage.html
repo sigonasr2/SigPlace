@@ -44,7 +44,11 @@ $ARTICLE_PREVIEW curabitur vel tempus ex
                 if (i==0) {
                     document.getElementById("commentCounter").innerText=data[i]
                 } else {
-                    document.getElementById("comments").innerHTML+=data[i]+"<br>"
+                    if (i%2==1) {
+                        document.getElementById("comments").innerHTML+="<div class=\"comment\"><div class=\"commentData\">"+data[i]+"</div><br>"
+                    } else {
+                        document.getElementById("comments").innerHTML+="<div class=\"commentInfo\">"+data[i]+"</div></div><br>"
+                    }
                 }
             }
             document.getElementById("commentContainer").style.visibility="visible"

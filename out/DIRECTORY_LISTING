@@ -17,14 +17,14 @@
 </head>
 <body>
 <div class="contentBody"> 
-<h2>Directory Listing for /</h2><div class="folderlisting"><a href="/.." class="icon">&#x1F4C1;</a><a href="/..">.. </a><a href="/.." class="nounderline">(Previous Directory)</a></div><div class="folderlisting"><a href="/articles" class="icon">&#x1F4C1;</a><a href="/articles">articles</a>	2022-07-26T19:19:28.925305Z	gitpod	4096</div>
-<div class="filelisting"><a href="/codeBackground" class="icon">&#x1F5CE;</a><a href="/codeBackground">codeBackground</a>	2022-07-26T19:19:28.837305Z	gitpod	3456</div>
-<div class="filelisting"><a href="/otherpage.html" class="icon">&#x1F5CE;</a><a href="/otherpage.html">otherpage.html</a>	2022-07-26T19:19:28.837305Z	gitpod	1760</div>
-<div class="filelisting"><a href="/reset.css" class="icon">&#x1F5CE;</a><a href="/reset.css">reset.css</a>	2022-07-26T19:19:28.841305Z	gitpod	1908</div>
-<div class="filelisting"><a href="/uploadform.html" class="icon">&#x1F5CE;</a><a href="/uploadform.html">uploadform.html</a>	2022-07-26T19:19:28.861305Z	gitpod	1704</div>
-<div class="folderlisting"><a href="/images" class="icon">&#x1F4C1;</a><a href="/images">images</a>	2022-07-26T19:19:28.917305Z	gitpod	58</div>
-<div class="filelisting"><a href="/sig.css" class="icon">&#x1F5CE;</a><a href="/sig.css">sig.css</a>	2022-07-26T19:19:28.849305Z	gitpod	7743</div>
-<div class="filelisting"><a href="/testfile.html" class="icon">&#x1F5CE;</a><a href="/testfile.html">testfile.html</a>	2022-07-26T19:19:28.861305Z	gitpod	1622</div>
+<h2>Directory Listing for /</h2><div class="folderlisting"><a href="/.." class="icon">&#x1F4C1;</a><a href="/..">.. </a><a href="/.." class="nounderline">(Previous Directory)</a></div><div class="folderlisting"><a href="/articles" class="icon">&#x1F4C1;</a><a href="/articles">articles</a>	2022-07-27T16:24:25.554624247Z	codespace	4096</div>
+<div class="folderlisting"><a href="/images" class="icon">&#x1F4C1;</a><a href="/images">images</a>	2022-07-27T16:24:25.550624202Z	codespace	4096</div>
+<div class="filelisting"><a href="/uploadform.html" class="icon">&#x1F5CE;</a><a href="/uploadform.html">uploadform.html</a>	2022-07-27T16:24:25.490623513Z	codespace	1980</div>
+<div class="filelisting"><a href="/codeBackground" class="icon">&#x1F5CE;</a><a href="/codeBackground">codeBackground</a>	2022-07-27T16:24:25.450623054Z	codespace	3732</div>
+<div class="filelisting"><a href="/otherpage.html" class="icon">&#x1F5CE;</a><a href="/otherpage.html">otherpage.html</a>	2022-07-27T16:24:25.4546231Z	codespace	2036</div>
+<div class="filelisting"><a href="/reset.css" class="icon">&#x1F5CE;</a><a href="/reset.css">reset.css</a>	2022-07-27T16:24:25.462623192Z	codespace	2184</div>
+<div class="filelisting"><a href="/sig.css" class="icon">&#x1F5CE;</a><a href="/sig.css">sig.css</a>	2022-07-27T16:24:25.474623329Z	codespace	8019</div>
+<div class="filelisting"><a href="/testfile.html" class="icon">&#x1F5CE;</a><a href="/testfile.html">testfile.html</a>	2022-07-27T16:24:25.498623605Z	codespace	1898</div>
 
 </div> <!--End Content Body-->
 <div class="codeForeground" id="codeForeground"></div>
