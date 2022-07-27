@@ -18,6 +18,12 @@
         +encodeURIComponent(document.getElementById("col").options[document.getElementById("col").selectedIndex].text)
         ).then((data)=>data.text())
         .then((data)=>{
+            document.getElementById("msg").value=""
+            document.getElementById("name").value=""
+        document.getElementById("submit").disabled=
+        document.getElementById("name").disabled=
+        document.getElementById("col").disabled=
+        document.getElementById("msg").disabled=false;
             fetchComments()
         })
     }
@@ -47,19 +53,13 @@
         .then((data)=>{
             data=data.split("\n");
             document.getElementById("comments").innerHTML="";
-            for (var i=0;i<data.length;i++) {
-                if (i==0) {
-                    document.getElementById("commentCounter").innerText=data[i]
-                } else {
-                    if (data[i].trim().length>0) {
-                        if (i%2==1) {
-                            document.getElementById("comments").innerHTML+="<div id=\"msg"+((i+1)/2)+"\" class=\"commentDisplayer\"><div class=\"commentData\">"+data[i]+"</div><br>"
-                        } else {
-                            data2=data[i].split(";");
-                            document.getElementById("msg"+(i/2)).style.borderColor=data2[1]
-                            document.getElementById("comments").innerHTML+="<div class=\"commentInfo\"><sup>- "+data2[0]+"</sup></div></div><br>"
-                        }
-                    }
+            document.getElementById("commentCounter").innerText=data[0]
+            for (var i=data.length-3;i>=1;i-=2) {
+                if (data[i].trim().length>0&&data[i+1].trim().length>0) {
+                    document.getElementById("comments").innerHTML+="<div id=\"msg"+((i+1)/2)+"\" class=\"commentDisplayer\"><div class=\"commentData\">"+decodeURIComponent(data[i])+"</div><br>"
+                    data2=data[i+1].split(";");
+                    document.getElementById("msg"+((i+1)/2)).style.borderColor=data2[1]
+                    document.getElementById("comments").innerHTML+="<div class=\"commentInfo\"><sup>- "+decodeURIComponent(data2[0])+"</sup></div></div><br>"
                 }
             }
             document.getElementById("commentContainer").style.visibility="visible"

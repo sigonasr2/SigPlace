@@ -8,17 +8,21 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
 import java.net.URLDecoder;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.FileTime;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class sigServer {
@@ -139,7 +143,19 @@ public class sigServer {
                                             file = Paths.get(sigPlace.OUTDIR,location);
                                         }
                                         if (location.equals("COMMENTS")&&requestParams.containsKey("message")&&requestParams.containsKey("name")&&requestParams.containsKey("color")) {
-                                            System.out.println(requestParams);
+                                            //System.out.println(requestParams);
+                                            String finalMsg = requestParams.get("message").replaceAll(Pattern.quote("%0A"),"<br/>").replaceAll(Pattern.quote("%3C"),"&lt;");
+                                            if (Files.exists(Paths.get(sigPlace.COMMENTSDIR,requestParams.get("article")))) {
+                                                List<String> data = Files.readAllLines(Paths.get(sigPlace.COMMENTSDIR,requestParams.get("article")));
+                                                data.set(0,Integer.toString(Integer.parseInt(data.get(0))+1));
+                                                data.add(finalMsg+"\n"+requestParams.get("name")+ZonedDateTime.now()+";"+requestParams.get("color"));
+                                                Files.write(Paths.get(sigPlace.COMMENTSDIR,requestParams.get("article")), data, StandardOpenOption.TRUNCATE_EXISTING,StandardOpenOption.WRITE);
+                                            } else {
+                                                List<String> data = new ArrayList<String>();
+                                                data.add("1");
+                                                data.add(finalMsg+"\n"+requestParams.get("name")+ZonedDateTime.now()+";"+requestParams.get("color"));
+                                                Files.write(Paths.get(sigPlace.COMMENTSDIR,requestParams.get("article")), data, StandardOpenOption.TRUNCATE_EXISTING,StandardOpenOption.WRITE,StandardOpenOption.CREATE_NEW);
+                                            }
                                             CreateRequest(client,"200","OK",Paths.get(sigPlace.OUTDIR,"testfile.html"));
                                         } else {
                                             if (modifiedDate==null||Files.exists(file)&&modifiedDate.isBefore(GetLastModifiedDate(file))) 
