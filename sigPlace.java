@@ -162,7 +162,7 @@ public class sigPlace {
                                     if (!inString) {
                                         if (canBeNumericalConstant&&validNumericalConstantCharacters(lengthOfConstant, j)) {
                                             lengthOfConstant++;
-                                            System.out.println("Length of Constant now "+lengthOfConstant);
+                                            //System.out.println("Length of Constant now "+lengthOfConstant);
                                         }
                                         if (j>0&&storedCodeBlock.charAt(j)=='/'&&storedCodeBlock.charAt(j+1)=='*'||inMultiLineComment) {
                                             if (!inMultiLineComment) {

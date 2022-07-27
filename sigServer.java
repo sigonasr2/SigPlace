@@ -138,13 +138,17 @@ public class sigServer {
                                         } else {
                                             file = Paths.get(sigPlace.OUTDIR,location);
                                         }
-
-                                        if (modifiedDate==null||Files.exists(file)&&modifiedDate.isBefore(GetLastModifiedDate(sigPlace.OUTDIR,location))) 
-                                        {
-                                            CreateRequest(client,"200","OK",file);
+                                        if (location.equals("COMMENTS")&&requestParams.containsKey("message")&&requestParams.containsKey("name")&&requestParams.containsKey("color")) {
+                                            System.out.println(requestParams);
+                                            CreateRequest(client,"200","OK",Paths.get(sigPlace.OUTDIR,"testfile.html"));
                                         } else {
-                                            //System.out.println(" "+location+" is cached! No sending required.");
-                                            CreateRequest(client,"304","Not Modified",file);
+                                            if (modifiedDate==null||Files.exists(file)&&modifiedDate.isBefore(GetLastModifiedDate(file))) 
+                                            {
+                                                CreateRequest(client,"200","OK",file);
+                                            } else {
+                                                //System.out.println(" "+location+" is cached! No sending required.");
+                                                CreateRequest(client,"304","Not Modified",file);
+                                            }
                                         }
                                     }
                                 }
@@ -172,10 +176,14 @@ public class sigServer {
         }
     }
 
-    private ZonedDateTime GetLastModifiedDate(String first,String...more) throws IOException {
-        Instant newTime = Files.getLastModifiedTime(Paths.get(first,more)).toInstant();
+    private ZonedDateTime GetLastModifiedDate(Path p) throws IOException {
+        Instant newTime = Files.getLastModifiedTime(p).toInstant();
         newTime = newTime.truncatedTo(ChronoUnit.SECONDS);
         return newTime.atZone(ZoneId.of("GMT"));
+    }
+
+    private ZonedDateTime GetLastModifiedDate(String first,String...more) throws IOException {
+        return GetLastModifiedDate(Paths.get(first,more));
     }
 
     private void CreateRawRequest(OutputStream stream, String statusCode, String statusMsg, String contentType, byte[] content) {
