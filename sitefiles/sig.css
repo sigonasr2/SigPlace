@@ -325,9 +325,6 @@ textarea{
     margin-left:20px;
     font-size:0.85em;
     position:relative;
-    width:85vw;
-    max-height:480px;
-    overflow:scroll;
     inline-size: 85vw;
     color:darkseagreen;
     background:radial-gradient(farthest-side at 90% 90%,rgba(0, 255, 0, .06) 0%, rgba(255, 255, 255, .06) 100%);

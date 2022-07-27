@@ -279,9 +279,6 @@ textarea{
     margin-left:20px;
     font-size:0.85em;
     position:relative;
-    width:85vw;
-    max-height:480px;
-    overflow:scroll;
     inline-size: 85vw;
     color:darkseagreen;
     background:radial-gradient(farthest-side at 90% 90%,rgba(0, 255, 0, .06) 0%, rgba(255, 255, 255, .06) 100%);
@@ -400,7 +397,7 @@ textarea:disabled{
 </script>
 <div id="commentForm">
     <b>Leave a comment!</b><br/><br/>
-    <label for="name">Display Name: </label><input id="name"><br/><br/>
+    <label for="name">Display Name: </label><input id="name"></input><br/><br/>
     <label for="col">Display Color: </label><select id="col" onchange="changeColor()">
         <option value="RED">RED</option>
         <option value="GREEN" selected>GREEN</option>
