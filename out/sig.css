@@ -319,6 +319,7 @@ input{
     font-size:1.4em;
 }
 input:focus{
+    outline: none !important;
     background-color:rgb(24, 24, 24);
     border: 1px solid rgb(10, 136, 10);
 }
@@ -331,6 +332,7 @@ option{
     font-size:1.4em;
 }
 option:focus{
+    outline: none !important;
     background-color:rgb(24, 24, 24);
     border: 1px solid rgb(10, 136, 10);
 }
@@ -343,6 +345,7 @@ select{
     font-size:1.4em;
 }
 select:focus{
+    outline: none !important;
     background-color:rgb(24, 24, 24);
     border: 1px solid rgb(10, 136, 10);
 }
@@ -402,7 +405,7 @@ textarea:disabled{
         <option value="WHITE">WHITE</option>
     </select><br/><br/>
     <label for="msg" style="vertical-align:top;display:inline;">Message: </label><textarea id="msg"></textarea><br/><br/>
-    <button id="submit" onload="changeColor()" onclick="submit()">POST</button>
+    <button id="submit" onclick="submit()">POST</button>
 </div><br/><br/>
 <div id="commentContainer" style="visibility:hidden;">
     <h2>Comments <sub>(<span class="commentCounter" id="commentCounter">0</span>)</sub></h2>
@@ -420,9 +423,11 @@ textarea:disabled{
                 } else {
                     if (data[i].trim().length>0) {
                         if (i%2==1) {
-                            document.getElementById("comments").innerHTML+="<div class=\"commentDisplayer\"><div class=\"commentData\">"+data[i]+"</div><br>"
+                            document.getElementById("comments").innerHTML+="<div id=\"msg"+((i+1)/2)+"\" class=\"commentDisplayer\"><div class=\"commentData\">"+data[i]+"</div><br>"
                         } else {
-                            document.getElementById("comments").innerHTML+="<div class=\"commentInfo\"><sup>- "+data[i]+"</sup></div></div><br>"
+                            data2=data[i].split(";");
+                            document.getElementById("msg"+(i/2)).style.borderColor=data2[1]
+                            document.getElementById("comments").innerHTML+="<div class=\"commentInfo\"><sup>- "+data2[0]+"</sup></div></div><br>"
                         }
                     }
                 }
@@ -431,4 +436,5 @@ textarea:disabled{
         })
     }
     fetchComments()
+    changeColor()
 </script>

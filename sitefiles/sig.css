@@ -372,6 +372,7 @@ input{
 }
 
 input:focus{
+    outline: none !important;
     background-color:rgb(24, 24, 24);
     border: 1px solid rgb(10, 136, 10);
 }
@@ -386,6 +387,7 @@ option{
 }
 
 option:focus{
+    outline: none !important;
     background-color:rgb(24, 24, 24);
     border: 1px solid rgb(10, 136, 10);
 }
@@ -400,6 +402,7 @@ select{
 }
 
 select:focus{
+    outline: none !important;
     background-color:rgb(24, 24, 24);
     border: 1px solid rgb(10, 136, 10);
 }
