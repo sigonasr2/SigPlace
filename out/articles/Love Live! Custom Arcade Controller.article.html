@@ -35,7 +35,7 @@ For over a year since I first got into <u>Love Live! School Idol Festival ~after
         document.getElementById("col").disabled=
         document.getElementById("msg").disabled=true;
         fetch("/COMMENTS?submit=true&article=Love Live! Custom Arcade Controller.comment&message="+encodeURIComponent(document.getElementById("msg").value)+"&name="
-        +encodeURIComponent(document.getElementById("name").value)+"&color="+
+        +encodeURIComponent(document.getElementById("name").value)+"&color="
         +encodeURIComponent(document.getElementById("col").options[document.getElementById("col").selectedIndex].text)
         ).then((data)=>data.text())
         .then((data)=>{
