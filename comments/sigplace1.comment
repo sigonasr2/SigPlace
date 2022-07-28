@@ -1,4 +1,4 @@
-35
+39
 That is a great idea!
 username,17May2021 08:29:10;GREEN
 That is a great idea! &lt;p>There used to be folks I worked with who would use the same technique, and it worked great!&lt;/p>
@@ -69,3 +69,11 @@ fdsa2022-07-28T19:25:51.209453Z[Etc/UTC];GREEN
 2022-07-28T19:56:50.050699Z[Etc/UTC];GREEN
 %F0%9F%98%8A<i>Italicized</i><b>Bolded</b>%20<b><i>Both</i></b>%20<b><i><u>All%20three</u></i></b>
 2022-07-28T19:57:21.107759Z[Etc/UTC];GREEN
+%255ETest%255E
+2022-07-28T19:58:17.524846Z[Etc/UTC];GREEN
+~<pre><span class="keyword">opefully</span> <span class="keyword">this</span> <span class="keyword">code</span> <span class="keyword">block</span> <span class="keyword">has</span> <span class="keyword">no</span> <span class="keyword">extra</span> <span class="class">endings</span>.<span class="variable"></span></~
+2022-07-28T20:07:22.711422Z[Etc/UTC];GREEN
+~<pre><span class="keyword">I</span> <span class="keyword">think</span> <span class="keyword">the</span> <span class="keyword">front</span> <span class="keyword">one</span> <span class="keyword">is</span> <span class="keyword">still</span> <span class="variable">there</span></~
+2022-07-28T20:08:50.191504Z[Etc/UTC];GREEN
+<pre><span class="keyword">Code</span> <span class="keyword">block</span> <span class="keyword">now</span> <span class="variable">works</span>!</
+2022-07-28T20:13:09.268431Z[Etc/UTC];GREEN

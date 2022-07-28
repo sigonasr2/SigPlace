@@ -186,7 +186,7 @@ public class sigServer {
                                                         int startPos=0;
                                                         String endText=s.substring(s.indexOf("~~")+"~~".length(),s.length());
                                                         s="";
-                                                        for (int j=0;j<storedCodeBlock.length();j++) {
+                                                        for (int j=0;j<storedCodeBlock.length()-1;j++) {
                                                             if (storedCodeBlock.charAt(j)=='\n'&&inString) {
                                                                 inString=false;
                                                                 s+="</span>";
@@ -305,6 +305,7 @@ public class sigServer {
                                                     }
                                                     i+=1;
                                                     codeBlock=!codeBlock;
+                                                    continue;
                                                 } else 
                                                 if (codeBlock) {
                                                     codeBlockMsg.append(finalMsg.charAt(i));continue;
