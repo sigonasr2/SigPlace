@@ -301,17 +301,19 @@ public class sigPlace {
                         }
                     }
 
-                    System.out.println("  Generating comment section for "+f+".");
+                    if (isArticleFile(f)) {
+                        System.out.println("  Generating comment section for "+f+".");
 
-                    Path ff = Paths.get(REFDIR,"COMMENT.html");
-                    List<String> commentHTML = Files.readAllLines(ff);
-                    for (int i=0;i<commentHTML.size();i++) {
-                        if (commentHTML.get(i).contains("$ARTICLE")) {
-                            commentHTML.set(i,commentHTML.get(i).replace("$ARTICLE",f.getFileName().toString()).replace(".article",""));
+                        Path ff = Paths.get(REFDIR,"COMMENT.html");
+                        List<String> commentHTML = Files.readAllLines(ff);
+                        for (int i=0;i<commentHTML.size();i++) {
+                            if (commentHTML.get(i).contains("$ARTICLE")) {
+                                commentHTML.set(i,commentHTML.get(i).replace("$ARTICLE",f.getFileName().toString()).replace(".article",""));
+                            }
                         }
-                    }
 
-                    content.addAll(commentHTML);
+                        content.addAll(commentHTML);
+                    }
 
                     System.out.println("  Writing to "+f.toAbsolutePath());
 
