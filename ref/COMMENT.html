@@ -22,6 +22,22 @@
             fetchComments()
         })
     }
+    function insert(c1,c2) {
+        if (document.getElementById("msg").selectionStart==document.getElementById("msg").selectionEnd) {
+            //No highlighting. Insert here.
+            if (c2!=undefined) {
+                document.getElementById("msg").value=document.getElementById("msg").value.substring(0,document.getElementById("msg").selectionStart)+c1+c2+document.getElementById("msg").value.substring(document.getElementById("msg").selectionStart)
+            } else {
+                document.getElementById("msg").value=document.getElementById("msg").value.substring(0,document.getElementById("msg").selectionStart)+c1+document.getElementById("msg").value.substring(document.getElementById("msg").selectionStart)
+            }
+        } else {
+            if (c2!=undefined) {
+                document.getElementById("msg").value=document.getElementById("msg").value.substring(0,document.getElementById("msg").selectionStart)+c1+document.getElementById("msg").value.substring(document.getElementById("msg").selectionStart,document.getElementById("msg").selectionEnd)+c2+document.getElementById("msg").value.substring(document.getElementById("msg").selectionEnd)
+            } else {
+                document.getElementById("msg").value=document.getElementById("msg").value.substring(0,document.getElementById("msg").selectionStart)+c1+document.getElementById("msg").value.substring(document.getElementById("msg").selectionStart)
+            }
+        }
+    }
 </script>
 <div id="commentForm">
     <b>Leave a comment!</b><br/><br/>
@@ -35,7 +51,22 @@
         <option value="CYAN">CYAN</option>
         <option value="WHITE">WHITE</option>
     </select><br/><br/>
-    <label for="msg" style="vertical-align:top;display:inline;">Message: </label><textarea id="msg"></textarea><br/><br/>
+    <label for="msg" style="vertical-align:top;display:inline;">Message: </label>
+        <div>
+            <div class="toolbar">
+                <span class="toolbarItem" onclick="insert('^','^')" title="Bold">&nbsp;<b>B</b>&nbsp;</span>
+                <span class="toolbarItem" onclick="insert('*','*')" title="Italics">&nbsp;<i>I</i>&nbsp;</span>
+                <span class="toolbarItem" onclick="insert('_','_')" title="Underline">&nbsp;<u>U</u>&nbsp;</span>
+                <span class="toolbarItem" onclick="insert('~','~')" title="Code">&nbsp;&lt;code&gt;&nbsp;</span>
+                <span class="toolbarItem" onclick="insert('[',']')" title="Link">&nbsp;&lt;http://&gt;&nbsp;</span>
+                <span class="toolbarItem" onclick="insert('😊')" title="Smiley Face Emoji">&nbsp;😊&nbsp;</span>
+                <span class="toolbarItem" onclick="insert('😔')" title="Sad Face Emoji">&nbsp;😔&nbsp;</span>
+                <span class="toolbarItem" onclick="insert('👍')" title="Thumbs Up Emoji">&nbsp;👍&nbsp;</span>
+                <span class="toolbarItem" onclick="insert('❤️')" title="Heart Emoji">&nbsp;❤️&nbsp;</span>
+                <span class="toolbarItem" onclick="insert('😡')" title="Pouting Emoji">&nbsp;😡&nbsp;</span>
+            </div>
+            <textarea id="msg"></textarea>
+        </div><br/><br/>
     <button id="submit" onclick="submit()">POST</button>
 </div><br/><br/>
 <div id="commentContainer" style="visibility:hidden;">

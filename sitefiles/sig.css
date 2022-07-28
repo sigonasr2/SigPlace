@@ -428,3 +428,15 @@ input:disabled{
 textarea:disabled{
     background-color:rgb(0, 81, 95);
 }
+.toolbar{
+    background-color:#666666;
+    color:#000000;
+    font-size:0.75em;
+    width:fit-content;
+    margin-left:36px;
+    margin-top:24px;
+}
+.toolbarItem:hover{
+    background-color:#a1a1a1;
+    cursor:pointer;
+}
