@@ -540,11 +540,11 @@ Here we demonstrate the love live logo. But wait, it's literally like in the mid
     <label for="msg" style="vertical-align:top;display:inline;">Message: </label>
         <div>
             <div class="toolbar">
-                <span class="toolbarItem" onclick="insert('^','^')" title="Bold">&nbsp;<b>B</b>&nbsp;</span>
-                <span class="toolbarItem" onclick="insert('*','*')" title="Italics">&nbsp;<i>I</i>&nbsp;</span>
-                <span class="toolbarItem" onclick="insert('_','_')" title="Underline">&nbsp;<u>U</u>&nbsp;</span>
-                <span class="toolbarItem" onclick="insert('~','~')" title="Code">&nbsp;&lt;code&gt;&nbsp;</span>
-                <span class="toolbarItem" onclick="insert('[',']')" title="Link">&nbsp;&lt;http://&gt;&nbsp;</span>
+                <span class="toolbarItem" onclick="insert('^^','^^')" title="Bold">&nbsp;<b>B</b>&nbsp;</span>
+                <span class="toolbarItem" onclick="insert('**','**')" title="Italics">&nbsp;<i>I</i>&nbsp;</span>
+                <span class="toolbarItem" onclick="insert('__','__')" title="Underline">&nbsp;<u>U</u>&nbsp;</span>
+                <span class="toolbarItem" onclick="insert('~~','~~')" title="Code">&nbsp;&lt;code&gt;&nbsp;</span>
+                <span class="toolbarItem" onclick="insert('[[',']]')" title="Link">&nbsp;&lt;http://&gt;&nbsp;</span>
                 <span class="toolbarItem" onclick="insert('😊')" title="Smiley Face Emoji">&nbsp;😊&nbsp;</span>
                 <span class="toolbarItem" onclick="insert('😔')" title="Sad Face Emoji">&nbsp;😔&nbsp;</span>
                 <span class="toolbarItem" onclick="insert('👍')" title="Thumbs Up Emoji">&nbsp;👍&nbsp;</span>

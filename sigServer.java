@@ -27,6 +27,20 @@ import java.util.regex.Pattern;
 
 public class sigServer {
     ServerSocket socket;
+    
+    /**
+     * Writes a span tag with the included class.
+     * **/
+    private static String SPAN(String className) {
+        return "<span class=\""+className+"\">";
+    }
+    private static boolean validNumericalConstantCharacters(String storedCodeBlock,int lengthOfConstant, int j) {
+        return storedCodeBlock.charAt(j)>='0'&&storedCodeBlock.charAt(j)<='9'||lengthOfConstant>0&&storedCodeBlock.charAt(j)=='.'||lengthOfConstant>0&&storedCodeBlock.charAt(j)>='A'&&lengthOfConstant>0&&storedCodeBlock.charAt(j)<='F'||lengthOfConstant>0&&storedCodeBlock.charAt(j)>='a'&&lengthOfConstant>0&&storedCodeBlock.charAt(j)<='f'||lengthOfConstant>0&&storedCodeBlock.charAt(j)=='x'||lengthOfConstant>0&&storedCodeBlock.charAt(j)=='X';
+    }
+    private static boolean isAlphanumeric(String storedCodeBlock,int j) {
+        return storedCodeBlock.charAt(j)>='0'&&storedCodeBlock.charAt(j)<='9'||storedCodeBlock.charAt(j)>='A'&&storedCodeBlock.charAt(j)<='Z'||storedCodeBlock.charAt(j)>='a'&&storedCodeBlock.charAt(j)<='z';
+    }
+
     sigServer() {
         try {
             socket = new ServerSocket(sigPlace.PORT);
@@ -145,15 +159,211 @@ public class sigServer {
                                         if (location.equals("COMMENTS")&&requestParams.containsKey("message")&&requestParams.containsKey("name")&&requestParams.containsKey("color")) {
                                             //System.out.println(requestParams);
                                             String finalMsg = requestParams.get("message").replaceAll(Pattern.quote("%0A"),"<br/>").replaceAll(Pattern.quote("%3C"),"&lt;");
+                                            boolean boldBlock=false;
+                                            boolean italicBlock=false;
+                                            boolean underlineBlock=false;
+                                            boolean codeBlock=false;
+                                            boolean linkBlock=false;
+                                            StringBuilder storedLink=new StringBuilder();
+                                            StringBuilder codeBlockMsg = new StringBuilder();
+                                            StringBuilder buildMsg = new StringBuilder();
+                                            for (int i=0;i<finalMsg.length();i++) {
+                                                if (i<finalMsg.length()-1&&finalMsg.charAt(i)=='~'&&finalMsg.charAt(i+1)=='~') {
+                                                    if (codeBlock) {
+                                                        codeBlockMsg.append("~~");
+                                                        String storedCodeBlock="";
+                                                        String s = URLDecoder.decode(codeBlockMsg.toString(),StandardCharsets.UTF_8.toString());
+                                                        boolean keyword=false;
+                                                        boolean inString=false;
+                                                        boolean inComment=false;
+                                                        boolean inMultiLineComment=false;
+                                                        char stringChar=' ';
+                                                        boolean canBeNumericalConstant=false;
+                                                        int lengthOfConstant=0;
+                                                        storedCodeBlock+=s.substring(0,s.indexOf("~~"));
+                                                        storedCodeBlock=storedCodeBlock.replaceAll(Pattern.quote("<"),"\2");
+                                                        storedCodeBlock+="</pre>";
+                                                        int startPos=0;
+                                                        String endText=s.substring(s.indexOf("~~")+"~~".length(),s.length());
+                                                        s="";
+                                                        for (int j=0;j<storedCodeBlock.length();j++) {
+                                                            if (storedCodeBlock.charAt(j)=='\n'&&inString) {
+                                                                inString=false;
+                                                                s+="</span>";
+                                                            } else 
+                                                            if (storedCodeBlock.charAt(j)=='\n'&&inComment) {
+                                                                inComment=false;
+                                                                s+=SPAN("comment")+storedCodeBlock.substring(startPos,j)+"</span>";
+                                                                startPos=j+1;
+                                                            }
+                                                            if (!inComment&&!inMultiLineComment&&(j>0&&storedCodeBlock.charAt(j-1)!='\\'&&(!inString&&(storedCodeBlock.charAt(j)=='"'||storedCodeBlock.charAt(j)=='\'')||inString&&(storedCodeBlock.charAt(j)==stringChar)))) {
+                                                                inString=!inString;
+                                                                if (inString) {
+                                                                    stringChar=storedCodeBlock.charAt(j);
+                                                                    s+=SPAN("string")+stringChar;
+                                                                } else {
+                                                                    s+=stringChar;
+                                                                    s+="</span>";
+                                                                    startPos=j+1;
+                                                                }
+                                                            } else
+                                                            if (!inString) {
+                                                                if (canBeNumericalConstant&&validNumericalConstantCharacters(storedCodeBlock,lengthOfConstant, j)) {
+                                                                    lengthOfConstant++;
+                                                                    //System.out.println("Length of Constant now "+lengthOfConstant);
+                                                                }
+                                                                if (j>0&&storedCodeBlock.charAt(j)=='/'&&storedCodeBlock.charAt(j+1)=='*'||inMultiLineComment) {
+                                                                    if (!inMultiLineComment) {
+                                                                        inMultiLineComment=true;
+                                                                    } else {
+                                                                        if (storedCodeBlock.charAt(j-1)=='*'&&storedCodeBlock.charAt(j)=='/') {
+                                                                            inMultiLineComment=false;
+                                                                            s+=SPAN("comment")+storedCodeBlock.substring(startPos,j)+storedCodeBlock.charAt(j)+"</span>";
+                                                                            startPos=j+1;
+                                                                        }
+                                                                    }
+                                                                    //Stops further execution since we're in a comment.
+                                                                } else
+                                                                if (j>0&&storedCodeBlock.charAt(j)=='/'&&storedCodeBlock.charAt(j+1)=='/'||inComment) {
+                                                                    if (!inComment) {
+                                                                        inComment=true;
+                                                                    }
+                                                                    //Stops further execution since we're in a comment.
+                                                                } else
+                                                                if (canBeNumericalConstant&&lengthOfConstant>0&&!(validNumericalConstantCharacters(storedCodeBlock,lengthOfConstant, j))) {
+                                                                    s+=SPAN("number")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
+                                                                    //System.out.println("Setting "+storedCodeBlock.substring(startPos,j)+storedCodeBlock.charAt(j));
+                                                                    lengthOfConstant=0;
+                                                                    canBeNumericalConstant=false;
+                                                                    startPos=j+1;
+                                                                } else
+                                                                if (!canBeNumericalConstant&&storedCodeBlock.charAt(j)=='.') {
+                                                                    //Previous section was a member.
+                                                                    s+=SPAN("class")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
+                                                                    startPos=j+1;
+                                                                } else 
+                                                                if (j>3&&storedCodeBlock.substring(j-3,j+1).equals("true")&&!isAlphanumeric(storedCodeBlock,j-4)&&!isAlphanumeric(storedCodeBlock,j+1)) {
+                                                                    s+=SPAN("number")+storedCodeBlock.substring(startPos,j)+storedCodeBlock.charAt(j)+"</span>";
+                                                                    startPos=j+1;
+                                                                } else 
+                                                                if (j>4&&storedCodeBlock.substring(j-4,j+1).equals("false")&&!isAlphanumeric(storedCodeBlock,j-5)&&!isAlphanumeric(storedCodeBlock,j+1)) {
+                                                                    s+=SPAN("number")+storedCodeBlock.substring(startPos,j)+storedCodeBlock.charAt(j)+"</span>";
+                                                                    startPos=j+1;
+                                                                } else 
+                                                                if (storedCodeBlock.charAt(j)=='(') {
+                                                                    s+=SPAN("function")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
+                                                                    startPos=j+1;
+                                                                } else 
+                                                                if (j>0&&isAlphanumeric(storedCodeBlock,j-1) && storedCodeBlock.charAt(j)==' '&&storedCodeBlock.charAt(j-1)!=' ') {
+                                                                    //Previous section was a keyword.
+                                                                    keyword=true;
+                                                                    s+=SPAN("keyword")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
+                                                                    startPos=j+1;
+                                                                } else 
+                                                                if (j>0&&isAlphanumeric(storedCodeBlock,j-1) && (storedCodeBlock.charAt(j)==';'||storedCodeBlock.charAt(j)==':')) {
+                                                                    //Previous section was a keyword.
+                                                                    //keyword=true;
+                                                                    s+=SPAN("keyword")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
+                                                                    startPos=j+1;
+                                                                } else 
+                                                                if (keyword&&!(storedCodeBlock.charAt(j)=='_'||storedCodeBlock.charAt(j)>='0'&&storedCodeBlock.charAt(j)<='9'||storedCodeBlock.charAt(j)>='A'&&storedCodeBlock.charAt(j)<='Z'||storedCodeBlock.charAt(j)>='a'&&storedCodeBlock.charAt(j)<='z'||storedCodeBlock.charAt(j)==' ')) {
+                                                                    keyword=false;
+                                                                    s+=SPAN("variable")+storedCodeBlock.substring(startPos,j)+"</span>"+storedCodeBlock.charAt(j);
+                                                                    startPos=j+1;
+                                                                } else
+                                                                if (!isAlphanumeric(storedCodeBlock,j)){
+                                                                    if (startPos<j) {
+                                                                        s+=storedCodeBlock.substring(startPos,j)+storedCodeBlock.charAt(j);
+                                                                    } else {
+                                                                        s+=storedCodeBlock.charAt(j);
+                                                                    }
+                                                                    startPos=j+1;
+                                                                }
+                                                            } else {
+                                                                s+=storedCodeBlock.charAt(j);
+                                                                startPos=j+1;
+                                                            }
+                                                            if (canBeNumericalConstant&&lengthOfConstant==0&&!(storedCodeBlock.charAt(j)>='0'&&storedCodeBlock.charAt(j)<='9')) {
+                                                                canBeNumericalConstant=false;
+                                                            }
+                                                            if (!canBeNumericalConstant&&!isAlphanumeric(storedCodeBlock,j)) {
+                                                                canBeNumericalConstant=true;
+                                                                lengthOfConstant=0;
+                                                                //System.out.println("Found "+storedCodeBlock.charAt(j)+", can be numeric...");
+                                                            }
+                                                        }
+                                                        for (int j=0;j<s.length();j++) {
+                                                            if (s.charAt(j)=='\2') {
+                                                                s=s.substring(0,j)+"&lt;"+s.substring(j+1,s.length());
+                                                            }
+                                                        }
+                                                        s="<pre>"+s;
+                                                        s+=endText;
+                                                        buildMsg.append(s);
+                                                    } else {
+                                                        codeBlockMsg=codeBlockMsg.delete(0, codeBlockMsg.length());
+                                                    }
+                                                    i+=1;
+                                                    codeBlock=!codeBlock;
+                                                } else 
+                                                if (codeBlock) {
+                                                    codeBlockMsg.append(finalMsg.charAt(i));continue;
+                                                }
+                                                if (foundSub("%5E%5E",finalMsg,i)) {
+                                                    if (boldBlock) {
+                                                        buildMsg.append("</b>");
+                                                    } else {
+                                                        buildMsg.append("<b>");
+                                                    }
+                                                    boldBlock=!boldBlock;
+                                                    i+=5;
+                                                    continue;
+                                                }
+                                                if (i<finalMsg.length()-1&&finalMsg.charAt(i)=='*'&&finalMsg.charAt(i+1)=='*') {
+                                                    if (italicBlock) {
+                                                        buildMsg.append("</i>");
+                                                    } else {
+                                                        buildMsg.append("<i>");
+                                                    }
+                                                    italicBlock=!italicBlock;
+                                                    i+=1;
+                                                    continue;
+                                                }
+                                                if (i<finalMsg.length()-1&&finalMsg.charAt(i)=='_'&&finalMsg.charAt(i +1)=='_') {
+                                                    if (underlineBlock) {
+                                                        buildMsg.append("</u>");
+                                                    } else {
+                                                        buildMsg.append("<u>");
+                                                    }
+                                                    underlineBlock=!underlineBlock;
+                                                    i+=1;
+                                                    continue;
+                                                }
+                                                if (foundSub("%5B%5B",finalMsg,i)||foundSub("%5D%5D",finalMsg,i)) {
+                                                    if (linkBlock) {
+                                                        buildMsg.append("\">").append(storedLink).append("</a>");
+                                                    } else {
+                                                        storedLink.delete(0,storedLink.length());
+                                                        buildMsg.append("<a href=\"");
+                                                    }
+                                                    linkBlock=!linkBlock;
+                                                    i+=5;
+                                                    continue;
+                                                }
+                                                if (linkBlock) {
+                                                    storedLink.append(finalMsg.charAt(i));
+                                                }
+                                                buildMsg.append(finalMsg.charAt(i));
+                                            }
                                             if (Files.exists(Paths.get(sigPlace.COMMENTSDIR,requestParams.get("article")))) {
                                                 List<String> data = Files.readAllLines(Paths.get(sigPlace.COMMENTSDIR,requestParams.get("article")));
                                                 data.set(0,Integer.toString(Integer.parseInt(data.get(0))+1));
-                                                data.add(finalMsg+"\n"+requestParams.get("name")+ZonedDateTime.now()+";"+requestParams.get("color"));
+                                                data.add(buildMsg.toString()+"\n"+requestParams.get("name")+ZonedDateTime.now()+";"+requestParams.get("color"));
                                                 Files.write(Paths.get(sigPlace.COMMENTSDIR,requestParams.get("article")), data, StandardOpenOption.TRUNCATE_EXISTING,StandardOpenOption.WRITE);
                                             } else {
                                                 List<String> data = new ArrayList<String>();
                                                 data.add("1");
-                                                data.add(finalMsg+"\n"+requestParams.get("name")+ZonedDateTime.now()+";"+requestParams.get("color"));
+                                                data.add(buildMsg.toString()+"\n"+requestParams.get("name")+ZonedDateTime.now()+";"+requestParams.get("color"));
                                                 Files.write(Paths.get(sigPlace.COMMENTSDIR,requestParams.get("article")), data, StandardOpenOption.TRUNCATE_EXISTING,StandardOpenOption.WRITE,StandardOpenOption.CREATE_NEW);
                                             }
                                             CreateRequest(client,"200","OK",Paths.get(sigPlace.OUTDIR,"testfile.html"));
@@ -192,6 +402,17 @@ public class sigServer {
         }
     }
 
+    private boolean foundSub(String string, String finalMsg, int i) {
+        if (i+string.length()<=finalMsg.length()) {
+            for (int j=0;j<string.length();j++) {
+                if (string.charAt(j)!=finalMsg.charAt(i+j)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
     private ZonedDateTime GetLastModifiedDate(Path p) throws IOException {
         Instant newTime = Files.getLastModifiedTime(p).toInstant();
         newTime = newTime.truncatedTo(ChronoUnit.SECONDS);

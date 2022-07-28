@@ -1,4 +1,4 @@
-19
+35
 That is a great idea!
 username,17May2021 08:29:10;GREEN
 That is a great idea! &lt;p>There used to be folks I worked with who would use the same technique, and it worked great!&lt;/p>
@@ -37,3 +37,35 @@ sffdsadsavdavdav<br/><br/>Everything%20looks%20good!<br/><br/>I%20am%20happy%20n
 feqfeq2022-07-27T20:26:24.402781Z[Etc/UTC];YELLOW
 sfdvdsewfagadavasvdas
 abdbsa2022-07-27T20:27:07.342320Z[Etc/UTC];YELLOW
+%5E%5ETest%20bold%20text%5E%5E
+bfdabda2022-07-28T19:07:53.017136Z[Etc/UTC];GREEN
+%5E%5Etest%20bold%20tex%5E%5Et
+gda2022-07-28T19:11:24.304502Z[Etc/UTC];GREEN
+try%20bolding%20t%5E%5Eext%20in%20the%20midd%5E%5Ele%20of%20the%20box.
+bdsabdsa2022-07-28T19:16:31.400155Z[Etc/UTC];GREEN
+<b>5E%5Ebold%20text</b>5E%5E
+testing%20bold2022-07-28T19:23:11.839033Z[Etc/UTC];GREEN
+<b>est</b>
+test2022-07-28T19:24:58.411339Z[Etc/UTC];GREEN
+<b>est%20bolded%20text</b>
+test2022-07-28T19:25:29.514450Z[Etc/UTC];GREEN
+<b>bold%20text</b>
+fdsa2022-07-28T19:25:51.209453Z[Etc/UTC];GREEN
+<i>Italics</i>
+2022-07-28T19:26:08.219916Z[Etc/UTC];GREEN
+<u>underlinea</u>
+2022-07-28T19:26:14.074367Z[Etc/UTC];GREEN
+~<pre><span class="keyword">test</span> <span class="keyword">a</span> <span class="keyword">code</span> <span class="variable">block</span></pre>~<br/><br/>
+2022-07-28T19:47:56.447910Z[Etc/UTC];GREEN
+~<pre><span class="keyword">vdsavdsavdsafdsafdsa</span> <span class="variable">fdsavds</span></pre>~
+2022-07-28T19:52:23.484146Z[Etc/UTC];GREEN
+<a>test%20a%20link</a>
+2022-07-28T19:53:09.504476Z[Etc/UTC];GREEN
+<a href=test%20a%20link>test%20a%20link</a>
+2022-07-28T19:55:42.857935Z[Etc/UTC];GREEN
+<a href="http%3A%2F%2Fgoogle.com">http%3A%2F%2Fgoogle.com</a><br/><br/><a href="Link%20with%20spaces">Link%20with%20spaces</a>
+2022-07-28T19:56:20.531467Z[Etc/UTC];GREEN
+~<pre><span class="keyword">This</span> <span class="keyword">is</span> <span class="keyword">a</span> <span class="keyword">code</span> <span class="variable">block</span></pre>~<br/><br/>~<pre><span class="keyword">This</span> <span class="keyword">is</span> <span class="keyword">another</span> <span class="keyword">code</span> <span class="variable">block</span>!</pre>~
+2022-07-28T19:56:50.050699Z[Etc/UTC];GREEN
+%F0%9F%98%8A<i>Italicized</i><b>Bolded</b>%20<b><i>Both</i></b>%20<b><i><u>All%20three</u></i></b>
+2022-07-28T19:57:21.107759Z[Etc/UTC];GREEN
