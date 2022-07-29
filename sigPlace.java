@@ -42,6 +42,8 @@ public class sigPlace {
         new AbstractMap.SimpleEntry<>(
             "%DEFAULT", Paths.get(REFDIR,"DEFAULT.html")),
         new AbstractMap.SimpleEntry<>(
+            "%NAVBAR", Paths.get(REFDIR,"NAVBAR.html")),
+        new AbstractMap.SimpleEntry<>(
             "%FOOTER", Paths.get(REFDIR,"FOOTER.html"))
     ));
     public static void main(String[] args) {
@@ -106,6 +108,7 @@ public class sigPlace {
                     List<String> content = Files.readAllLines(f);
                     if (isHTMLFile(f)) {
                         content.addAll(0,Files.readAllLines(ops.get("%DEFAULT")));
+                        content.addAll(0,Files.readAllLines(ops.get("%NAVBAR")));
                         content.addAll(Files.readAllLines(ops.get("%FOOTER")));
                     }
 
