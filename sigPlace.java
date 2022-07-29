@@ -301,20 +301,6 @@ public class sigPlace {
                         }
                     }
 
-                    if (isArticleFile(f)) {
-                        System.out.println("  Generating comment section for "+f+".");
-
-                        Path ff = Paths.get(REFDIR,"COMMENT.html");
-                        List<String> commentHTML = Files.readAllLines(ff);
-                        for (int i=0;i<commentHTML.size();i++) {
-                            if (commentHTML.get(i).contains("$ARTICLE")) {
-                                commentHTML.set(i,commentHTML.get(i).replace("$ARTICLE",f.getFileName().toString()).replace(".article",""));
-                            }
-                        }
-
-                        content.addAll(commentHTML);
-                    }
-
                     System.out.println("  Writing to "+f.toAbsolutePath());
 
                     Files.write(f, content, Charset.defaultCharset(),StandardOpenOption.CREATE,StandardOpenOption.TRUNCATE_EXISTING,StandardOpenOption.WRITE);
@@ -374,7 +360,19 @@ public class sigPlace {
                             d=d.replaceFirst("div class=\"content\"","div class=\"expandedContent\"");
                             d=d.replaceFirst("%CONDITIONAL_EXPAND%","");
                         }
+
                         sb.append(d).append("\n");
+                    }
+                        
+                    System.out.println("  Generating comment section for "+f+".");
+
+                    Path ff = Paths.get(REFDIR,"COMMENT.html");
+                    List<String> commentHTML = Files.readAllLines(ff);
+                    for (int i=0;i<commentHTML.size();i++) {
+                        if (commentHTML.get(i).contains("$ARTICLE")) {
+                            commentHTML.set(i,commentHTML.get(i).replace("$ARTICLE",f.getFileName().toString()).replace(".article",""));
+                        }
+                        sb.append(commentHTML.get(i)).append("\n");
                     }
                     for (String d : postContent) {
                         for (String k : sigPlace.map.keySet()) {
@@ -402,26 +400,30 @@ public class sigPlace {
                         String s = content.get(i);
                         if (s.length()>0&&s.contains("$ARTICLE_PREVIEW")) {
                             String article = ARTICLESDIR+"/"+s.replace("$ARTICLE_PREVIEW ","")+".article";
-                            System.out.println("   Found article preview request in "+f.getFileName()+" for article "+article+".");
-                            Path file = Paths.get(OUTDIR,article);
-                            List<String> newData = Files.readAllLines(file);
-                            if (newData.size()>0) {
-                                content.set(i,newData.get(0));
-                                for (int j=1;j<newData.size();j++) {
-                                    content.add(i+j, newData.get(j));
+                            if (Files.exists(Paths.get(OUTDIR,article))) {
+                                System.out.println("   Found article preview request in "+f.getFileName()+" for article "+article+".");
+                                Path file = Paths.get(OUTDIR,article);
+                                List<String> newData = Files.readAllLines(file);
+                                if (newData.size()>0) {
+                                    content.set(i,newData.get(0)
+                                    .replace("<h1>","<a title=\"Click to go to the original article and to view comments!\" class=\"reallink\" href=\""+article+".html\"><h1>")
+                                    .replace("</h1>","</h1></a><a title=\"Click to go to the original article and to view comments!\" class=\"reallink\" href=\""+article+".html\">🔗</a>"));
+                                    for (int j=1;j<newData.size();j++) {
+                                        content.add(i+j, newData.get(j));
+                                    }
+                                    String lastline=content.get(i+newData.size()-1);
+                                    lastline=lastline.replace("%CONDITIONAL_EXPAND%","<div class=\"unexpanded\" id=\"expand_"+i+"\" onClick=\"expand(this,'"+Paths.get(OUTDIR,article.toString())+"')\"><br/><br/><br/><br/>&#x2908; Click to expand.</div>");
+                                    content.set(i+newData.size()-1,lastline);//<div class=\"unexpanded\" id=\"expand_"+i+"\" onClick=\"expand("+i+")\"><br/><br/><br/><br/>&#x2908; Click to expand.</div>");
+                                } else {
+                                    content.set(i,"");
                                 }
-                                String lastline=content.get(i+newData.size()-1);
-                                lastline=lastline.replace("%CONDITIONAL_EXPAND%","<div class=\"unexpanded\" id=\"expand_"+i+"\" onClick=\"expand(this,'"+Paths.get(OUTDIR,article.toString())+"')\"><br/><br/><br/><br/>&#x2908; Click to expand.</div>");
-                                content.set(i+newData.size()-1,lastline);//<div class=\"unexpanded\" id=\"expand_"+i+"\" onClick=\"expand("+i+")\"><br/><br/><br/><br/>&#x2908; Click to expand.</div>");
-                            } else {
-                                content.set(i,"");
-                            }
-                            if (!articleJavascriptIncluded) {
-                                List<String> articlejs = Files.readAllLines(Paths.get(REFDIR,"article.js"));
-                                for (int j=articlejs.size()-1;j>=0;j--) {
-                                    content.add(i,articlejs.get(j));
+                                if (!articleJavascriptIncluded) {
+                                    List<String> articlejs = Files.readAllLines(Paths.get(REFDIR,"article.js"));
+                                    for (int j=articlejs.size()-1;j>=0;j--) {
+                                        content.add(i,articlejs.get(j));
+                                    }
+                                    articleJavascriptIncluded=true;
                                 }
-                                articleJavascriptIncluded=true;
                             }
                         }
                     }

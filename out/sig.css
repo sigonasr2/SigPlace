@@ -10,15 +10,15 @@ a:hover{
     color:white;
     font-size:0.8em;
 }
-    a.nounderline:link{
-        text-decoration:none;
-    }
-    a.nounderline:visited{
-        text-decoration:none;
-    }
-    a.nounderline:hover{
-        text-decoration:none;
-    }
+a.nounderline:link{
+    text-decoration:none;
+}
+a.nounderline:visited{
+    text-decoration:none;
+}
+a.nounderline:hover{
+    text-decoration:none;
+}
 h2{
     font-size:3em;
 }
@@ -381,4 +381,9 @@ textarea:disabled{
 .toolbarItem:hover{
     background-color:#a1a1a1;
     cursor:pointer;
+}
+.contentWrapper .reallink{
+    font-size:1.7em;
+    text-decoration: none;
+    color:white;
 }
