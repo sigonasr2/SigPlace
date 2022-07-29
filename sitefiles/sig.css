@@ -449,7 +449,6 @@ textarea:disabled{
 .navbar{
     font-size:0.7em;
     color:lime;
-    text-decoration:underline;
     padding-top:8px;
     padding-bottom:8px;
     border-bottom: 1px solid darkgreen;
@@ -463,6 +462,7 @@ textarea:disabled{
     padding-left:16px;
     padding-right:16px;
     display:inline-flex;
+    text-decoration:underline;
 }
 .navbaritem:first{
     padding-left:32px;
