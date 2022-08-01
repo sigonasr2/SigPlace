@@ -74,11 +74,32 @@ For over a year since I first got into <u>Love Live! School Idol Festival ~after
             document.getElementById("msg").disabled=false;
         })
     }
+    function bonus(str) {
+        switch (str) {
+            case "^^":{
+                return "Bold Text"
+            }break;
+            case "**":{
+                return "Italic Text"
+            }break;
+            case "__":{
+                return "Underlined Text"
+            }break;
+            case "~~":{
+                return "//Code goes here."
+            }break;
+            case "[[":{
+                return "http://link.com"
+            }break;
+        }
+    }
     function insert(c1,c2) {
         if (document.getElementById("msg").selectionStart==document.getElementById("msg").selectionEnd) {
             //No highlighting. Insert here.
             if (c2!=undefined) {
-                document.getElementById("msg").value=document.getElementById("msg").value.substring(0,document.getElementById("msg").selectionStart)+c1+c2+document.getElementById("msg").value.substring(document.getElementById("msg").selectionStart)
+                document.getElementById("msg").value=document.getElementById("msg").value.substring(0,document.getElementById("msg").selectionStart)+c1+
+                bonus(c1)+
+                c2+document.getElementById("msg").value.substring(document.getElementById("msg").selectionStart)
             } else {
                 document.getElementById("msg").value=document.getElementById("msg").value.substring(0,document.getElementById("msg").selectionStart)+c1+document.getElementById("msg").value.substring(document.getElementById("msg").selectionStart)
             }

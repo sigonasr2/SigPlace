@@ -12,7 +12,6 @@
                     String filename=null;
                     OutputStream stream = null;
                     requestLine=in.readLine(); //Read the first line, this should be our request.
-                    System.out.println(requestLine);
                     if (requestLine!=null) {
                         String[] splitter = requestLine.split(Pattern.quote(" "));
                         boolean ISPOST = splitter[0].equals("POST");
@@ -38,3 +37,4 @@
                                                 System.out.println(line);
                                             }
                                         } else {
+                                            File myFile = new File(new File(sigPlace.OUTDIR,sigPlace.UPLOADSDIR),filename);
