@@ -338,6 +338,7 @@ public class sigPlace {
                     System.out.println("  Creating article for "+f.getFileName());
                     List<String> content = Files.readAllLines(f);
                     List<String> preContent = Files.readAllLines(ops.get("%DEFAULT"));
+                    preContent.addAll(Files.readAllLines(ops.get("%NAVBAR")));
                     List<String> postContent = Files.readAllLines(ops.get("%FOOTER"));
                     StringBuilder sb = new StringBuilder();
                     for (String d : preContent) {

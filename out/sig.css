@@ -120,7 +120,7 @@ sup{
     }
         .contentBody .contentWrapper h1{
             display: inline-block;
-            font-size:3.25em;
+            font-size:2.1em;
             margin: 12px 4px 0px 4px;
             padding: 12px 32px 12px 32px;
             border-bottom-style: outset;
@@ -290,7 +290,7 @@ textarea:focus{
     outline: none !important;
 }
 h1 {
-    font-size:6em;
+    font-size:3.25em;
 }
 .commentForm{
     padding:16px;
@@ -391,7 +391,6 @@ textarea:disabled{
 .navbar{
     font-size:0.7em;
     color:lime;
-    text-decoration:underline;
     padding-top:8px;
     padding-bottom:8px;
     border-bottom: 1px solid darkgreen;
@@ -401,15 +400,48 @@ textarea:disabled{
     width:100%;
     background:radial-gradient(farthest-side at 90% 90%,rgba(0, 64, 0, .5) 0%, rgba(64, 0, 64, .5) 100%);
 }
+.navbar:hover{
+    background:radial-gradient(farthest-side at 90% 90%,rgba(0, 64, 0, .95) 0%, rgba(64, 0, 64, .95) 100%);
+}
 .navbaritem{
     padding-left:16px;
     padding-right:16px;
     display:inline-flex;
+    text-decoration:underline;
 }
-.navbaritem:first{
+.navbaritem:first-of-type{
     padding-left:32px;
 }
 .navbaritem:hover{
     color:white;
     cursor:pointer;
+}
+@keyframes blink{
+    0%{color:rgba(255,0,0,0);}
+    100%{color:rgba(255,0,0,0.8);}
+}
+#liveindicator{
+    animation-name: blink;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction:alternate;
+    text-decoration: none;
+    padding-left:8px;
+    display:inline-flex;
+    font-weight:900;
+}
+.socials{
+    display:inline;
+    float:right;
+}
+.socials img{
+    width:16px;
+    padding-right:16px;
+    filter: invert(100%);
+}
+.socials img:hover{
+    cursor:pointer;
+}
+.socials img:first-of-type{
+    padding-right:32px;
 }

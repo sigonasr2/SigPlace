@@ -458,16 +458,24 @@ public class sigServer {
                         if (contentType!=null&&contentType.equals("text/html")) {
                             clientOutput.write(("<div class=\"generateTime\">Webpage generated in "+(System.currentTimeMillis()-startTime)+"ms</div>\r\n").getBytes());
                         }
-                        System.out.println(contentType);
+                        //System.out.println(contentType);
                     }
                     System.out.println("Sent "+file+" to client "+client+".");
                 } else {
-                    CreateRawRequest(clientOutput,statusCode,statusMsg,"text/html","<!DOCTYPE html>\nWe're sorry, your webpage is in another castle!".getBytes());
-                    System.out.println("Sent [404] "+statusMsg+" to client "+client+" for "+file+".");
+                    file=Paths.get(sigPlace.OUTDIR,"error.html");
+                    CreateRawRequest(clientOutput,statusCode,statusMsg,Files.probeContentType(file),Files.readAllBytes(file),Files.getLastModifiedTime(file));
+                    String contentType = Files.probeContentType(file);
+                    if (contentType!=null&&contentType.equals("text/html")) {
+                        clientOutput.write(("<div class=\"generateTime\">Webpage generated in "+(System.currentTimeMillis()-startTime)+"ms</div>\r\n").getBytes());
+                    }
                 }
             } else {
-                CreateRawRequest(clientOutput,statusCode,statusMsg,"text/html","<!DOCTYPE html>\nWe're sorry, your webpage exploded!".getBytes());
-                System.out.println("Sent ["+statusCode+"] "+statusMsg+" to client "+client+" for "+file+".");
+                file=Paths.get(sigPlace.OUTDIR,"error.html");
+                CreateRawRequest(clientOutput,"404",statusMsg,Files.probeContentType(file),Files.readAllBytes(file),Files.getLastModifiedTime(file));
+                String contentType = Files.probeContentType(file);
+                if (contentType!=null&&contentType.equals("text/html")) {
+                    clientOutput.write(("<div class=\"generateTime\">Webpage generated in "+(System.currentTimeMillis()-startTime)+"ms</div>\r\n").getBytes());
+                }
             }
             clientOutput.write("\r\n\r\n".getBytes());
             clientOutput.flush();
