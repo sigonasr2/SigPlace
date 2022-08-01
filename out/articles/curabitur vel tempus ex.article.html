@@ -71,6 +71,12 @@ Curabitur vel tempus ex. Duis cursus sapien nisl, ut pulvinar dui porttitor ut. 
         document.getElementById("msg").disabled=false;
             fetchComments()
         })
+        .catch((err)=>{
+            document.getElementById("submit").disabled=
+            document.getElementById("name").disabled=
+            document.getElementById("col").disabled=
+            document.getElementById("msg").disabled=false;
+        })
     }
     function insert(c1,c2) {
         if (document.getElementById("msg").selectionStart==document.getElementById("msg").selectionEnd) {
@@ -128,17 +134,19 @@ Curabitur vel tempus ex. Duis cursus sapien nisl, ut pulvinar dui porttitor ut. 
         fetch("/COMMENTS?article=curabitur vel tempus ex.comment").then((data)=>data.text())
         .then((data)=>{
             data=data.split("\n");
-            document.getElementById("comments").innerHTML="";
-            document.getElementById("commentCounter").innerText=data[0]
-            for (var i=data.length-3;i>=1;i-=2) {
-                if (data[i].trim().length>0&&data[i+1].trim().length>0) {
-                    document.getElementById("comments").innerHTML+="<div id=\"msg"+((i+1)/2)+"\" class=\"commentDisplayer\"><div class=\"commentData\">"+decodeURIComponent(data[i])+"</div><br>"
-                    data2=data[i+1].split(";");
-                    document.getElementById("msg"+((i+1)/2)).style.borderColor=data2[1]
-                    document.getElementById("comments").innerHTML+="<div class=\"commentInfo\"><sup>- "+decodeURIComponent(data2[0])+"</sup></div></div><br>"
+            if (!isNaN(Number(data[0]))) {
+                document.getElementById("comments").innerHTML="";
+                document.getElementById("commentCounter").innerText=data[0]
+                for (var i=data.length-3;i>=1;i-=2) {
+                    if (data[i].trim().length>0&&data[i+1].trim().length>0) {
+                        document.getElementById("comments").innerHTML+="<div id=\"msg"+((i+1)/2)+"\" class=\"commentDisplayer\"><div class=\"commentData\">"+decodeURIComponent(data[i])+"</div><br>"
+                        data2=data[i+1].split(";");
+                        document.getElementById("msg"+((i+1)/2)).style.borderColor=data2[1]
+                        document.getElementById("comments").innerHTML+="<div class=\"commentInfo\"><sup>- "+decodeURIComponent(data2[0])+"</sup></div></div><br>"
+                    }
                 }
+                document.getElementById("commentContainer").style.visibility="visible"
             }
-            document.getElementById("commentContainer").style.visibility="visible"
         })
     }
     fetchComments()

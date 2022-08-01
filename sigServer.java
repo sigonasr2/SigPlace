@@ -462,16 +462,16 @@ public class sigServer {
                     }
                     System.out.println("Sent "+file+" to client "+client+".");
                 } else {
+                    System.out.println("Did not find "+file+". Sending an error instead.");
                     file=Paths.get(sigPlace.OUTDIR,"error.html");
-                    CreateRawRequest(clientOutput,statusCode,statusMsg,Files.probeContentType(file),Files.readAllBytes(file),Files.getLastModifiedTime(file));
+                    CreateRawRequest(clientOutput,"404",statusMsg,Files.probeContentType(file),Files.readAllBytes(file),Files.getLastModifiedTime(file));
                     String contentType = Files.probeContentType(file);
                     if (contentType!=null&&contentType.equals("text/html")) {
                         clientOutput.write(("<div class=\"generateTime\">Webpage generated in "+(System.currentTimeMillis()-startTime)+"ms</div>\r\n").getBytes());
                     }
                 }
             } else {
-                file=Paths.get(sigPlace.OUTDIR,"error.html");
-                CreateRawRequest(clientOutput,"404",statusMsg,Files.probeContentType(file),Files.readAllBytes(file),Files.getLastModifiedTime(file));
+                CreateRawRequest(clientOutput,statusCode,statusMsg,Files.probeContentType(file),Files.readAllBytes(file),Files.getLastModifiedTime(file));
                 String contentType = Files.probeContentType(file);
                 if (contentType!=null&&contentType.equals("text/html")) {
                     clientOutput.write(("<div class=\"generateTime\">Webpage generated in "+(System.currentTimeMillis()-startTime)+"ms</div>\r\n").getBytes());
