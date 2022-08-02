@@ -48,21 +48,34 @@ public class sigServer {
             while (true) {
                 try (Socket client = socket.accept()) {
                     System.out.println("New client connection detected: "+client.toString());
-                    BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream(),"ISO-8859-1"));
+                    InputStreamReader reader = new InputStreamReader(client.getInputStream(),"ISO-8859-1");
+                    BufferedReader in = new BufferedReader(reader);
                     String requestLine,line;
                     ZonedDateTime modifiedDate = null;
                     String boundary=null;
                     boolean truncateUntilBoundary=false;
                     String filename=null;
                     OutputStream stream = null;
+                    int expectedDataLength=0;
                     requestLine=in.readLine(); //Read the first line, this should be our request.
+                    //System.out.println(requestLine);
                     if (requestLine!=null) {
                         String[] splitter = requestLine.split(Pattern.quote(" "));
                         boolean ISPOST = splitter[0].equals("POST");
+                        boolean isApplication=false;
                         if (splitter.length==3) {
                             while (in.ready()) {
                                 line=in.readLine();
+                                System.out.println(line);
                                 if (ISPOST) {
+                                    if (isApplication) {
+                                        if (line.length()==0) { //Now expecting the body since the header is done.
+                                            for (int i=0;i<expectedDataLength;i++) {
+                                                System.out.print((char)in.read());
+                                            }
+                                            break;   
+                                        }
+                                    } else //File transfer?
                                     if (boundary!=null) {
                                         if (!truncateUntilBoundary) {
                                             System.out.println(line);
@@ -113,8 +126,21 @@ public class sigServer {
                                             System.out.println("Saving upload to "+sigPlace.UPLOADSDIR+" directory.");
                                         }
                                     }
-                                    if (line.contains("Content-Type: multipart/form-data; boundary=")) {
-                                        boundary="--"+line.substring("Content-Type: multipart/form-data; boundary=".length());
+                                    if (line.contains("Content-Length: ")) {
+                                        expectedDataLength=Integer.parseInt(line.substring("Content-Length: ".length()));
+                                        System.out.println("Expecting a length of "+expectedDataLength);
+                                    }
+                                    if (line.contains("Content-Type:")) {
+                                        if (line.contains("Content-Type: multipart/form-data; boundary=")) {
+                                            boundary="--"+line.substring("Content-Type: multipart/form-data; boundary=".length());
+                                        } else 
+                                        if (line.contains("application/json")){
+                                            isApplication=true;
+                                            System.out.println("Application request detected.");
+                                            //Keep going for now.
+                                        } else {
+                                            break; //Incompatible type.
+                                        }
                                     }
                                 } else
                                 if (modifiedDate==null&&line.startsWith("If-Modified-Since: ")) {

@@ -4,37 +4,37 @@
             while (true) {
                 try (Socket client = socket.accept()) {
                     System.out.println("New client connection detected: "+client.toString());
-                    BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream(),"ISO-8859-1"));
+                    InputStreamReader reader = new InputStreamReader(client.getInputStream(),"ISO-8859-1");
+                    BufferedReader in = new BufferedReader(reader);
                     String requestLine,line;
                     ZonedDateTime modifiedDate = null;
                     String boundary=null;
                     boolean truncateUntilBoundary=false;
                     String filename=null;
                     OutputStream stream = null;
+                    int expectedDataLength=0;
                     requestLine=in.readLine(); //Read the first line, this should be our request.
+                    //System.out.println(requestLine);
                     if (requestLine!=null) {
                         String[] splitter = requestLine.split(Pattern.quote(" "));
                         boolean ISPOST = splitter[0].equals("POST");
+                        boolean isApplication=false;
                         if (splitter.length==3) {
                             while (in.ready()) {
                                 line=in.readLine();
+                                System.out.println(line);
                                 if (ISPOST) {
+                                    if (isApplication) {
+                                        if (line.length()==0) { //Now expecting the body since the header is done.
+                                            for (int i=0;i<expectedDataLength;i++) {
+                                                System.out.print((char)in.read());
+                                            }
+                                            break;   
+                                        }
+                                    } else //File transfer?
                                     if (boundary!=null) {
                                         if (!truncateUntilBoundary) {
                                             System.out.println(line);
             
                                             if (boundary.length()>0) {
                                                 if (line.equals(boundary)) {
-                                                    truncateUntilBoundary=true;
-                                                }
-                                            }
-                                        } else
-                                        if (line.contains("Content-Disposition: ")||line.contains("Content-Type: ")) {
-                                            if (line.contains("filename=")) {
-                                                filename=line.substring(line.indexOf("filename=")+"filename=".length()+1);
-                                                filename = filename.substring(0,filename.length()-1);
-                                            } else {
-                                                System.out.println(line);
-                                            }
-                                        } else {
-                                            File myFile = new File(new File(sigPlace.OUTDIR,sigPlace.UPLOADSDIR),filename);
