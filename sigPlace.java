@@ -48,6 +48,14 @@ public class sigPlace {
     ));
     public static void main(String[] args) {
 
+        HashMap<String,Object> testMap = new HashMap<>();
+
+        testMap.put("Test","val1");
+        testMap.put("Test2",ops);
+        testMap.put("Test3","val3");
+
+        System.out.println(JSON(testMap));
+
         if (args.length>0&&args.length%2==0) {
             int i=0;
             while (i<args.length) {
@@ -95,6 +103,34 @@ public class sigPlace {
 
         System.out.println("\nStarting web server...");
         new sigServer();
+    }
+    private static String JSON(HashMap<String, Object> testMap) {
+        StringBuilder sb = new StringBuilder();
+        String temp = testMap.toString();
+        if (temp.charAt(0)=='{') {
+            sb.append("{");
+            int marker=1;
+            boolean ending=false;
+            while (marker<temp.length()) { 
+                if (!ending&&temp.charAt(marker)!=' '&&temp.charAt(marker)!='{'&&temp.charAt(marker)!='}') {
+                    ending=true;
+                    sb.append("\"");
+                } else 
+                if (ending&&(temp.charAt(marker)=='='||temp.charAt(marker)==','||temp.charAt(marker)=='}')) {
+                    ending=false;
+                    sb.append("\"");
+                }
+                if (!ending&&temp.charAt(marker)=='=') {
+                    sb.append(':');
+                } else {
+                    sb.append(temp.charAt(marker));
+                }
+                marker++;
+            }
+        } else {
+            throw new UnsupportedOperationException("Not valid JSON!");
+        }
+        return sb.toString();
     }
     private static void ParseArticleFiles(Iterator<Path> items) {
         while (items.hasNext()) {
