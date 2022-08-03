@@ -183,8 +183,8 @@ public class sigServer {
                                         }
                                         if (location.equals("COMMENTS")&&requestParams.containsKey("message")&&requestParams.containsKey("name")&&requestParams.containsKey("color")) {
                                             //System.out.println(requestParams);
-                                            String finalMsg = requestParams.get("message").replaceAll(Pattern.quote("%3C"),"&lt;");
-                                            if (finalMsg.length()>0&&finalMsg.length()<=1000&&
+                                            String finalMsg = requestParams.get("message").replaceAll(Pattern.quote("%3C"),"<");
+                                            if (finalMsg.length()>0&&URLDecoder.decode(requestParams.get("message"),StandardCharsets.UTF_8).replaceAll(Pattern.quote(" "),"").length()<=1000&&
                                             (requestParams.get("color").equals("BLUE")||
                                             requestParams.get("color").equals("RED")||
                                             requestParams.get("color").equals("GREEN")||
@@ -394,6 +394,10 @@ public class sigServer {
                                                         }
                                                         underlineBlock=!underlineBlock;
                                                         i+=1;
+                                                        continue;
+                                                    }
+                                                    if (finalMsg.charAt(i)=='<') {
+                                                        buildMsg.append("&lt;");
                                                         continue;
                                                     }
                                                     buildMsg.append(finalMsg.charAt(i));

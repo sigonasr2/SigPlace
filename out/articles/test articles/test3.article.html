@@ -48,7 +48,7 @@
         document.getElementById("submit").style.borderColor=document.getElementById("msg").style.borderColor=document.getElementById("name").style.borderColor=document.getElementById("col").style.borderColor=document.getElementById("col").options[document.getElementById("col").selectedIndex].text
     }
     function submit() {
-        if (document.getElementById("msg").value.length>1000) {
+        if (document.getElementById("msg").value.replaceAll(" ","").length>1000) {
             alert("Your message is longer than 1000 characters!");
             return;
         }
