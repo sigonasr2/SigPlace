@@ -420,6 +420,16 @@ textarea:disabled{
 .navbaritem a:visited{
     color:rgb(255, 200, 253);
 }
+#liveindicator a:link{
+    color:red;
+    text-decoration: none;
+}
+#liveindicator a:hover{
+    color:red;
+}
+#liveindicator a:visited{
+    color:rgb(255, 200, 253);
+}
 .navbaritem:first-of-type{
     padding-left:32px;
 }
@@ -432,13 +442,15 @@ textarea:disabled{
     100%{color:rgba(255,0,0,0.8);}
 }
 #liveindicator{
+    display:inline-flex;
+}
+#liveindicator a{
     animation-name: blink;
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-direction:alternate;
     text-decoration: none;
     padding-left:8px;
-    display:inline-flex;
     font-weight:900;
 }
 .socials{

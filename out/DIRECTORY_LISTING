@@ -16,15 +16,15 @@
 </script>
 </head>
 <body>
-<h2>Directory Listing for /</h2><div class="folderlisting"><a href="/.." class="icon">&#x1F4C1;</a><a href="/..">.. </a><a href="/.." class="nounderline">(Previous Directory)</a></div><div class="folderlisting"><a href="/articles" class="icon">&#x1F4C1;</a><a href="/articles">articles</a>	2022-08-03T19:38:50.026908Z	gitpod	4096</div>
-<div class="filelisting"><a href="/codeBackground" class="icon">&#x1F5CE;</a><a href="/codeBackground">codeBackground</a>	2022-08-03T19:38:49.926908Z	gitpod	2635</div>
-<div class="filelisting"><a href="/error.html" class="icon">&#x1F5CE;</a><a href="/error.html">error.html</a>	2022-08-03T19:38:49.950908Z	gitpod	1799</div>
-<div class="folderlisting"><a href="/images" class="icon">&#x1F4C1;</a><a href="/images">images</a>	2022-08-03T19:38:50.018908Z	gitpod	77</div>
-<div class="filelisting"><a href="/otherpage.html" class="icon">&#x1F5CE;</a><a href="/otherpage.html">otherpage.html</a>	2022-08-03T19:38:49.958908Z	gitpod	88497</div>
-<div class="filelisting"><a href="/reset.css" class="icon">&#x1F5CE;</a><a href="/reset.css">reset.css</a>	2022-08-03T19:38:49.934908Z	gitpod	1092</div>
-<div class="filelisting"><a href="/sig.css" class="icon">&#x1F5CE;</a><a href="/sig.css">sig.css</a>	2022-08-03T19:38:49.942908Z	gitpod	10954</div>
-<div class="filelisting"><a href="/testfile.html" class="icon">&#x1F5CE;</a><a href="/testfile.html">testfile.html</a>	2022-08-03T19:38:49.958908Z	gitpod	1754</div>
-<div class="filelisting"><a href="/uploadform.html" class="icon">&#x1F5CE;</a><a href="/uploadform.html">uploadform.html</a>	2022-08-03T19:38:49.958908Z	gitpod	1834</div>
+<h2>Directory Listing for /</h2><div class="folderlisting"><a href="/.." class="icon">&#x1F4C1;</a><a href="/..">.. </a><a href="/.." class="nounderline">(Previous Directory)</a></div><div class="folderlisting"><a href="/articles" class="icon">&#x1F4C1;</a><a href="/articles">articles</a>	2022-08-03T19:48:45.182844Z	gitpod	4096</div>
+<div class="filelisting"><a href="/codeBackground" class="icon">&#x1F5CE;</a><a href="/codeBackground">codeBackground</a>	2022-08-03T19:48:45.110844Z	gitpod	2635</div>
+<div class="filelisting"><a href="/error.html" class="icon">&#x1F5CE;</a><a href="/error.html">error.html</a>	2022-08-03T19:48:45.126844Z	gitpod	1828</div>
+<div class="folderlisting"><a href="/images" class="icon">&#x1F4C1;</a><a href="/images">images</a>	2022-08-03T19:48:45.174844Z	gitpod	77</div>
+<div class="filelisting"><a href="/otherpage.html" class="icon">&#x1F5CE;</a><a href="/otherpage.html">otherpage.html</a>	2022-08-03T19:48:45.134844Z	gitpod	88526</div>
+<div class="filelisting"><a href="/reset.css" class="icon">&#x1F5CE;</a><a href="/reset.css">reset.css</a>	2022-08-03T19:48:45.114844Z	gitpod	1092</div>
+<div class="filelisting"><a href="/sig.css" class="icon">&#x1F5CE;</a><a href="/sig.css">sig.css</a>	2022-08-03T19:48:45.122844Z	gitpod	11140</div>
+<div class="filelisting"><a href="/testfile.html" class="icon">&#x1F5CE;</a><a href="/testfile.html">testfile.html</a>	2022-08-03T19:48:45.138844Z	gitpod	1783</div>
+<div class="filelisting"><a href="/uploadform.html" class="icon">&#x1F5CE;</a><a href="/uploadform.html">uploadform.html</a>	2022-08-03T19:48:45.138844Z	gitpod	1863</div>
 
 </div> <!--End Content Body-->
 <div class="codeForeground" id="codeForeground"></div>
