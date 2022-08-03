@@ -8,7 +8,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
 import java.net.URLDecoder;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -66,7 +65,7 @@ public class sigServer {
                         if (splitter.length==3) {
                             while (in.ready()) {
                                 line=in.readLine();
-                                System.out.println(line);
+                                //System.out.println(line);
                                 if (ISPOST) {
                                     if (isApplication) {
                                         if (line.length()==0) { //Now expecting the body since the header is done.

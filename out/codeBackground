@@ -22,7 +22,7 @@
                         if (splitter.length==3) {
                             while (in.ready()) {
                                 line=in.readLine();
-                                System.out.println(line);
+                                //System.out.println(line);
                                 if (ISPOST) {
                                     if (isApplication) {
                                         if (line.length()==0) { //Now expecting the body since the header is done.

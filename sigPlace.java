@@ -24,6 +24,7 @@ public class sigPlace {
     final static String COMMENTSDIR = "comments";
     final static String DIRECTORYLISTING_FILENAME = "DIRECTORY_LISTING";
     static int PORT = 8080;
+    static String SECRET = "";
 
     static double COLOR_ROTATION = 0;
 
@@ -48,13 +49,15 @@ public class sigPlace {
     ));
     public static void main(String[] args) {
 
-        HashMap<String,Object> testMap = new HashMap<>();
-
-        testMap.put("Test","val1");
-        testMap.put("Test2",ops);
-        testMap.put("Test3","val3");
-
-        System.out.println(JSON(testMap));
+        Path secretFile = Paths.get(".clientsecret");
+        List<String> data;
+		try {
+			data = Files.readAllLines(secretFile);
+            SECRET = data.get(0);
+		} catch (IOException e1) {
+			System.out.println("Client secret must be included in .clientsecret!");
+			e1.printStackTrace();
+		}
 
         if (args.length>0&&args.length%2==0) {
             int i=0;
@@ -104,6 +107,8 @@ public class sigPlace {
         System.out.println("\nStarting web server...");
         new sigServer();
     }
+    
+
     private static String JSON(HashMap<String, Object> testMap) {
         StringBuilder sb = new StringBuilder();
         String temp = testMap.toString();
@@ -112,7 +117,7 @@ public class sigPlace {
             int marker=1;
             boolean ending=false;
             while (marker<temp.length()) { 
-                if (!ending&&temp.charAt(marker)!=' '&&temp.charAt(marker)!='{'&&temp.charAt(marker)!='}') {
+                if (!ending&&temp.charAt(marker)!=' '&&temp.charAt(marker)!='{'&&temp.charAt(marker)!='}'&&temp.charAt(marker)!=',') {
                     ending=true;
                     sb.append("\"");
                 } else 
