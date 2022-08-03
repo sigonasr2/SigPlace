@@ -16,7 +16,6 @@
 </script>
 </head>
 <body>
-<div class="contentBody"> 
 <h2>Directory Listing for /images/</h2><div class="folderlisting"><a href="/images/.." class="icon">&#x1F4C1;</a><a href="/images/..">.. </a><a href="/images/.." class="nounderline">(Previous Directory)</a></div><div class="filelisting"><a href="/images/Love_Live!_Logo.png" class="icon">&#x1F5CE;</a><a href="/images/Love_Live!_Logo.png">Love_Live!_Logo.png</a>	2022-08-01T14:45:39Z	gitpod	12167</div>
 <div class="filelisting"><a href="/images/github.webp" class="icon">&#x1F5CE;</a><a href="/images/github.webp">github.webp</a>	2022-08-01T14:58:45Z	gitpod	7270</div>
 

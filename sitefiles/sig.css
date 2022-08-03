@@ -98,7 +98,7 @@ sup{
     font-weight:900;
     text-shadow: 0.3px 0.3px 3px #666666;
     z-index:-1;
-    padding-top:32px;
+    padding-top:4px;
 }
 
     .contentBody .color1{
@@ -447,12 +447,13 @@ textarea:disabled{
     color:white;
 }
 .navbar{
-    font-size:0.7em;
+    font-size:1.0em;
     color:lime;
     padding-top:8px;
     padding-bottom:8px;
     border-bottom: 1px solid darkgreen;
-    position:fixed;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
     top:0px;
     z-index:2;
     width:100%;
@@ -466,6 +467,16 @@ textarea:disabled{
     padding-right:16px;
     display:inline-flex;
     text-decoration:underline;
+    color:rgb(255, 200, 253);
+}
+.navbaritem a:link{
+    color:rgb(255, 200, 253);
+}
+.navbaritem a:hover{
+    color:white;
+}
+.navbaritem a:visited{
+    color:rgb(255, 200, 253);
 }
 .navbaritem:first-of-type{
     padding-left:32px;
@@ -502,4 +513,13 @@ textarea:disabled{
 }
 .socials img:first-of-type{
     padding-right:32px;
+}
+.socials a:link{
+    color:rgb(255, 200, 253);
+}
+.socials a:hover{
+    color:white;
+}
+.socials a:visited{
+    color:rgb(255, 200, 253);
 }

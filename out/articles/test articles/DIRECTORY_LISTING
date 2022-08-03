@@ -16,13 +16,12 @@
 </script>
 </head>
 <body>
-<div class="contentBody"> 
-<h2>Directory Listing for /articles/test articles/</h2><div class="folderlisting"><a href="/articles/test articles/.." class="icon">&#x1F4C1;</a><a href="/articles/test articles/..">.. </a><a href="/articles/test articles/.." class="nounderline">(Previous Directory)</a></div><div class="filelisting"><a href="/articles/test articles/test1.article" class="icon">&#x1F5CE;</a><a href="/articles/test articles/test1.article">test1.article</a>	2022-08-03T19:22:21.155014Z	gitpod	1085</div>
-<div class="filelisting"><a href="/articles/test articles/test2.article" class="icon">&#x1F5CE;</a><a href="/articles/test articles/test2.article">test2.article</a>	2022-08-03T19:22:21.155014Z	gitpod	781</div>
-<div class="filelisting"><a href="/articles/test articles/test3.article" class="icon">&#x1F5CE;</a><a href="/articles/test articles/test3.article">test3.article</a>	2022-08-03T19:22:21.155014Z	gitpod	994</div>
-<div class="filelisting"><a href="/articles/test articles/test1.article.html" class="icon">&#x1F5CE;</a><a href="/articles/test articles/test1.article.html">test1.article.html</a>	2022-08-03T19:22:21.491014Z	gitpod	10818</div>
-<div class="filelisting"><a href="/articles/test articles/test2.article.html" class="icon">&#x1F5CE;</a><a href="/articles/test articles/test2.article.html">test2.article.html</a>	2022-08-03T19:22:21.495014Z	gitpod	10514</div>
-<div class="filelisting"><a href="/articles/test articles/test3.article.html" class="icon">&#x1F5CE;</a><a href="/articles/test articles/test3.article.html">test3.article.html</a>	2022-08-03T19:22:21.495014Z	gitpod	10727</div>
+<h2>Directory Listing for /articles/test articles/</h2><div class="folderlisting"><a href="/articles/test articles/.." class="icon">&#x1F4C1;</a><a href="/articles/test articles/..">.. </a><a href="/articles/test articles/.." class="nounderline">(Previous Directory)</a></div><div class="filelisting"><a href="/articles/test articles/test1.article" class="icon">&#x1F5CE;</a><a href="/articles/test articles/test1.article">test1.article</a>	2022-08-03T19:38:49.922908Z	gitpod	1085</div>
+<div class="filelisting"><a href="/articles/test articles/test2.article" class="icon">&#x1F5CE;</a><a href="/articles/test articles/test2.article">test2.article</a>	2022-08-03T19:38:49.922908Z	gitpod	781</div>
+<div class="filelisting"><a href="/articles/test articles/test3.article" class="icon">&#x1F5CE;</a><a href="/articles/test articles/test3.article">test3.article</a>	2022-08-03T19:38:49.926908Z	gitpod	994</div>
+<div class="filelisting"><a href="/articles/test articles/test1.article.html" class="icon">&#x1F5CE;</a><a href="/articles/test articles/test1.article.html">test1.article.html</a>	2022-08-03T19:38:49.998908Z	gitpod	10943</div>
+<div class="filelisting"><a href="/articles/test articles/test2.article.html" class="icon">&#x1F5CE;</a><a href="/articles/test articles/test2.article.html">test2.article.html</a>	2022-08-03T19:38:50.010908Z	gitpod	10639</div>
+<div class="filelisting"><a href="/articles/test articles/test3.article.html" class="icon">&#x1F5CE;</a><a href="/articles/test articles/test3.article.html">test3.article.html</a>	2022-08-03T19:38:50.014908Z	gitpod	10852</div>
 
 </div> <!--End Content Body-->
 <div class="codeForeground" id="codeForeground"></div>
