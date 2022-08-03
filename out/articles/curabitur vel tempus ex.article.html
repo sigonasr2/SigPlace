@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="/reset.css">
+    <link rel="stylesheet" type="text/css" href="/reset.css">
 <link rel="stylesheet" type="text/css" href="/sig.css">
 <meta charset="UTF-8">
 <script type="text/javascript">
@@ -38,11 +38,11 @@
     getLiveStatus()
 </script>
 <div class="contentWrapper"><h1>Curabitur vel tempus ex</h1><div class="expandedContent" id="content_out/articles/curabitur vel tempus ex.article">
-<p class="color5">
+<p class="color1">
 Curabitur vel tempus ex. Duis cursus sapien nisl, ut pulvinar dui porttitor ut. Nullam odio purus, tristique non turpis sit amet, malesuada ultricies purus. Mauris ut nulla nisl. Aenean sit amet est egestas justo volutpat consequat. Suspendisse in sagittis augue, et mattis tortor. Nullam viverra metus et nibh fringilla iaculis.
 </p>
 <br/>
-<p class="color5">
+<p class="color2">
 <pre>
 &lt;>&lt;Test><span class="string">"&lt;/test>&lt;/test2>&lt;test3>"</span>
             </pre>   
@@ -54,6 +54,20 @@ Curabitur vel tempus ex. Duis cursus sapien nisl, ut pulvinar dui porttitor ut. 
         document.getElementById("submit").style.borderColor=document.getElementById("msg").style.borderColor=document.getElementById("name").style.borderColor=document.getElementById("col").style.borderColor=document.getElementById("col").options[document.getElementById("col").selectedIndex].text
     }
     function submit() {
+        if (document.getElementById("msg").value.length>1000) {
+            alert("Your message is longer than 1000 characters!");
+            return;
+        }
+        if (document.getElementById("col").options[document.getElementById("col").selectedIndex].text!=="GREEN"&&
+        document.getElementById("col").options[document.getElementById("col").selectedIndex].text!=="RED"&&
+        document.getElementById("col").options[document.getElementById("col").selectedIndex].text!=="YELLOW"&&
+        document.getElementById("col").options[document.getElementById("col").selectedIndex].text!=="BLUE"&&
+        document.getElementById("col").options[document.getElementById("col").selectedIndex].text!=="MAGENTA"&&
+        document.getElementById("col").options[document.getElementById("col").selectedIndex].text!=="CYAN"&&
+        document.getElementById("col").options[document.getElementById("col").selectedIndex].text!=="WHITE") {
+            alert("You chose an invalid color!");
+            return;
+        }
         document.getElementById("submit").disabled=
         document.getElementById("name").disabled=
         document.getElementById("col").disabled=
@@ -61,7 +75,7 @@ Curabitur vel tempus ex. Duis cursus sapien nisl, ut pulvinar dui porttitor ut. 
         fetch("/COMMENTS?submit=true&article=curabitur vel tempus ex.comment&message="+encodeURIComponent(document.getElementById("msg").value)+"&name="
         +encodeURIComponent(document.getElementById("name").value)+"&color="
         +encodeURIComponent(document.getElementById("col").options[document.getElementById("col").selectedIndex].text)
-        ).then((data)=>data.text())
+        , {cache: "no-cache"}).then((data)=>data.text())
         .then((data)=>{
             document.getElementById("msg").value=""
             document.getElementById("name").value=""
@@ -152,7 +166,7 @@ Curabitur vel tempus ex. Duis cursus sapien nisl, ut pulvinar dui porttitor ut. 
 </div>
 <script type="text/javascript">
     function fetchComments() {
-        fetch("/COMMENTS?article=curabitur vel tempus ex.comment").then((data)=>data.text())
+        fetch("/COMMENTS?article=curabitur vel tempus ex.comment", {cache: "no-cache"}).then((data)=>data.text())
         .then((data)=>{
             data=data.split("\n");
             if (!isNaN(Number(data[0]))) {
@@ -160,7 +174,7 @@ Curabitur vel tempus ex. Duis cursus sapien nisl, ut pulvinar dui porttitor ut. 
                 document.getElementById("commentCounter").innerText=data[0]
                 for (var i=data.length-3;i>=1;i-=2) {
                     if (data[i].trim().length>0&&data[i+1].trim().length>0) {
-                        document.getElementById("comments").innerHTML+="<div id=\"msg"+((i+1)/2)+"\" class=\"commentDisplayer\"><div class=\"commentData\">"+decodeURIComponent(data[i])+"</div><br>"
+                        document.getElementById("comments").innerHTML+="<div id=\"msg"+((i+1)/2)+"\" class=\"commentDisplayer\"><div class=\"commentData\">"+decodeURIComponent(data[i]).replaceAll("\n","<br/>").replaceAll("\\\\NEWLINE\\\\","\n")+"</div><br>"
                         data2=data[i+1].split(";");
                         document.getElementById("msg"+((i+1)/2)).style.borderColor=data2[1]
                         document.getElementById("comments").innerHTML+="<div class=\"commentInfo\"><sup>- "+decodeURIComponent(data2[0])+"</sup></div></div><br>"

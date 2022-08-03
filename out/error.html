@@ -1,3 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/reset.css">
+<link rel="stylesheet" type="text/css" href="/sig.css">
+<meta charset="UTF-8">
+<script type="text/javascript">
+    function loadCodeBackground() {
+        fetch("/codeBackground").then((data)=>data.text())
+        .then((data)=>{
+            document.getElementById("codeForeground").innerText=data
+            document.getElementById("codeBackground").innerText=data
+        })
+    }
+    loadCodeBackground();
+</script>
+</head>
+<body>
+<div class="contentBody"> 
+We're Sorry! Your webpage is in another castle!
+===
+<br/><br/>
+<h2><a href="javascript:history.back()">Go Back</a></h2>
 <div class="navbar">
     <div class="navbaritem"><a href="/">HOME</a></div>
     <div class="navbaritem"><a href="/blog.html">BLOG</a></div>
@@ -18,29 +41,6 @@
     }
     getLiveStatus()
 </script>
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="/reset.css">
-<link rel="stylesheet" type="text/css" href="/sig.css">
-<meta charset="UTF-8">
-<script type="text/javascript">
-    function loadCodeBackground() {
-        fetch("/codeBackground").then((data)=>data.text())
-        .then((data)=>{
-            document.getElementById("codeForeground").innerText=data
-            document.getElementById("codeBackground").innerText=data
-        })
-    }
-    loadCodeBackground();
-</script>
-</head>
-<body>
-<div class="contentBody"> 
-We're Sorry! Your webpage is in another castle!
-===
-<br/><br/>
-<h2><a href="javascript:history.back()">Go Back</a></h2>
 </div> <!--End Content Body-->
 <div class="codeForeground" id="codeForeground"></div>
 <div class="codeBackground" id="codeBackground"></div>

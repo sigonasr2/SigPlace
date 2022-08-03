@@ -149,7 +149,7 @@ public class sigPlace {
                     List<String> content = Files.readAllLines(f);
                     if (isHTMLFile(f)) {
                         content.addAll(0,Files.readAllLines(ops.get("%DEFAULT")));
-                        content.addAll(0,Files.readAllLines(ops.get("%NAVBAR")));
+                        content.addAll(Files.readAllLines(ops.get("%NAVBAR")));
                         content.addAll(Files.readAllLines(ops.get("%FOOTER")));
                     }
 

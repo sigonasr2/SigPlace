@@ -183,8 +183,15 @@ public class sigServer {
                                         }
                                         if (location.equals("COMMENTS")&&requestParams.containsKey("message")&&requestParams.containsKey("name")&&requestParams.containsKey("color")) {
                                             //System.out.println(requestParams);
-                                            String finalMsg = requestParams.get("message").replaceAll(Pattern.quote("%0A"),"<br/>").replaceAll(Pattern.quote("%3C"),"&lt;");
-                                            if (finalMsg.length()>0) {
+                                            String finalMsg = requestParams.get("message").replaceAll(Pattern.quote("%3C"),"&lt;");
+                                            if (finalMsg.length()>0&&finalMsg.length()<=1000&&
+                                            (requestParams.get("color").equals("BLUE")||
+                                            requestParams.get("color").equals("RED")||
+                                            requestParams.get("color").equals("GREEN")||
+                                            requestParams.get("color").equals("YELLOW")||
+                                            requestParams.get("color").equals("MAGENTA")||
+                                            requestParams.get("color").equals("CYAN")||
+                                            requestParams.get("color").equals("WHITE"))) {
                                                 boolean boldBlock=false;
                                                 boolean italicBlock=false;
                                                 boolean underlineBlock=false;
@@ -198,7 +205,7 @@ public class sigServer {
                                                         if (codeBlock) {
                                                             codeBlockMsg.append("~~");
                                                             String storedCodeBlock="";
-                                                            String s = URLDecoder.decode(codeBlockMsg.toString(),StandardCharsets.UTF_8.toString());
+                                                            String s = URLDecoder.decode(codeBlockMsg.toString().replaceAll(Pattern.quote("%0A"),"\\\\\\\\NEWLINE\\\\\\\\"),StandardCharsets.UTF_8.toString());
                                                             boolean keyword=false;
                                                             boolean inString=false;
                                                             boolean inComment=false;
@@ -208,7 +215,6 @@ public class sigServer {
                                                             int lengthOfConstant=0;
                                                             storedCodeBlock+=s.substring(0,s.indexOf("~~"));
                                                             storedCodeBlock=storedCodeBlock.replaceAll(Pattern.quote("<"),"\2");
-                                                            storedCodeBlock+="</pre>";
                                                             int startPos=0;
                                                             String endText=s.substring(s.indexOf("~~")+"~~".length(),s.length());
                                                             s="";
@@ -323,7 +329,7 @@ public class sigServer {
                                                                     s=s.substring(0,j)+"&lt;"+s.substring(j+1,s.length());
                                                                 }
                                                             }
-                                                            s="<pre>"+s;
+                                                            s="<pre>"+s+"</pre>";
                                                             s+=endText;
                                                             buildMsg.append(s);
                                                         } else {
@@ -379,6 +385,16 @@ public class sigServer {
                                                     }
                                                     if (linkBlock) {
                                                         storedLink.append(finalMsg.charAt(i));
+                                                    }
+                                                    if (i<finalMsg.length()-1&&finalMsg.charAt(i)=='_'&&finalMsg.charAt(i+1)=='_') {
+                                                        if (underlineBlock) {
+                                                            buildMsg.append("</u>");
+                                                        } else {
+                                                            buildMsg.append("<u>");
+                                                        }
+                                                        underlineBlock=!underlineBlock;
+                                                        i+=1;
+                                                        continue;
                                                     }
                                                     buildMsg.append(finalMsg.charAt(i));
                                                 }

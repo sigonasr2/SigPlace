@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="/reset.css">
+    <link rel="stylesheet" type="text/css" href="/reset.css">
 <link rel="stylesheet" type="text/css" href="/sig.css">
 <meta charset="UTF-8">
 <script type="text/javascript">
@@ -17,13 +17,13 @@
 </head>
 <body>
 <div class="contentBody"> 
-<h2>Directory Listing for /articles/</h2><div class="folderlisting"><a href="/articles/.." class="icon">&#x1F4C1;</a><a href="/articles/..">.. </a><a href="/articles/.." class="nounderline">(Previous Directory)</a></div><div class="filelisting"><a href="/articles/sigplace1.article" class="icon">&#x1F5CE;</a><a href="/articles/sigplace1.article">sigplace1.article</a>	2022-08-03T00:19:31.199680752Z	niconiconii	80858</div>
-<div class="filelisting"><a href="/articles/Love Live! Custom Arcade Controller.article.html" class="icon">&#x1F5CE;</a><a href="/articles/Love Live! Custom Arcade Controller.article.html">Love Live! Custom Arcade Controller.article.html</a>	2022-08-03T00:19:31.363677652Z	niconiconii	9150</div>
-<div class="filelisting"><a href="/articles/sigplace1.article.html" class="icon">&#x1F5CE;</a><a href="/articles/sigplace1.article.html">sigplace1.article.html</a>	2022-08-03T00:19:31.319678484Z	niconiconii	89459</div>
-<div class="filelisting"><a href="/articles/curabitur vel tempus ex.article" class="icon">&#x1F5CE;</a><a href="/articles/curabitur vel tempus ex.article">curabitur vel tempus ex.article</a>	2022-08-03T00:19:31.199680752Z	niconiconii	730</div>
-<div class="folderlisting"><a href="/articles/test articles" class="icon">&#x1F4C1;</a><a href="/articles/test articles">test articles</a>	2022-08-03T00:19:31.351677879Z	niconiconii	4096</div>
-<div class="filelisting"><a href="/articles/curabitur vel tempus ex.article.html" class="icon">&#x1F5CE;</a><a href="/articles/curabitur vel tempus ex.article.html">curabitur vel tempus ex.article.html</a>	2022-08-03T00:19:31.331678257Z	niconiconii	9359</div>
-<div class="filelisting"><a href="/articles/Love Live! Custom Arcade Controller.article" class="icon">&#x1F5CE;</a><a href="/articles/Love Live! Custom Arcade Controller.article">Love Live! Custom Arcade Controller.article</a>	2022-08-03T00:19:31.203680677Z	niconiconii	497</div>
+<h2>Directory Listing for /articles/</h2><div class="folderlisting"><a href="/articles/.." class="icon">&#x1F4C1;</a><a href="/articles/..">.. </a><a href="/articles/.." class="nounderline">(Previous Directory)</a></div><div class="filelisting"><a href="/articles/Love Live! Custom Arcade Controller.article" class="icon">&#x1F5CE;</a><a href="/articles/Love Live! Custom Arcade Controller.article">Love Live! Custom Arcade Controller.article</a>	2022-08-03T18:57:15.947175Z	gitpod	497</div>
+<div class="filelisting"><a href="/articles/curabitur vel tempus ex.article" class="icon">&#x1F5CE;</a><a href="/articles/curabitur vel tempus ex.article">curabitur vel tempus ex.article</a>	2022-08-03T18:57:15.971175Z	gitpod	730</div>
+<div class="filelisting"><a href="/articles/sigplace1.article" class="icon">&#x1F5CE;</a><a href="/articles/sigplace1.article">sigplace1.article</a>	2022-08-03T18:57:16.407175Z	gitpod	80858</div>
+<div class="folderlisting"><a href="/articles/test articles" class="icon">&#x1F4C1;</a><a href="/articles/test articles">test articles</a>	2022-08-03T18:57:16.499175Z	gitpod	147</div>
+<div class="filelisting"><a href="/articles/Love Live! Custom Arcade Controller.article.html" class="icon">&#x1F5CE;</a><a href="/articles/Love Live! Custom Arcade Controller.article.html">Love Live! Custom Arcade Controller.article.html</a>	2022-08-03T18:57:16.451175Z	gitpod	10271</div>
+<div class="filelisting"><a href="/articles/curabitur vel tempus ex.article.html" class="icon">&#x1F5CE;</a><a href="/articles/curabitur vel tempus ex.article.html">curabitur vel tempus ex.article.html</a>	2022-08-03T18:57:16.463175Z	gitpod	10480</div>
+<div class="filelisting"><a href="/articles/sigplace1.article.html" class="icon">&#x1F5CE;</a><a href="/articles/sigplace1.article.html">sigplace1.article.html</a>	2022-08-03T18:57:16.483175Z	gitpod	90580</div>
 
 </div> <!--End Content Body-->
 <div class="codeForeground" id="codeForeground"></div>
