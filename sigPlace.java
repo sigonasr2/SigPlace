@@ -48,8 +48,8 @@ public class sigPlace {
             "%FOOTER", Paths.get(REFDIR,"FOOTER.html"))
     ));
     public static void main(String[] args) {
-
-        Path secretFile = Paths.get(".clientsecret");
+        new ArcadeReader();
+        /* Path secretFile = Paths.get(".clientsecret");
         List<String> data;
 		try {
 			data = Files.readAllLines(secretFile);
@@ -355,7 +355,7 @@ public class sigPlace {
                     e.printStackTrace();
                 }
             }
-        }
+        } */
     }
     private static boolean validNumericalConstantCharacters(int lengthOfConstant, int j) {
         return storedCodeBlock.charAt(j)>='0'&&storedCodeBlock.charAt(j)<='9'||lengthOfConstant>0&&storedCodeBlock.charAt(j)=='.'||lengthOfConstant>0&&storedCodeBlock.charAt(j)>='A'&&lengthOfConstant>0&&storedCodeBlock.charAt(j)<='F'||lengthOfConstant>0&&storedCodeBlock.charAt(j)>='a'&&lengthOfConstant>0&&storedCodeBlock.charAt(j)<='f'||lengthOfConstant>0&&storedCodeBlock.charAt(j)=='x'||lengthOfConstant>0&&storedCodeBlock.charAt(j)=='X';
