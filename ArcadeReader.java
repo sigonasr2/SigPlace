@@ -41,7 +41,7 @@ public class ArcadeReader {
         }
         g.clearRect(0, 0, 128, 128);
         g.drawImage(input,-leftMost,-topMost,null);
-        ImageIO.write(img,"png",new File("result.png"));
+        //ImageIO.write(img,"png",new File("result.png"));
 
         char maxSimilarity='\0';
         int maxSimilarityScore=0;
@@ -174,8 +174,9 @@ public class ArcadeReader {
             BufferedImage input = (BufferedImage)ImageIO.read(new File("test.png"));
             for (int s1=0;s1<10;s1++) {
                 for (int s2=0;s2<10;s2++) {
-                    for (int s3=-9;s3<1;s3++) {
+                    for (int s3=-6;s3<1;s3++) {
                         for (int s4=-9;s4<1;s4++) {
+                            System.out.println("Trying ("+s1+"/"+s2+"/"+s3+"/"+s4+"):");
                             char closest = getClosestCharacter(character,pixelData,input,s1,s2,s3,s4);
                             if (closest=='ホ') {
                                 System.out.println("\n  Got ホ using params: "+s1+"/"+s2+"/"+s3+"/"+s4+"\n");
