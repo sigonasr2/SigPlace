@@ -48,7 +48,7 @@ public class sigPlace {
             "%FOOTER", Paths.get(REFDIR,"FOOTER.html"))
     ));
     public static void main(String[] args) {
-        new ArcadeReader();
+        System.out.println(ArcadeReader.fileToBase64String(Paths.get("sdvx.jpg")));
         /* Path secretFile = Paths.get(".clientsecret");
         List<String> data;
 		try {
