@@ -1,15 +1,80 @@
 import java.io.File;
-import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
 import java.awt.image.BufferedImage;
 import java.awt.Graphics2D;
 import java.awt.Font;
-import java.awt.FontFormatException;
 import java.awt.Color;
 
 public class ArcadeReader {
+    char getClosestCharacter(char[]list,int[][]pixelData,BufferedImage input,int s1,int s2,int s3,int s4) throws Exception{
+        if (input.getWidth()!=128&&input.getHeight()!=128) {
+            throw new Exception("Width and Height must be 128!");
+        }
+        for (int x=0;x<128;x++) {
+            for (int y=0;y<128;y++) {
+                if (input.getRGB(x,y)!=Color.BLACK.getRGB()) {
+                    input.setRGB(x,y,Color.WHITE.getRGB());
+                }
+            }
+        }
+        BufferedImage img = new BufferedImage(128,128,BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g = img.createGraphics();
+        g.setColor(Color.WHITE);
+        g.setBackground(Color.BLACK);
+        g.clearRect(0, 0, 128, 128);
+        g.drawImage(input,0,0,null);
+        int topMost=128;
+        int leftMost=128;
+        for (int x=0;x<img.getWidth();x++) {
+            for (int y=0;y<img.getHeight();y++) {
+                if (img.getRGB(x,y)==Color.WHITE.getRGB()) {
+                    if (x<leftMost) {
+                        leftMost=x;
+                    }
+                    if (y<topMost) {
+                        topMost=y;
+                    }
+                }
+            }
+        }
+        g.clearRect(0, 0, 128, 128);
+        g.drawImage(input,-leftMost,-topMost,null);
+        ImageIO.write(img,"png",new File("result.png"));
+
+        char maxSimilarity='\0';
+        int maxSimilarityScore=0;
+        int similarityScore=0;
+        for (int i=0;i<list.length;i++) {
+            char c = list[i];
+            for (int x=0;x<128;x++) {
+                for (int y=0;y<128;y++) {
+                    if (img.getRGB(x,y)==pixelData[i][y*128+x]) {
+                        if (pixelData[i][y*128+x]==Color.WHITE.getRGB()) {
+                            similarityScore+=s1;
+                        } else {
+                            similarityScore+=s2;
+                        }
+                    } else {
+                        if (pixelData[i][y*128+x]==Color.BLACK.getRGB()) {
+                            similarityScore-=s3;
+                        } else {
+                            similarityScore-=s4;
+                        }
+                    }
+                }
+            }
+            if (similarityScore>maxSimilarityScore) {
+                maxSimilarityScore=similarityScore;
+                maxSimilarity=c;
+                System.out.println(c+" matches with a score of "+similarityScore);
+            }
+            similarityScore=0;
+        }
+        g.dispose();
+        return maxSimilarity;
+    }
     public ArcadeReader() {
         /*
             Noto Sans Japanese
@@ -106,9 +171,20 @@ public class ArcadeReader {
             }
             g.dispose();
             //ImageIO.write(img,"png",new File("character.png"));
-            Image input = ImageIO.read(new File("character.png"));
-            char closest = getClosestCharacter(character,pixelData,input);
-        } catch (FontFormatException | IOException e) {
+            BufferedImage input = (BufferedImage)ImageIO.read(new File("test.png"));
+            for (int s1=0;s1<10;s1++) {
+                for (int s2=0;s2<10;s2++) {
+                    for (int s3=-9;s3<1;s3++) {
+                        for (int s4=-9;s4<1;s4++) {
+                            char closest = getClosestCharacter(character,pixelData,input,s1,s2,s3,s4);
+                            if (closest=='ホ') {
+                                System.out.println("\n  Got ホ using params: "+s1+"/"+s2+"/"+s3+"/"+s4+"\n");
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
         
